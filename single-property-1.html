@@ -65,7 +65,7 @@
         #header #navigation ul li:hover a{
             color:white;
         }
-        #lang li {
+        #language .lang-tooltip li {
             border-bottom: none !important;
         }
         .current-lan {
@@ -1958,12 +1958,17 @@
 
 
 
-            const a = document.querySelector("#lang > a");
-            a.addEventListener("click", (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                document.querySelector("#lang > a + ul").classList.toggle("active");
-            });
+            const a = document.querySelector("#language .show-lang");
+            if (a) {
+                a.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const langTooltip = document.querySelector("#language .lang-tooltip");
+                    if (langTooltip) {
+                        langTooltip.classList.toggle("active");
+                    }
+                });
+            }
             function handleAddImg() {
                 const ele = document.querySelector(".mm-navbar");
                 ele.querySelector("a.mm-title").textContent = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "Menu" : "القائمة") : "Menu";

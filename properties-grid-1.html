@@ -102,7 +102,7 @@
             background-color: transparent !important;
         }
 
-        #lang ul li {
+        #language .lang-tooltip li {
             border: none !important;
         }
 
@@ -1192,7 +1192,6 @@
     <script>
         const sortCol = document.querySelector("#sort-col");
         const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
-        const a = document.querySelector("#lang > a");
         let page = 1;
         async function getFeatureProperties() {
             const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
@@ -1847,12 +1846,17 @@
                 })
             }
         })
-        console.log(a);
-        a.addEventListener("click", (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            document.querySelector("#lang > a + ul").classList.toggle("active");
-        });
+        const a = document.querySelector("#language .show-lang");
+        if (a) {
+            a.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const langTooltip = document.querySelector("#language .lang-tooltip");
+                if (langTooltip) {
+                    langTooltip.classList.toggle("active");
+                }
+            });
+        }
         function handleClick(lang) {
             localStorage.setItem("lang", lang);
             location.reload();

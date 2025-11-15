@@ -314,7 +314,7 @@
             outline: none !important;
             box-shadow: 0 0 0 3px rgba(255, 60, 110, 0.3) !important;
         }
-        #lang ul li {
+        #language .lang-tooltip li {
             border: none !important;
         }
         @media(width < 1025px) {
@@ -2258,12 +2258,17 @@
         </script>
 
         <script>
-            const a = document.querySelector("#lang > a");
-            a.addEventListener("click", (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                document.querySelector("#lang > a + ul").classList.toggle("active");
-            });
+            const a = document.querySelector("#language .show-lang");
+            if (a) {
+                a.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const langTooltip = document.querySelector("#language .lang-tooltip");
+                    if (langTooltip) {
+                        langTooltip.classList.toggle("active");
+                    }
+                });
+            }
         </script>
 
 
