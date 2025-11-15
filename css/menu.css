@@ -1374,10 +1374,10 @@ em.mm-counter+a.mm-fullsubopen+span {
 @media only screen and (max-width: 1024px) {
     /* Header Responsive Styles */    
     #responsive {
-        display: none;
+        display: block !important;
     }
     .mmenu-trigger {
-        display: inline-block !important;
+        display: none !important;
     }
     .header-style-2 .mmenu-trigger {
         margin: 0;
@@ -1389,7 +1389,7 @@ em.mm-counter+a.mm-fullsubopen+span {
     #header {
         padding-top: 20px;
     }
-    #logo {
+    /* #logo {
         position: absolute;
         width: 100%;
         margin: 0 auto;
@@ -1398,7 +1398,7 @@ em.mm-counter+a.mm-fullsubopen+span {
         text-align: center;
         left: 0;
         right: 0;
-    }
+    }*/
     .homepage-5 #header.cloned {
         display: none;
     }

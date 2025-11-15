@@ -28,6 +28,26 @@ article {
 @media (max-width:1024px) {
     .mmenu-trigger {
         margin-top: 7px;
+        display: none !important;
+    }
+    /* إظهار القائمة دائماً */
+    #navigation {
+        display: block !important;
+    }
+    #responsive {
+        display: block !important;
+    }
+    /* تحسين عرض القائمة في الشاشات الصغيرة */
+    #responsive {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    #responsive li {
+        margin: 0 5px;
+    }
+    #responsive li a {
+        padding: 8px 12px;
+        font-size: 14px;
     }
 }
 @media (width < 768px) {

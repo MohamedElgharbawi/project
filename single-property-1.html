@@ -54,9 +54,40 @@
         body.arabic #Sign-In {
             font-size: 14px;
         }
+        /* إخفاء toggle menu وإظهار القائمة دائماً */
+        .mmenu-trigger {
+            display: none !important;
+        }
+        #navigation {
+            display: block !important;
+        }
+        #responsive {
+            display: block !important;
+        }
         @media(width < 1025px) {
-            #logo {
+            /* #logo {
                 display: none;
+            } */
+            /* إخفاء toggle menu وإظهار القائمة */
+            .mmenu-trigger {
+                display: none !important;
+            }
+            #navigation {
+                display: block !important;
+            }
+            #responsive {
+                display: block !important;
+            }
+        }
+        @media(width < 1025px) {
+            .cloned .mmenu-trigger {
+                display: none !important;
+            }
+            .cloned #navigation {
+                display: block !important;
+            }
+            .cloned #responsive {
+                display: block !important;
             }
         }
         #header #navigation ul li a {
