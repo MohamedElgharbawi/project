@@ -7664,7 +7664,7 @@ html input[disabled] {
   cursor: pointer;
   width: 100px;
   float: right;
-  padding: 10px 10px 10px 0;
+  padding: 10px 0px;
   position: relative;
   z-index: 106;
   font-size: 12px;

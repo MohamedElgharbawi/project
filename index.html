@@ -532,8 +532,7 @@
             }
         }
 
-        #navigation ul li a:hover, 
-        #Listing-Grid:hover {
+        #navigation ul li a:hover {
             display: block;
             width: 100%;
             height: 100%;
@@ -597,16 +596,7 @@
                         <nav id="navigation" class="style-1 head-tr">
                             <ul id="responsive">
                                 <li><a href="index.html" id="Home">Home</a></li>
-                                    <li><a href="#" id="Listing">Listing</a>
-                                        <ul>
-                                            <li><a href="#" id="Listing-Grid" style="border-radius: 0 !important;color:var(--main-color)">Listing Grid</a>
-                                                <ul>
-                                                    <li><a href="properties-grid-1.html" id="Grid-View" style="border-radius: 0 !important;color:var(--main-color)">Grid View</a></li>
-                                                    <li><a href="" id="Grid-Fullwidth" style="border-radius: 0 !important;color:var(--main-color)">Grid Fullwidth</a></li> <!--properties-full-grid-1.html-->
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                <li><a href="properties-grid-1.html" id="Grid-View">Grid View</a></li>
                             </ul>
                         </nav>
                         <!-- Main Navigation / End -->
@@ -1548,10 +1538,7 @@
         document.addEventListener("DOMContentLoaded", () => {
             const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
             const home = document.getElementById("Home"); 
-            const listing = document.getElementById("Listing");
-            const listingGrid = document.getElementById("Listing-Grid");
             const gridView = document.getElementById("Grid-View");
-            const gridFullwidth = document.getElementById("Grid-Fullwidth");
             const firstHeader = document.getElementById("First-Header");
             const firstParagraph = document.getElementById("first-paragraph");
             const forSale = document.getElementById("For-Sale");
@@ -1628,10 +1615,7 @@
 
             if(language === "Ar") {
                 home.textContent = "الصفحة الرئيسية";
-                listing.textContent = "قائمة العقارات";
-                listingGrid.textContent = "عرض العقارات";
-                gridView.textContent = "عرض بالقائمة";
-                gridFullwidth.textContent = "عرض الشبكة الكامل";
+                gridView.textContent = "عرض بالشبكة";
                 firstHeader.textContent = "ابحث عن حلمك";
                 firstParagraph.textContent = "لدينا أكثر من مليون عقار من أجلك.";
                 forSale.textContent = "للبيع";

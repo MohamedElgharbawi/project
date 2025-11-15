@@ -630,16 +630,7 @@
                         <nav id="navigation" class="style-1 head-tr">
                             <ul id="responsive">
                                 <li><a href="index.html" id="Home">Home</a></li>
-                                    <li><a href="#" id="Listing">Listing</a>
-                                        <ul>
-                                            <li><a href="#" id="Listing-Grid" style="border-radius: 0 !important;">Listing Grid</a>
-                                                <ul>
-                                                    <li><a href="properties-grid-1.html" id="Grid-View" style="border-radius: 0 !important;">Grid View</a></li>
-                                                    <li><a href="" id="Grid-Fullwidth" style="border-radius: 0 !important;">Grid Fullwidth</a></li> <!--properties-full-grid-1.html-->
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                <li><a href="properties-grid-1.html" id="Grid-View">Grid View</a></li>
                             </ul>
                         </nav>
                         <!-- Main Navigation / End -->
@@ -2049,10 +2040,7 @@
                 if(language === "Arabic") {
                     
                     const home = document.getElementById("Home"); 
-                    const listing = document.getElementById("Listing");
-                    const listingGrid = document.getElementById("Listing-Grid");
                     const gridView = document.getElementById("Grid-View");
-                    const gridFullwidth = document.getElementById("Grid-Fullwidth");
 
                     const popular_tags = document.getElementById("popular-tags");
                     const Price = document.getElementById("Price");
@@ -2102,10 +2090,7 @@
 
 
                     home.textContent = "الصفحة الرئيسية";
-                    listing.textContent = "قائمة العقارات";
-                    listingGrid.textContent = "عرض العقارات";
-                    gridView.textContent = "عرض بالقائمة";
-                    gridFullwidth.textContent = "عرض الشبكة الكامل";
+                    gridView.textContent = "عرض بالشبكة";
 
                     popular_tags.textContent = "الكلمات الشائعة";
                     Houses.textContent = "المنازل";
