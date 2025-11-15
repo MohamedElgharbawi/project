@@ -830,10 +830,10 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="floor-plan property wprt-image-video w50 pro">
+                        <!-- <div class="floor-plan property wprt-image-video w50 pro">
                             <h5 id="floor-plans-header">Floor Plans</h5>
                             <img alt="image" src="images/bg/floor-plan-1.png">
-                        </div>
+                        </div> -->
                         <!-- <div class="floor-plan property wprt-image-video w50 pro">
                             <h5 id="Wt-Nearby-header">What's Nearby</h5>
                             <div class="property-nearby">
@@ -970,13 +970,13 @@
                             </div>
                         </div> -->
 
-                        <div class="property wprt-image-video w50 pro" id="video">
-                            <h5 id="property-video-header">Property Video</h5>
+                        <!-- <div class="property wprt-image-video w50 pro" id="video">
+                            <h5 id="property-video-header">Property Video</h5> -->
 
-                                <video controls poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217" preload="metadata">
+                                <!-- <video controls poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217" preload="metadata">
                                     <source src="" type="video/mp4" />
                                     Your browser does not support the video tag.
-                                </video>
+                                </video> -->
                             
                             <!-- <img alt="image" src="images/slider/home-slider-4.jpg">
                             <a class="icon-wrap popup-video popup-youtube" href="https://www.youtube.com/watch?v=14semTlwyUY">
@@ -988,15 +988,15 @@
                                 <div class="waves wave-3"></div>
                             </div> -->
                         
-                        </div>
+                        <!-- </div> -->
 
-                        <div class="property-location map">
+                        <!-- <div class="property-location map">
                             <h5 id="location-header">Location</h5>
                             <div class="divider-fade"></div>
                             <div id="map-contact" class="contact-map"></div>
-                        </div>
+                        </div> -->
                         <!-- Star Reviews -->
-                        <section class="reviews comments">
+                        <!-- <section class="reviews comments">
                             <h3 class="mb-5" id="review-header">3 Reviews</h3>
                             <div class="row mb-5">
                                 <ul class="col-12 commented pl-0">
@@ -1080,7 +1080,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </section>
+                        </section> -->
                         <!-- End Reviews -->
                         <!-- Star Add Review -->
                         <!-- <section class="single reviews leve-comments details">
@@ -1973,29 +1973,37 @@
                         let bathrooms;
                         let parking;
                         let broker;
+                        const itemArea = item.total_area || item.built_up_area || item.land_area || 0;
+                        let itemParking = item.features?.parking_count;
+                        if(itemParking === undefined || itemParking === null) {
+                            itemParking = item.garage ? (language === "ar_001" ? "نعم" : "Yes") : 0;
+                        }
+                        const itemBroker = item.broker?.name || item.broker || "";
+                        const itemLocation = item.ad_location || item.location || item.location_area || "";
+                        const itemService = item.property_service || item.state || "sale";
                         if(language === "ar_001") {
                             featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">مميز</div>` : "";
-                            itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.state}">${item.state === "sale" ? "للبيع" : "للإيجار"}</div>`;
-                            bedrooms = `<li><i class="flaticon-bed mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bedrooms}</span> غرف النوم</span></li>`
-                            bathrooms = `<li><i class="flaticon-bathtub mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bathroom}</span> حمام</span></li>`;
-                            parking = `<li><i class="flaticon-car mr-2"></i><span style="display:flex;align-items:center;gap:4px"> <span style="order:1">${item.parking}</span> موقف سيارات</span></li>`;
-                            broker = `<p style="margin-bottom:5px">المؤجر: ${item.broker}</p>`;
+                            itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${itemService}">${itemService === "sale" ? "للبيع" : "للإيجار"}</div>`;
+                            bedrooms = `<li><i class="flaticon-bed mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bedrooms || 0}</span> غرف النوم</span></li>`
+                            bathrooms = `<li><i class="flaticon-bathtub mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bathroom || 0}</span> حمام</span></li>`;
+                            parking = `<li><i class="flaticon-car mr-2"></i><span style="display:flex;align-items:center;gap:4px"> <span style="order:1">${itemParking}</span> موقف سيارات</span></li>`;
+                            broker = itemBroker ? `<p style="margin-bottom:5px">المؤجر: ${itemBroker}</p>` : "";
                         }else {
                             featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">Featured</div>` : "";
-                            itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.state}">For ${item.state}</div>`;
-                            bedrooms = `<li><i class="flaticon-bed mr-2"></i><span>${item.bedrooms} Bedrooms</span></li>`;
-                            bathrooms = `<li><i class="flaticon-bathtub mr-2"></i><span>${item.bathroom} Bathrooms</span></li>`
-                            parking = `<li><i class="flaticon-car mr-2"></i><span>${item.parking} Garages</span></li>`;
-                            broker = `<p style="margin-bottom:5px">Broker: ${item.broker}</p>`;
+                            itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${itemService}">For ${itemService}</div>`;
+                            bedrooms = `<li><i class="flaticon-bed mr-2"></i><span>${item.bedrooms || 0} Bedrooms</span></li>`;
+                            bathrooms = `<li><i class="flaticon-bathtub mr-2"></i><span>${item.bathroom || 0} Bathrooms</span></li>`
+                            parking = `<li><i class="flaticon-car mr-2"></i><span>${itemParking} Garages</span></li>`;
+                            broker = itemBroker ? `<p style="margin-bottom:5px">Broker: ${itemBroker}</p>` : "";
                         }
                         similarProperty.innerHTML += `
-                            <div class="item col-lg-6 col-md-6 col-xs-12 ${item.state}">
+                            <div class="item col-lg-6 col-md-6 col-xs-12 ${itemService}">
                             <div class="project-single" data-aos="fade-up">
                                 <div class="project-inner project-head">
                                     <div class="homes">
                                         ${featuredTag}
                                         ${itemState}
-                                        <div class="homes-price">AED ${item.price}/${item.state === "sale" ? "" : "/mo"}</div>
+                                        <div class="homes-price">AED ${item.price}/${itemService === "sale" ? "" : "/mo"}</div>
                                         <img src="https://hre-group.net${item.image_url}" alt="home-1" class="img-responsive">
                                     </div>
                                     <div class="button-effect">
@@ -2007,13 +2015,13 @@
                                 <div class="homes-content">
                                     <h3><a href="single-property-1.html?id=${item.id}">${item.name}</a></h3>
                                     <p class="homes-address mb-3">
-                                            <i class="fa fa-map-marker"></i><span>${item.location}</span>
+                                            <i class="fa fa-map-marker"></i><span>${itemLocation}</span>
                                     </p>
                                     ${broker}
                                     <ul class="homes-list clearfix pb-3">
                                         ${bedrooms}
                                         ${bathrooms}
-                                        <li><i class="flaticon-square mr-2"></i><span>${item.area} sq ft</span></li>
+                                        <li><i class="flaticon-square mr-2"></i><span>${itemArea} sq ft</span></li>
                                         ${parking}
                                     </ul>
                                     <div class="footer">
@@ -2119,14 +2127,14 @@
                     const bath = document.getElementById("bath");
                     const garages = document.getElementById("garages");
                     const year_built = document.getElementById("year-built");
-                    const floor_plans_header = document.getElementById("floor-plans-header");
+                    // const floor_plans_header = document.getElementById("floor-plans-header");
                     const amenities_header = document.getElementById("amenities-header");
                     // const Wt_Nearby_header = document.getElementById("Wt-Nearby-header");
                     // const education = document.getElementById("education");
                     // const health_medical = document.getElementById("health-medical");
                     // const transportation = document.getElementById("transportation");
-                    const property_video_header = document.getElementById("property-video-header");
-                    const location_header = document.getElementById("location-header");
+                    // const property_video_header = document.getElementById("property-video-header");
+                    // const location_header = document.getElementById("location-header");
                     // const add_review_header = document.getElementById("add-review-header");
                     // const rating_paragraph = document.getElementById("rating-paragraph");
                     // const fn = document.getElementById("fn-input");
@@ -2179,14 +2187,14 @@
                     bath.textContent = " : الحمّامات";
                     garages.textContent = " : الكراجات";
                     year_built.textContent = " : سنة البناء";
-                    floor_plans_header.textContent = "مخططات الطوابق";
+                    // floor_plans_header.textContent = "مخططات الطوابق";
                     amenities_header.textContent = "الخدمات والمرافق";
                     // Wt_Nearby_header.textContent = "الأماكن القريبة";
                     // education.textContent = "التعليم";
                     // health_medical.textContent = "الصحة والخدمات الطبية";
                     // transportation.textContent = "وسائل النقل";
-                    property_video_header.textContent= "فيديو العقار";
-                    location_header.textContent = "الموقع";
+                    // property_video_header.textContent= "فيديو العقار";
+                    // location_header.textContent = "الموقع";
                     // add_review_header.textContent = "إضافة تقييم";
                     // rating_paragraph.textContent = "تقييمك لهذا العقار";
                     // fn.placeholder = "الأسم الأول";
@@ -2214,14 +2222,15 @@
                     let area;
                     let bedrooms;
                     let bathroom;
+                    const propertyArea = data[i].total_area || data[i].built_up_area || data[i].land_area || 0;
                     if(language === "ar_001") {
-                        state = `<span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">${data[i].state === "sale" ? "للبيع" : "للإيجار"}</span>`;
-                        area = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">مساحة <span>${data[i].area} sq ft</span></li>`;
+                        state = `<span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">${data[i].property_service === "sale" ? "للبيع" : "للإيجار"}</span>`;
+                        area = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">مساحة <span>${propertyArea} sq ft</span></li>`;
                         bedrooms = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">غرفة <span>${data[i].bedrooms}</span></li>`
                         bathroom = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">حمام <span>${data[i].bathroom}</span></li>`;
                     }else {
-                        state = `<span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">For ${data[i].state === "sale" ? "Sale" : "Rent"}</span>`;
-                        area = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Area <span>${data[i].area} sq ft</span></li>`;
+                        state = `<span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">For ${data[i].property_service === "sale" ? "Sale" : "Rent"}</span>`;
+                        area = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Area <span>${propertyArea} sq ft</span></li>`;
                         bedrooms = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Rooms <span>${data[i].bedrooms}</span></li>`
                         bathroom = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Baths <span>${data[i].bathroom}</span></li>`;
                     }
@@ -2280,8 +2289,8 @@
                 const carousel_indicators = document.querySelector(".carousel-indicators");
                 const description = document.querySelector(".description");
                 const brokerImg = document.querySelector(".author__img");
-                const video = document.querySelector("video");
-                const source = document.querySelector("video source");
+                // const video = document.querySelector("video");
+                // const source = document.querySelector("video source");
 
                 const value_id = document.getElementById("value-id");
                 const value_property_type = document.getElementById("value-property-type");
@@ -2293,10 +2302,10 @@
                 const value_garages = document.getElementById("value-garages");
                 const value_year_built = document.getElementById("value-year-built");
                 const amenities_ul = document.getElementById("amenities-ul");
+                const floorPlanImg = document.querySelector(".floor-plan img");
 
                 response = await fetch(`https://hre-group.net/api/property/${id}?lang=${language}`);
                 data = await response.json();
-
                 console.log(data);
 
                 images.innerHTML = "";
@@ -2311,19 +2320,20 @@
                 <li><a target="_blank" href="https://wa.me/971${data.broker.phone}"><i class="fab fa-whatsapp" style="color: #25D366; font-size: 20px"></i></a></li>
                 `;
                 /////////
+                const propertyAreaValue = data.total_area || data.built_up_area || data.land_area || 0;
                 if(language === "ar_001") {
                     property_service.textContent = `${data.property_service === "sale" ? "للبيع" : "للإيجار"}`;
                     propertyPrice.innerHTML = data.property_service === "sale" ? `<span style="order:1"> :السعر</span> AED ${data.price}`: `<span style="order:1"> :السعر</span> AED ${data.price} / mo`;
-                    propertyArea.innerHTML = `<span style="order:1"> :المساحة</span> sq ft ${data.area}`
+                    propertyArea.innerHTML = `<span style="order:1"> :المساحة</span> sq ft ${propertyAreaValue}`
                 }else {
                     property_service.textContent = `For ${data.property_service}`;
                     propertyPrice.textContent = data.property_service === "sale" ? `Price: AED ${data.price}`: `Price: AED ${data.price} / mo`;
-                    propertyArea.textContent = `Area: ${data.area}sq ft`;
+                    propertyArea.textContent = `Area: ${propertyAreaValue} sq ft`;
                 }
                 propertyName.textContent = data.name;
                 propertyLocation.innerHTML = `
-                    <span class="country">${data.country}</span>
-                    <span class="state">${data.state}</span>
+                    <span class="country">${data.location || ""}</span>
+                    <span class="state">${data.location_area || ""}</span>
                 `;
                 /////////
                 
@@ -2344,36 +2354,104 @@
                         </li>
                     `
                 }
-                description.innerHTML = data.description;
+                description.innerHTML = data.description || (language === "ar_001" ? "لا يوجد وصف متاح" : "No description available");
+                
                 /////////
-                value_id.textContent = data.id;
-                value_property_type.textContent = data.properties_type;
+                value_id.textContent = data.reference || data.id;
+                value_property_type.textContent = data.properties_type || (data.properties_sub_type || "");
                 if(language === "ar_001") {
+                    description.style.textAlign = "right";
                     value_property_status.textContent = `${data.property_service === "sale" ? "للبيع" : "للإيجار"}`;
                 }else {
                     value_property_status.textContent = `For ${data.property_service}`;
                 }
-                value_property_price.textContent = data.price;
+                value_property_price.textContent = `AED ${data.price}`;
                 // value_rooms.textContent;
-                value_bedrooms.textContent = data.bedrooms;
-                value_bath.textContent = data.bathroom;
-                value_garages.textContent;
-                value_year_built.textContent;
+                value_bedrooms.textContent = data.bedrooms || 0;
+                value_bath.textContent = data.bathroom || 0;
+                let parkingCount = data.features?.parking_count;
+                if(parkingCount === undefined || parkingCount === null) {
+                    parkingCount = data.garage ? (language === "ar_001" ? "نعم" : "Yes") : (language === "ar_001" ? "لا" : "No");
+                }
+                value_garages.textContent = parkingCount;
+                const yearBuilt = data.other_info?.date_availability || (language === "ar_001" ? "غير متاح" : "Not available");
+                value_year_built.textContent = yearBuilt;
                 /////////
                 amenities_ul.innerHTML = "";
-                for(let key in data.features) {
-                    if(!data.features[key]) {
-                        amenities_ul.innerHTML += `
-                            <li>
-                                <i class="fa fa-check-square" aria-hidden="true"></i>
-                                <span>${key}</span>
-                            </li>
-                        `;
+                if(data.features) {
+                    for(let key in data.features) {
+                        // Skip numeric values and only show boolean true features
+                        if(data.features[key] === true && key !== "parking_count" && key !== "lift_count" && key !== "floors_count") {
+                            // Translate key to readable format
+                            let displayName = key.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase());
+                            if(language === "ar_001") {
+                                // Arabic translations for common features
+                                const arabicNames = {
+                                    "garden": "حديقة",
+                                    "bbq_area": "منطقة شواء",
+                                    "child_care_center": "مركز رعاية الأطفال",
+                                    "kids_area": "منطقة أطفال",
+                                    "cafeteria": "كافيتريا",
+                                    "medical_center": "مركز طبي",
+                                    "jaccuzi": "جاكوزي",
+                                    "sauna": "ساونا",
+                                    "steam_room": "غرفة بخار",
+                                    "swimming_pool": "مسبح",
+                                    "facilities_for_determination": "مرافق للمعاقين",
+                                    "laundry_room": "غرفة غسيل",
+                                    "laundry_services": "خدمات غسيل",
+                                    "shared_kitchen": "مطبخ مشترك",
+                                    "balcony": "شرفة",
+                                    "lobby": "لوبي",
+                                    "elevators": "مصاعد",
+                                    "lift_count": "عدد المصاعد",
+                                    "waiting_area": "منطقة انتظار",
+                                    "floors_count": "عدد الطوابق",
+                                    "business_center": "مركز أعمال",
+                                    "meeting_room": "قاعة اجتماعات",
+                                    "security": "أمن",
+                                    "safety": "سلامة",
+                                    "cctv_system": "نظام كاميرات",
+                                    "internet": "إنترنت",
+                                    "tv_cable": "تلفزيون كابل",
+                                    "intercom": "إنتركوم",
+                                    "double_glazing": "زجاج مزدوج",
+                                    "furnishing": "مفروش",
+                                    "central_ac": "تكييف مركزي",
+                                    "central_hs": "تدفئة مركزية",
+                                    "power_supply": "إمداد كهرباء",
+                                    "parking_count": "موقف سيارات",
+                                    "study_room": "غرفة دراسة",
+                                    "store": "مخزن",
+                                    "waste_disposal": "تخلص من النفايات",
+                                    "maintenance": "صيانة",
+                                    "cleaning": "تنظيف"
+                                };
+                                displayName = arabicNames[key] || displayName;
+                            }
+                            amenities_ul.innerHTML += `
+                                <li>
+                                    <i class="fa fa-check-square" aria-hidden="true"></i>
+                                    <span>${displayName}</span>
+                                </li>
+                            `;
+                        }
                     }
                 }
                 ///////////////////////////////////////////////////////////////
-                source.src = "https://www.w3schools.com/html/mov_bbb.mp4";
-                video.load();
+                /* if(data.video_id_url) {
+                    source.src = data.video_id_url;
+                    video.load();
+                } else {
+                    video.style.display = "none";
+                } */ 
+                ///////////////////////////////////////////////////////////////
+                if(data.design_image && floorPlanImg) {
+                    floorPlanImg.src = `https://hre-group.net${data.design_image}`;
+                    floorPlanImg.alt = data.name || "Floor Plan";
+                } else if(floorPlanImg) {
+                    floorPlanImg.style.display = "none";
+                }
                 ///////////////////////////////////////////////////////////////
                 
                 $(slickContainer).slick({
