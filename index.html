@@ -570,41 +570,10 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li ><a href="#" id="Contact">Contact</a></li> <!--contact-us.html-->
-                                    <li ><a href="#" id="Login">Login</a></li><!--login.html-->
-                                    <li ><a href="#" id="Register">Register</a></li><!--register.html-->
                             </ul>
                         </nav>
                         <!-- Main Navigation / End -->
                     </div>
-                    <!-- Right Side Content / End -->
-                    <div class="header-user-menu user-menu add" id="user-menu">
-                        <div class="header-user-name">
-                            <span><img src="images/testimonials/ts-1.jpg" alt=""></span>Hi, Mary!
-                        </div>
-                        <ul>
-                            <li><a href="#" id="Edit-Profile"> Edit profile</a></li><!--user-profile.html-->
-                            <!-- <li><a href="add-property.html"> Add Property</a></li> -->
-                            <!-- <li><a href="payment-method.html">  Payments</a></li> -->
-                            <!-- <li><a href="change-password.html"> Change Password</a></li> -->
-                            <li><a href="#" id="Log-Out">Log Out</a></li>
-                            <li id="lang" style="position: relative;">
-                                <a href="#" id="Change-Language">Change Language</a>
-                                <ul class="lang-tooltip" style="position:absolute;top:70px;height:fit-content;width:fit-content;padding:5px !important;left:10px !important;">
-                                    <li onclick="handleClick(this.querySelector('a').dataset.lantext)"><a href="" class="current-lan" data-lantext="En">English</a></li>
-                                    <li onclick="handleClick(this.querySelector('a').dataset.lantext)"><a href="" data-lantext="Ar">العربية</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Right Side Content / End -->
-                        <div class="right-side d-none d-none d-lg-none d-xl-flex sign ml-0">
-                            <!-- Header Widget -->
-                            <div class="header-widget sign-in">
-                                <div class="show-reg-form modal-open" style="text-align:center"><a href="#" id="Sign-In">Sign In</a></div> 
-                            </div>
-                            <!-- Header Widget / End -->
-                        </div>
                     <!-- Right Side Content / End -->
                     <!-- lang-wrap-->
                     <div class="header-user-menu user-menu add d-flex" style="margin-right: 10px;" id="language">
@@ -1338,67 +1307,6 @@
         </div>
         <!-- END FOOTER -->
 
-        <!--register form -->
-        <div class="login-and-register-form modal">
-            <div class="main-overlay"></div>
-            <div class="main-register-holder">
-                <div class="main-register fl-wrap">
-                    <div class="close-reg"><i class="fa fa-times"></i></div>
-                    <h3>Welcome to <span>Find<strong>Houses</strong></span></h3>
-                    <div class="soc-log fl-wrap">
-                        <p>Login</p>
-                        <a href="#" class="facebook-log"><i class="fa fa-facebook-official"></i>Log in with Facebook</a>
-                        <a href="#" class="twitter-log"><i class="fa fa-twitter"></i> Log in with Twitter</a>
-                    </div>
-                    <div class="log-separator fl-wrap"><span>Or</span></div>
-                    <div id="tabs-container">
-                        <ul class="tabs-menu">
-                            <li class="current"><a href="#tab-1">Login</a></li>
-                            <li><a href="#tab-2">Register</a></li>
-                        </ul>
-                        <div class="tab">
-                            <div id="tab-1" class="tab-contents">
-                                <div class="custom-form">
-                                    <form method="post" name="registerform">
-                                        <label>Username or Email Address * </label>
-                                        <input name="email" type="text" onClick="this.select()" value="">
-                                        <label>Password * </label>
-                                        <input name="password" type="password" onClick="this.select()" value="">
-                                        <button type="submit" class="log-submit-btn"><span>Log In</span></button>
-                                        <div class="clearfix"></div>
-                                        <div class="filter-tags">
-                                            <input id="check-a" type="checkbox" name="check">
-                                            <label for="check-a">Remember me</label>
-                                        </div>
-                                    </form>
-                                    <div class="lost_password">
-                                        <a href="#">Lost Your Password?</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab">
-                                <div id="tab-2" class="tab-contents">
-                                    <div class="custom-form">
-                                        <form method="post" name="registerform" class="main-register-form" id="main-register-form2">
-                                            <label>First Name * </label>
-                                            <input name="name" type="text" onClick="this.select()" value="">
-                                            <label>Second Name *</label>
-                                            <input name="name2" type="text" onClick="this.select()" value="">
-                                            <label>Email Address *</label>
-                                            <input name="email" type="text" onClick="this.select()" value="">
-                                            <label>Password *</label>
-                                            <input name="password" type="password" onClick="this.select()" value="">
-                                            <button type="submit" class="log-submit-btn"><span>Register</span></button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--register form end -->
 
         <!-- START PRELOADER -->
         <!-- <div id="preloader">
@@ -1607,13 +1515,6 @@
             const listingGrid = document.getElementById("Listing-Grid");
             const gridView = document.getElementById("Grid-View");
             const gridFullwidth = document.getElementById("Grid-Fullwidth");
-            const contact = document.getElementById("Contact"); 
-            const login = document.getElementById("Login"); 
-            const register = document.getElementById("Register"); 
-            const signIn = document.getElementById("Sign-In"); 
-            const changeLanguage = document.getElementById("Change-Language"); 
-            const logOut = document.getElementById("Log-Out"); 
-            const editProfile = document.getElementById("Edit-Profile");
             const firstHeader = document.getElementById("First-Header");
             const firstParagraph = document.getElementById("first-paragraph");
             const forSale = document.getElementById("For-Sale");
@@ -1694,13 +1595,6 @@
                 listingGrid.textContent = "عرض العقارات";
                 gridView.textContent = "عرض بالقائمة";
                 gridFullwidth.textContent = "عرض الشبكة الكامل";
-                contact.textContent = "التواصل";
-                login.textContent = "تسجيل الدخول";
-                register.textContent = "تسجيل";
-                signIn.textContent = "تسجيل الدخول";
-                changeLanguage.textContent = "تغيير اللغة";
-                logOut.textContent = "تسجيل الخروج";
-                editProfile.textContent = "تعديل الملف الشخصى";
                 firstHeader.textContent = "ابحث عن حلمك";
                 firstParagraph.textContent = "لدينا أكثر من مليون عقار من أجلك.";
                 forSale.textContent = "للبيع";
