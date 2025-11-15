@@ -1827,7 +1827,7 @@
             try {
                 const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
                 const agents = document.getElementById("Agents");
-                const response = await fetch(`http://hre-group.net/api/post/brokers?lang=${cl}`);
+                const response = await fetch(`https://hre-group.net/api/post/brokers?lang=${cl}`);
                 const data = await response.json();
                 const count = data.brokers.length;
                 agents.innerHTML = "";
