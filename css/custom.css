@@ -31,14 +31,23 @@ article {
     }
 }
 @media (width < 768px) {
+    /* اللغة تبقى ظاهرة في الشاشات الصغيرة */
     #language {
-        display: none !important;
+        display: flex !important;
     }
     .header-user-menu.user-menu.add {
         margin-right: -30px !important;
     }
     #lang {
         display: block !important;
+    }
+    /* تحسين حجم اللغة في الشاشات الصغيرة */
+    #language .show-lang {
+        font-size: 11px;
+        padding: 8px 8px 8px 0;
+    }
+    #language .show-lang span {
+        margin-left: 5px;
     }
 }
 @media (width < 584px) and (width > 576px) {

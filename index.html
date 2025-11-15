@@ -317,6 +317,14 @@
         #language .lang-tooltip li {
             border: none !important;
         }
+        /* إظهار قائمة اللغة عند الضغط */
+        #language .lang-tooltip {
+            transition: visibility 0.2s, opacity 0.2s;
+        }
+        #language .lang-tooltip.active {
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
         @media(width < 1025px) {
             #logo {
                 display: none;
@@ -2258,17 +2266,27 @@
         </script>
 
         <script>
-            const a = document.querySelector("#language .show-lang");
-            if (a) {
-                a.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
+            document.addEventListener("DOMContentLoaded", () => {
+                const a = document.querySelector("#language .show-lang");
+                if (a) {
+                    a.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const langTooltip = document.querySelector("#language .lang-tooltip");
+                        if (langTooltip) {
+                            langTooltip.classList.toggle("active");
+                        }
+                    });
+                }
+                // إغلاق القائمة عند الضغط خارجها
+                document.addEventListener("click", (e) => {
+                    const language = document.querySelector("#language");
                     const langTooltip = document.querySelector("#language .lang-tooltip");
-                    if (langTooltip) {
-                        langTooltip.classList.toggle("active");
+                    if (language && langTooltip && !language.contains(e.target)) {
+                        langTooltip.classList.remove("active");
                     }
                 });
-            }
+            });
         </script>
 
 
