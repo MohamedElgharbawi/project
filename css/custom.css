@@ -334,3 +334,52 @@ article {
     background: #33495E;
     border-radius: 10px;
 }
+
+@media(width < 500px) {
+    #language {
+        padding-left: 0 !important;
+    }
+    #logo {
+        margin-right: 0;
+    }
+    #header img{ 
+        margin-right: 10px !important;
+    }
+}
+
+@media (width < 390px) {
+
+    #header img {
+        margin-right: 0 !important;
+        width: 50px !important;
+        height: 50px !important;
+        margin-top: 5px !important;
+    }
+
+    #language {
+        margin-top: 3px !important;
+    }
+
+    #header *{
+        font-size: 14px !important;
+    }
+
+    #header a {
+        padding: 3px 8px !important;
+    }
+
+    #logo a {
+        padding: 0 !important;
+    }
+
+    .left-side {
+        margin-left: -12px !important;
+    }
+    .show-lang {
+        padding-right: 0 !important;
+    }
+}
+
+.lang-tooltip {
+    margin-top: -10px !important;
+}
