@@ -1,0 +1,356 @@
+:root {
+	--main-color:#33495E;
+}
+.header-top {
+	background: var(--main-color);
+}
+a.button.border, a.button {
+    background: var(--main-color);
+}
+#main-menu ul li a:hover {
+	background: var(--main-color);
+}
+#main-menu .dropdown-menu a:hover {
+	background: var(--main-color);
+}
+.bloq-search input[type="text"] {
+	border: 1px solid var(--main-color);
+}
+.bloq-search input[type="submit"] {
+	background: var(--main-color);
+}
+.google-maps .filter {
+	background: var(--main-color);
+}
+.section-title:before {
+	background-color: var(--main-color);
+}
+.parallax-searchs .form-group .nice-select i,
+.parallax-searchs .form-group .nice-select:hover {
+    color: var(--main-color);
+}
+.nice-select .option:hover,
+.parallax-searchs .form-group .btn {
+    background: var(--main-color) !important;
+}
+.listing-hidden-content.blue {
+    background: var(--main-color);
+}
+.section-title h2 {
+	color: var(--main-color);
+}
+.recently .homes-content .homes-list li {
+	color: var(--main-color);
+}
+.recently .homes-content .homes-list li i {
+	color: var(--main-color);
+}
+.btn.btn-outline-light,
+.first-footer .newsletters h3::after {
+    background: var(--main-color);
+}
+.welcome-title h2 span,
+.welcome-title h2 span {
+	color: var(--main-color);
+}
+.welcome .popup-youtube,
+.first-footer .contactus ul li .fa {
+	color: var(--main-color);
+}
+.welcome .wprt-image-video .iq-waves .waves {
+	background: rgb(250, 41, 100) none repeat scroll 0 0 padding-box;
+}
+.services-home .bg-base,
+.first-footer .bloq-email .email input[type="submit"] {
+	background: var(--main-color);
+}
+#navigation.style-1 .current {
+    color: var(--main-color);
+}
+#navigation.style-1 ul li:hover {
+    background: var(--main-color);
+}
+.feature-cities-1 .listing-badges .featured {
+    background: var(--main-color);
+}
+.services-home a.text-base,
+.twitter-widget.contuct .twitter-area .text h5 a {
+	color: var(--main-color);
+}
+.portfolio .homes-content .homes-list li {
+	color: var(--main-color);
+}
+.portfolio .homes-content .homes-list li i {
+    color: #696969;
+    font-size: 18px;
+}
+.portfolio .footer i {
+    color: #696969;
+    font-size: 16px;
+}
+.top-location .owl-theme .owl-nav [class*=owl-] {
+	background: var(--main-color);
+}
+.blog-section .news-item a:hover h3 {
+	color: var(--main-color);
+}
+.blog-section .news-link {
+	color: var(--main-color);
+}
+.testimonials .test-1 p::before {
+	color: var(--main-color);
+}
+.testimonials .test-1 h3 {
+	color: var(--main-color);
+}
+.owl-dot.active {
+	background: var(--main-color) !important;
+}
+.counterup .countr .fa {
+	color: var(--main-color);
+}
+.realhome_subscribe input {
+	border-color: var(--main-color);
+}
+.realhome_form_subscribe button {
+	background: var(--main-color);
+	border: 2px solid var(--main-color);
+}
+.first-footer .netabout h3::after,
+.first-footer .navigation h3::after,
+.first-footer .widget h3::after,
+.first-footer .contactus h3::after {
+	background-color: var(--main-color);
+}
+.first-footer .btn {
+	background: var(--main-color);
+}
+.first-footer .btn:hover {
+	background: transparent;
+}
+.navigation ul li a:hover {
+	color: var(--main-color);
+}
+.twitter-widget.contuct .twitter-area .icon-holder i {
+	color: var(--main-color);
+}
+.twitter-widget.contuct .twitter-area .text h4,
+.inner-pages .twitter-widget.contuct .twitter-area .text h4 {
+	color: var(--main-color);
+}
+.second-footer {
+	background: #303441;
+}
+.go-up {
+	background: var(--main-color);
+}
+@media only screen and (max-width: 991px) {
+.homepage-6 .bg-all {
+    margin-top: 30px !important;
+    }
+}
+.main-search-field {
+	background: var(--main-color);
+}
+.btn-default.btn-theme-colored2:hover {
+	background: var(--main-color);
+}
+.text-theme-colored2 {
+	color: var(--main-color) !important;
+}
+.btn-dark.btn-theme-colored {
+	background-color: var(--main-color);
+}
+.parallax-search .form-group .nice-select:hover {
+	color: var(--main-color);
+}
+.parallax-search .form-group .nice-select i {
+	color: var(--main-color);
+}
+.parallax-search .form-group .list li:hover {
+	background: var(--main-color);
+}
+.parallax-search .form-group .btn {
+	background: var(--main-color);
+}
+.inner-pages .blog .active-view-btn:hover {
+	background: var(--main-color) !important;
+}
+.inner-pages .change-view-btn:hover {
+	color: var(--main-color) !important;
+}
+.inner-pages .blog .block-heading .change-view-btn.lde:hover {
+	background: var(--main-color);
+}
+.inner-pages .blog .section-heading .media .media-left i {
+	background: var(--main-color);
+}
+.inner-pages .blog .main-search-field select {
+	background: var(--main-color);
+}
+.inner-pages .blog .at-input {
+	border: 2px solid var(--main-color);
+}
+.inner-pages .blog .ui-widget.ui-widget-content {
+	background: var(--main-color);
+}
+.inner-pages .blog .hvr-bounce-to-right {
+	background: var(--main-color);
+}
+.inner-pages .widget h5::after {
+	background-color: var(--main-color);
+}
+.inner-pages .portfolio .footer i {
+	color: var(--main-color);
+}
+.inner-pages .recent-post .tags a:hover {
+	color: var(--main-color);
+	border-color: var(--main-color);
+}
+.page-item.active .page-link {
+    background: var(--main-color);
+    border-color: var(--main-color);
+}
+.page-link {
+    color: var(--main-color);
+}
+.inner-pages .blog .homes-content.details-2 .fa {
+	color: var(--main-color);
+}
+.inner-pages .blog .sorting-options h5 {
+	color: var(--main-color);
+}
+.inner-pages .blog .homes-content h5::after,
+.inner-pages .blog .blog-info.details h5::after,
+.inner-pages .blog .property-location h5::after,
+.inner-pages .blog .team.assigned h5::after {
+	color: var(--main-color);
+	background-color: var(--main-color);
+}
+.inner-pages .blog .homes-content.details .fa {
+	color: var(--main-color);
+}
+.inner-pages .button.alt {
+	background-color: var(--main-color);
+}
+.inner-pages .agent-details a:hover {
+	color: var(--main-color);
+}
+.inner-pages .agent-details .fa {
+	color: var(--main-color);
+}
+.inner-pages .about-us .who-1 h2 span {
+	color: var(--main-color);
+}
+.inner-pages .about-us .wprt-image-video .icon-wrap {
+	background-color: var(--main-color);
+}
+.bg-2 .button {
+    border-color: var(--main-color);
+}
+.inner-pages .panel .panel-heading a {
+	background: var(--main-color);
+}
+.plan-price {
+	background: var(--main-color);
+}
+.plan-price:after {
+	border-top-color: var(--main-color);
+}
+.plan a.btn {
+	background: var(--main-color);
+}
+.inner-pages .top-headings h2 {
+	color: var(--main-color);
+}
+.inner-pages .port-info .btn {
+	background: var(--main-color);
+	border: 1px solid var(--main-color);
+}
+#login .btn_1, a.btn_1 {
+    background: var(--main-color);
+}
+.inner-pages .blog .social .date {
+	background-color: var(--main-color);
+}
+.blog-pots figure {
+	background: var(--main-color);
+}
+.blog .blog-pots .fa {
+	color: var(--main-color);
+}
+.btn-secondary {
+	background: var(--main-color);
+}
+.single-blog-post .img-box .overlay {
+	background: rgba(250, 41, 100, 0.8);
+}
+.inner-pages .form-control {
+	border: 1px solid var(--main-color);
+}
+.inner-pages .input-group-btn .btn-primary {
+	background: var(--main-color);
+	border: 1px solid var(--main-color);
+}
+.inner-pages .input-group-btn .btn-primary:hover {
+	color: var(--main-color);
+}
+.inner-pages .comments-info h5 {
+	color: var(--main-color);
+}
+.inner-pages .comments h3::after,
+.inner-pages .leve-comments h3::after {
+	background-color: var(--main-color);
+}
+.inner-pages .leve-comments .btn {
+	background: var(--main-color);
+	border: 1px solid var(--main-color);
+}
+.inner-pages .leve-comments .btn:hover {
+	border: 1px solid var(--main-color);
+}
+.inner-pages .contact-us .btn {
+	background: var(--main-color);
+	border: 1px solid var(--main-color);
+}
+.inner-pages .contact-us .btn:hover {
+	border: 1px solid var(--main-color);
+}
+.inner-pages .call-info h3::after {
+	background-color: var(--main-color);
+}
+.inner-pages .call-info ul li .fa {
+	color: var(--main-color);
+}
+.inner-pages .single-add-property > h3 {
+	color: var(--main-color);
+}
+.inner-pages .prperty-submit-button > button {
+	background: var(--main-color) none repeat scroll 0 0;
+}
+.leaflet-div-icon, .map-marker {
+	background-color: var(--main-color);
+	border: 5px solid var(--main-color);
+}
+.leaflet-div-icon:before, .map-marker:before {
+	border-top-color: var(--main-color);
+}
+.listing-window-image:before {
+	background-color: var(--main-color);
+}
+.listing-window-content h3 {
+	background-color: var(--main-color);
+}
+.blog-section .action-list .fa-comment {
+    color: var(--main-color);
+}
+.blog-section .action-list .fa-share-alt {
+    color: var(--main-color);
+}
+.blog-section .action-list .fa-heart {
+    color: var(--main-color);
+}
+section.pricing-table {
+    padding: 6rem 0;
+    background: #fff;
+}

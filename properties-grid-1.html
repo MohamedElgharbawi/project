@@ -1,0 +1,1974 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="html 5 template">
+    <meta name="author" content="">
+    <title>Grid View</title>
+    <!-- FAVICON -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i%7CMontserrat:600,800" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Lobster&display=swap" rel="stylesheet">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="font/flaticon.css">
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="css/fontawesome-5-all.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- ARCHIVES CSS -->
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/lightcase.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" id="color" href="css/default.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <style>
+
+        body, 
+        body *:not(i) {
+            font-family: 'Cairo', 'Tajawal', Arial, sans-serif !important;
+        }
+
+        /* body.arabic, 
+        body.arabic *:not(i) {
+            font-family: 'Cairo', 'Tajawal', Arial, sans-serif !important;
+        }
+        */
+
+        body.arabic #main-paragraph {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        body.arabic #Sign-In {
+            font-size: 14px !important;
+        }
+
+        .hd-white .right-side.sign {
+            padding:0 !important;
+        }
+
+        .noUi-connect {
+            background: #33495E;
+        }
+
+        .noUi-target {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 8px;
+            border: none;
+        }
+
+        .noUi-horizontal .noUi-handle {
+            right: -10px;
+        }
+
+        .noUi-handle {
+            background: #ffffff;
+            border: 2px solid #33495E;
+            border-radius: 50%;
+            width: 18px !important;
+            height: 18px !important;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .noUi-handle:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 60, 110, 0.3);
+        }
+
+        #header #navigation #responsive a {
+            color: var(--main-color);
+        }
+
+        #header #navigation #responsive a:hover {
+            color: white !important;
+        }
+
+        #header #navigation #responsive li:hover {
+            background-color: transparent !important;
+        }
+
+        #lang ul li {
+            border: none !important;
+        }
+
+        .slick-lancers> :first-child {
+            margin-left: 0 !important;
+        }
+
+        .slick-lancers>button {
+            background-color: var(--main-color) !important;
+
+            &::before {
+                color: white !important;
+            }
+
+            &.slick-next.slick-arrow {
+                margin-right: 15px !important;
+            }
+
+            &.slick-prev.slick-arrow {
+                margin-left: 15px !important;
+            }
+        }
+
+        #popular-tags {
+            gap: 5px !important;
+        }
+
+        #popular-tags a {
+            background: var(--main-color);
+            color: white;
+            font-weight: bold;
+        }
+
+        .widget-boxed.main-search-field ul li:hover {
+            background-color: var(--main-color) !important;
+        }
+
+        @media(width < 1025px) {
+            #logo {
+                display: none;
+            }
+        }
+
+        @media(width < 1025px) {
+            .cloned #logo {
+                display: none;
+            }
+        }
+
+        nav .pagination li.page-item a {
+            color: var(--main-color) !important;
+        }
+
+        nav .pagination li.page-item.active a {
+            background-color: var(--main-color) !important;
+            color: white !important;
+        }
+
+        @media (width < 630px) {
+            .second-footer .container-fluid {
+                flex-direction: column !important;
+            }
+        }
+
+        .fa-tiktok {
+            transition: all .3s;
+
+            &:hover {
+                background: #010101 !important;
+            }
+        }
+
+        .netsocials .fa-whatsapp {
+            transition: all .3s;
+
+            &:hover {
+                background: #25D366 !important;
+            }
+        }
+
+        .fa-google-plus-square {
+            transition: all .3s;
+
+            &:hover {
+                background: #c60c32 !important;
+            }
+        }
+
+        .social {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            z-index: 9000000;
+            flex-direction: column;
+        }
+
+        .social a {
+            display: block;
+            padding: 15px;
+            color: #fff;
+            transition: .3s all;
+        }
+
+        .social a.facebook {
+            background-color: #3b5998 !important;
+            border-top-left-radius: 5px;
+
+            &:hover {
+                background-color: #2d4373 !important;
+                box-shadow: 0 4px 10px rgba(59, 89, 152, 0.4) !important;
+            }
+        }
+
+        .social a.whatsapp {
+            background-color: #25D366 !important;
+
+            &:hover {
+                background-color: #1da851 !important;
+                box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4) !important;
+            }
+        }
+
+        .social a.instagram {
+            background-color: #E4405F !important;
+            border-bottom-left-radius: 5px;
+
+            &:hover {
+                background-color: #c13555 !important;
+                box-shadow: 0 4px 10px rgba(228, 64, 95, 0.4) !important;
+            }
+        }
+
+        .social a i {
+            font-size: 22px;
+        }
+
+        .blog-pots .item .homes img {
+            height: 300px !important;
+        }
+
+        input[type=checkbox]:checked+label:before {
+            color: var(--main-color) !important;
+            border: 2px solid var(--main-color) !important;
+        }
+
+        #feature-properties .slick-dots li button {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        #feature-properties .slick-dots li button:before {
+            color: transparent;
+            border: 2px solid var(--main-color);
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            content: '';
+            display: inline-block;
+        }
+
+        #feature-properties .slick-dots li.slick-active button:before {
+            background-color: var(--main-color);
+        }
+
+        .blog-pots ul li {
+            width: 50% !important;
+            display: flex;
+        
+            align-items: center;
+        }
+
+        .blog-pots .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            a {
+                img {
+                    margin: 0;
+                }
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+        }
+
+        .blog-pots.sort-col {
+            .item {
+                min-width: 100% !important;
+                .project-single {
+                    .project-inner {
+                        min-width: 50% !important;
+                    }
+                    width: 100%;
+                    display: flex;
+                    .homes-content {
+                        display: flex;
+                        flex-direction: column;
+                        .footer {
+                            flex-grow: 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        .blog-pots.sort-col .project-single .project-inner {
+            border-radius: 8px 0 0 8px !important;
+        } 
+
+        @media(width < 1025px) {
+            .blog-pots.sort-col .homes img {
+                height:335px !important;
+            }
+        }
+
+
+        @media(width < 768px) {
+            .blog-pots.sort-col .homes img {
+                height:360px !important;
+            }
+            .blog-pots.sort-col ul li span,
+            .blog-pots.sort-col ul li i {
+                font-size: 12px;
+            }
+            .blog-pots.sort-col ul {
+                display: flex;
+                flex-wrap: wrap;
+                column-gap:10px;
+            }
+            .footer span {
+                font-size: 12px;
+            }
+        }
+
+        @media(width < 590px) {
+            .blog-pots.sort-col .project-single {
+                display: block !important;
+            }
+            .blog-pots.sort-col .project-single .project-inner {
+                border-radius: 8px 8px 0 0 !important;
+            } 
+        }
+
+        .headings-2 ul li {
+            background-color: #fff !important;
+            width: 100% !important;
+            &:hover {
+                background-color: var(--main-color) !important;
+            }
+        }
+
+        .item ul li {
+            display: flex;
+            align-items: center;
+            i {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        .homepage-4 .portfolio .project-single {
+            height: 100% !important;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .homepage-4 .portfolio .homes-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .homepage-4 .portfolio .homes-content .footer {
+            flex-grow: 1;
+        }
+
+        .sort-col .homes-content .homes-list {
+            gap: 0 !important;
+        }
+
+        .go-up {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        #header.cloned.sticky ul li a:hover {
+            color: var(--main-color) !important;
+        }
+
+        .preloader {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            background-color: rgb(255, 255, 255);
+            z-index: 99999999999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .image {
+                background-image: url("./images/preloader.gif");
+                position: relative;
+                z-index: 99999999999;
+                background-repeat: no-repeat;
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        #navigation ul li a:hover, 
+        #Listing-Grid:hover {
+            background: var(--main-color) !important;
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: white !important;
+            border-radius: 5px;
+        }
+
+        #header #navigation li:hover > a {
+            color:white !important;
+            background-color: var(--main-color);
+            border-radius: 5px !important;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #eee;
+            border-top: 4px solid var(--main-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 100px auto;
+        }
+
+        @keyframes spin {
+            0%   { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .mm-panels * {
+            color:white !important ;
+        }
+
+        @media (width < 992px) {
+            aside {
+                order: -1;
+                margin-bottom: 20px;
+            }
+            .recent-main  {
+                flex-wrap: nowrap !important;
+            }
+        }
+
+    </style>
+</head>
+
+<body class="inner-pages listing homepage-4 agents hd-white">
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- START SECTION HEADINGS -->
+        <!-- Header Container
+        ================================================== -->
+        <header id="header-container" class="header head-tr">
+            <!-- Header -->
+            <div id="header" class="head-tr bottom">
+                <div class="container container-header">
+                    <!-- Left Side Content -->
+                    <div class="left-side">
+                        <!-- Logo -->
+                        <div id="logo">
+                            <a href="index.html"><img src="images/logo-grid-view.jpg" data-sticky-logo="images/logo-grid-view.jpg" alt=""></a>
+                        </div>
+                        <!-- Mobile Navigation -->
+                        <div class="mmenu-trigger" onclick="handleAddImg()">
+                            <button class="hamburger hamburger--collapse" type="button">
+                                <span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                        </div>
+                        <!-- Main Navigation -->
+                        <nav id="navigation" class="style-1 head-tr">
+                            <ul id="responsive">
+                                <li><a href="index.html" id="Home">Home</a></li>
+                                    <li><a href="#" id="Listing">Listing</a>
+                                        <ul>
+                                            <li><a href="#" id="Listing-Grid">Listing Grid</a>
+                                                <ul>
+                                                    <li><a href="properties-grid-1.html" id="Grid-View">Grid View</a></li>
+                                                    <li><a href="#" id="Grid-Fullwidth">Grid Fullwidth</a></li><!--properties-full-grid-1.html-->
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li ><a href="#" id="Contact">Contact</a></li><!--contact-us.html-->
+                                    <li ><a href="#" id="Login">Login</a></li><!--login.html-->
+                                    <li ><a href="#" id="Register">Register</a></li><!--register.html-->
+                            </ul>
+                        </nav>
+                        <!-- Main Navigation / End -->
+                    </div>
+                    <!-- Right Side Content / End -->
+                    <div class="header-user-menu user-menu add" id="user-menu">
+                        <div class="header-user-name">
+                            <span><img src="images/testimonials/ts-1.jpg" alt=""></span>Hi, Mary!
+                        </div>
+                        <ul>
+                            <li><a href="#" id="Edit-Profile"> Edit profile</a></li><!--user-profile.html-->
+                            <!-- <li><a href="add-property.html"> Add Property</a></li> -->
+                            <!-- <li><a href="payment-method.html">  Payments</a></li> -->
+                            <!-- <li><a href="change-password.html"> Change Password</a></li> -->
+                            <li><a href="#" id="Log-Out">Log Out</a></li>
+                            <li id="lang" style="position: relative;">
+                                <a href="#" id="Change-Language">Change Language</a>
+                                <ul class="lang-tooltip" style="position:absolute;top:70px;height:fit-content;width:fit-content;padding:5px !important;left:10px !important;">
+                                    <li onclick="handleClick(this.querySelector('a').dataset.lantext)"><a href="" class="current-lan" data-lantext="En">English</a></li>
+                                    <li onclick="handleClick(this.querySelector('a').dataset.lantext)"><a href="" data-lantext="Ar">العربية</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Right Side Content / End -->
+                        <div class="right-side d-none d-none d-lg-none d-xl-flex sign ml-0">
+                            <!-- Header Widget -->
+                            <div class="header-widget sign-in">
+                                <div class="show-reg-form modal-open" style="text-align:center"><a href="#" id="Sign-In">Sign In</a></div> 
+                            </div>
+                            <!-- Header Widget / End -->
+                        </div>
+                    <!-- Right Side Content / End -->
+                    <!-- lang-wrap-->
+                    <div class="header-user-menu user-menu add d-flex" style="margin-right: 10px;" id="language">
+                        <div class="lang-wrap">
+                            <div class="show-lang"><span><i class="fas fa-globe-americas"></i><strong id="current-lang">ENG</strong></span><i class="fa fa-caret-down arrlan"></i></div>
+                            <ul class="lang-tooltip lang-action no-list-style" style="padding: 5px !important;">
+                                <li onclick="handleClick(this.querySelector('a').dataset.lantext)"><a href="#" class="current-lan" data-lantext="En">English</a></li>
+                                <li onclick="handleClick(this.querySelector('a').dataset.lantext)"><a href="#" data-lantext="Ar">العربية</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- lang-wrap end-->
+                </div>
+            </div>
+            <!-- Header / End -->
+        </header>
+        <div class="clearfix"></div>
+        <!-- Header Container / End -->
+
+        <!-- START SECTION PROPERTIES LISTING -->
+        <section class="properties-right featured portfolio blog pt-5">
+            <div class="container">
+                <section class="headings-2 pt-0 pb-55" style="padding-top:125px !important">
+                    <div class="pro-wrapper">
+                        <div class="detail-wrapper-body">
+                            <div class="listing-title-bar">
+                                <div class="text-heading text-left">
+                                    <p class="pb-2" id="main-paragraph"><a href="index.html" id="home">Home </a> &nbsp;/&nbsp; <span id="listings">Listings</span>
+                                    </p>
+                                </div>
+                                <h3 class="main-head">Grid View</h3>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="row">
+                    <section class="headings-2 pt-0 col-lg-8 col-md-12" style="padding: 15px;">
+                            <div class="pro-wrapper flex justify-content-between">
+
+                                <div class="detail-wrapper-body">
+                                    <div class="listing-title-bar">
+                                        <div class="text-heading text-left">
+                                            <p class="font-weight-bold mb-0 mt-3 d-flex align-item-center" style="gap: 5px;" id="count">8 Search results</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="cod-pad single detail-wrapper mr-2 mt-0 d-flex justify-content-md-end align-items-center grid"
+                                    style="margin-left:0 !important">
+                                    <div class="input-group border rounded input-group-lg w-auto mr-4">
+                                        <label
+                                            class="input-group-text bg-transparent border-0 text-uppercase letter-spacing-093 pr-1 pl-3"
+                                            for="inputGroupSelect01" id="sort-by"><i class="fas fa-align-left fs-16 pr-2"></i>Sortby:</label>
+                                        <select
+                                            class="form-control border-0 bg-transparent shadow-none p-0 selectpicker sortby"
+                                            data-style="bg-transparent border-0 font-weight-600 btn-lg pl-0 pr-3"
+                                            id="inputGroupSelect01" name="sortby">
+                                            <option selected>Top Selling</option>
+                                            <option value="1">Most Viewed</option>
+                                            <option value="2">Price(low to high)</option>
+                                            <option value="3">Price(high to low)</option>
+                                        </select>
+                                    </div>
+                                    <div class="sorting-options">
+                                        <a onclick="handleSortCol(event, this)" id="sort-col" href="#"
+                                            style="background-color: var(--main-color);color:white !important;border:none;opacity:.4"
+                                            class="change-view-btn lde"><i class="fa fa-th-list"></i></a>
+                                        <a onclick="handleSortRow(event, this)" id="sort-row" href="#"
+                                            class="change-view-btn active-view-btn"
+                                            style="background-color: var(--main-color) !important;border:none;cursor:auto;pointer-events:none"><i
+                                                class="fa fa-th-large"></i></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                    </section>
+
+                    <div class="col-lg-8 col-md-12 blog-pots sort-row">
+                        
+                    </div>
+                    
+                    <aside class="col-lg-4 col-md-12 car">
+                        <div class="widget">
+                            <!-- Search Fields -->
+                            <div class="widget-boxed main-search-field">
+                                <div class="widget-boxed-header">
+                                    <h4 id="main-header">Find Your House</h4>
+                                </div>
+                                <!-- Search Form -->
+                                <div class="trip-search">
+                                    <form class="form">
+                                        <!-- Form Lookin for -->
+                                        <div class="form-group looking">
+                                            <div class="first-select wide">
+                                                <div class="main-search-input-item">
+                                                    <input type="text" placeholder="Enter Keyword..." value="" id="input-search"
+                                                        id="search-input" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/ End Form Lookin for -->
+                                        <!-- Form Location -->
+                                        <div class="form-group location" id="location">
+                                            <div class="nice-select form-control wide" tabindex="0"><span class="current" ><i class="fa fa-map-marker"></i>Location</span>
+                                                <ul class="list">
+                                                    <li data-value="1" class="option selected">New York</li>
+                                                    <li data-value="2" class="option">Los Angeles</li>
+                                                    <li data-value="3" class="option">Chicago</li>
+                                                    <li data-value="3" class="option">Philadelphia</li>
+                                                    <li data-value="3" class="option">San Francisco</li>
+                                                    <li data-value="3" class="option">Miami</li>
+                                                    <li data-value="3" class="option">Houston</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!--/ End Form Location -->
+                                        <!-- Form Categories -->
+                                        <div class="form-group categories" id="property-type">
+                                            <div class="nice-select form-control wide" tabindex="0"><span
+                                                    class="current"><i class="fa fa-home"
+                                                        aria-hidden="true"></i>Property Type</span>
+                                                <ul class="list">
+                                                    <li data-value="1" class="option selected ">House</li>
+                                                    <li data-value="2" class="option">Apartment</li>
+                                                    <li data-value="3" class="option">Condo</li>
+                                                    <li data-value="3" class="option">Land</li>
+                                                    <li data-value="3" class="option">Bungalow</li>
+                                                    <li data-value="3" class="option">Single Family</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!--/ End Form Categories -->
+                                        <!-- Form Property Status -->
+                                        <div class="form-group categories" id="property-status">
+                                            <div class="nice-select form-control wide" tabindex="0"><span class="current" id="Property-Status"><i class="fa fa-home"></i>Property Status</span>
+                                                <ul class="list">
+                                                    <li data-value="For Sale" id="for_sale" class="option selected">For Sale</li>
+                                                    <li data-value="For Rent" id="for_rent" class="option">For Rent</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!--/ End Form Property Status -->
+                                        <!-- Form Bedrooms -->
+                                        <div class="form-group beds" id="bedrooms">
+                                            <div class="nice-select form-control wide" tabindex="0"><span
+                                                    class="current" id="Bedrooms"><i class="fa fa-bed" aria-hidden="true"></i>
+                                                    Bedrooms</span>
+                                                <ul class="list">
+                                                    <li data-value="1" class="option selected">1</li>
+                                                    <li data-value="2" class="option">2</li>
+                                                    <li data-value="3" class="option">3</li>
+                                                    <li data-value="3" class="option">4</li>
+                                                    <li data-value="3" class="option">5</li>
+                                                    <li data-value="3" class="option">6</li>
+                                                    <li data-value="3" class="option">7</li>
+                                                    <li data-value="3" class="option">8</li>
+                                                    <li data-value="3" class="option">9</li>
+                                                    <li data-value="3" class="option">10</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!--/ End Form Bedrooms -->
+                                        <!-- Form Bathrooms -->
+                                        <div class="form-group bath" id="bathrooms">
+                                            <div class="nice-select form-control wide" tabindex="0"><span
+                                                    class="current" id="Bathrooms"><i class="fa fa-bath" aria-hidden="true"></i>
+                                                    Bathrooms</span>
+                                                <ul class="list">
+                                                    <li data-value="1" class="option selected">1</li>
+                                                    <li data-value="2" class="option">2</li>
+                                                    <li data-value="3" class="option">3</li>
+                                                    <li data-value="3" class="option">4</li>
+                                                    <li data-value="3" class="option">5</li>
+                                                    <li data-value="3" class="option">6</li>
+                                                    <li data-value="3" class="option">7</li>
+                                                    <li data-value="3" class="option">8</li>
+                                                    <li data-value="3" class="option">9</li>
+                                                    <li data-value="3" class="option">10</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!--/ End Form Bathrooms -->
+                                    </form>
+                                </div>
+                                <!--/ End Search Form -->
+                                <!-- Price Fields -->
+                                <div class="main-search-field-2">
+                                    <!-- Area Size -->
+                                    <div class="mb-5">
+                                        <label for="area-slider" id="area_size">Area Size</label>
+                                        <div id="area-slider" class="mb-4"></div>
+                                        <div class="d-flex justify-content-between items-center">
+                                            <span id="area-min">0 sq ft</span>
+                                            <span id="area-max">1300 sq ft</span>
+                                        </div>
+                                    </div>
+                                    <!-- Price Range -->
+                                    <div>
+                                        <label for="price-slider" id="price_range">Price Range</label>
+                                        <div id="price-slider" class="mb-4"></div>
+                                        <div class="d-flex justify-content-between items-center">
+                                            <span id="price-min">$0</span>
+                                            <span id="price-max">$600,000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- More Search Options -->
+                            <a href="#" class="more-search-options-trigger margin-bottom-10 margin-top-30"
+                            id="advanced-features"    data-open-title="Advanced Features" data-close-title="Advanced Features"
+                                style="color:#33495E"></a>
+                            <div class="more-search-options relative">
+                                <!-- Checkboxes -->
+                                <div class="checkboxes one-in-row margin-bottom-10">
+
+                                    <input data-value="air_conditioning" id="check-air-conditioning" type="checkbox" name="check">
+                                    <label for="check-air-conditioning" id="label-air-conditioning">Air Conditioning</label>
+
+                                    <input data-value="swimming_pool" id="check-swimming-pool" type="checkbox" name="check">
+                                    <label for="check-swimming-pool" id="label-swimming-pool">Swimming Pool</label>
+
+                                    <input data-value="central_heating" id="check-central-heating" type="checkbox" name="check">
+                                    <label for="check-central-heating" id="label-central-heating">Central Heating</label>
+
+                                    <input data-value="laundry_room" id="check-laundry-room" type="checkbox" name="check">
+                                    <label for="check-laundry-room" id="label-laundry-room">Laundry Room</label>
+
+                                    <input data-value="gym" id="check-gym" type="checkbox" name="check">
+                                    <label for="check-gym" id="label-gym">Gym</label>
+
+                                    <input data-value="alarm" id="check-alarm" type="checkbox" name="check">
+                                    <label for="check-alarm" id="label-alarm">Alarm</label>
+
+                                    <input data-value="window_covering" id="check-window-covering" type="checkbox" name="check">
+                                    <label for="check-window-covering" id="label-window-covering">Window Covering</label>
+
+                                    <input data-value="garden" id="check-garden" type="checkbox" name="check">
+                                    <label for="check-garden" id="label-garden">Garden</label>
+
+                                    <input data-value="bbq_area" id="check-bbq_area" type="checkbox" name="check">
+                                    <label for="check-bbq_area" id="label-bbq-area">BBQ Area</label>
+
+                                    <input data-value="wifi" id="check-wifi" type="checkbox" name="check">
+                                    <label for="check-wifi" id="label-wifi">WiFi</label>
+
+                                    <input data-value="tv_cable" id="check-tv-cable" type="checkbox" name="check">
+                                    <label for="check-tv-cable" id="label-tv-cable">TV Cable</label>
+
+                                    <input data-value="dryer" id="check-dryer" type="checkbox" name="check">
+                                    <label for="check-dryer" id="label-dryer">Dryer</label>
+
+                                    <input data-value="microwave" id="check-microwave" type="checkbox" name="check">
+                                    <label for="check-microwave" id="label-microwave">Microwave</label>
+
+                                    <input data-value="washer" id="check-washer" type="checkbox" name="check">
+                                    <label for="check-washer" id="label-washer">Washer</label>
+
+                                    <input data-value="refrigerator" id="check-refrigerator" type="checkbox" name="check">
+                                    <label for="check-refrigerator" id="label-refrigerator">Refrigerator</label>
+
+                                    <input data-value="outdoor_shower" id="check-outdoor-shower" type="checkbox" name="check">
+                                    <label for="check-outdoor-shower" id="label-outdoor-shower">Outdoor Shower</label>
+
+                                </div>
+                                <!-- Checkboxes / End -->
+                            </div>
+                            <!-- More Search Options / End -->
+                            <div class="col-lg-12 no-pds">
+                                <div class="at-col-default-mar">
+                                    <button class="btn btn-default hvr-bounce-to-right" id="search-data" type="submit"
+                                        style="background:#33495E;font-weight:bold;letter-spacing:2px">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-boxed mt-5">
+                            <div class="widget-boxed-header mb-5">
+                                <h4 id="main-Header">Feature Properties</h4>
+                            </div>
+                            <div class="widget-boxed-body" id="feature-properties">
+                                <div class="slick-lancers">
+                                    <div class="agents-grid mr-0">
+                                        <div class="listing-item compact">
+                                            <a href="properties-details.html" class="listing-img-container">
+                                                <div class="listing-badges">
+                                                    <span class="featured">$ 230,000</span>
+                                                    <span style="background: #33495E;">For Sale</span>
+                                                </div>
+                                                <div class="listing-img-content">
+                                                    <span class="listing-compact-title">House Luxury <i>New
+                                                            York</i></span>
+                                                    <ul class="listing-hidden-content">
+                                                        <li>Area <span>720 sq ft</span></li>
+                                                        <li>Rooms <span>6</span></li>
+                                                        <li>Beds <span>2</span></li>
+                                                        <li>Baths <span>3</span></li>
+                                                    </ul>
+                                                </div>
+                                                <img src="images/feature-properties/fp-1.jpg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="agents-grid mr-0">
+                                        <div class="listing-item compact">
+                                            <a href="properties-details.html" class="listing-img-container">
+                                                <div class="listing-badges">
+                                                    <span class="featured">$ 6,500</span>
+                                                    <span class="rent" style="background: #33495E;">For Rent</span>
+                                                </div>
+                                                <div class="listing-img-content">
+                                                    <span class="listing-compact-title">House Luxury <i>Los
+                                                            Angles</i></span>
+                                                    <ul class="listing-hidden-content">
+                                                        <li>Area <span>720 sq ft</span></li>
+                                                        <li>Rooms <span>6</span></li>
+                                                        <li>Beds <span>2</span></li>
+                                                        <li>Baths <span>3</span></li>
+                                                    </ul>
+                                                </div>
+                                                <img src="images/feature-properties/fp-2.jpg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="agents-grid mr-0">
+                                        <div class="listing-item compact">
+                                            <a href="properties-details.html" class="listing-img-container">
+                                                <div class="listing-badges">
+                                                    <span class="featured">$ 230,000</span>
+                                                    <span style="background:#33495E">For Sale</span>
+                                                </div>
+                                                <div class="listing-img-content">
+                                                    <span class="listing-compact-title">House Luxury <i>San
+                                                            Francisco</i></span>
+                                                    <ul class="listing-hidden-content">
+                                                        <li>Area <span>720 sq ft</span></li>
+                                                        <li>Rooms <span>6</span></li>
+                                                        <li>Beds <span>2</span></li>
+                                                        <li>Baths <span>3</span></li>
+                                                    </ul>
+                                                </div>
+                                                <img src="images/feature-properties/fp-3.jpg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="agents-grid mr-0">
+                                        <div class="listing-item compact">
+                                            <a href="properties-details.html" class="listing-img-container">
+                                                <div class="listing-badges">
+                                                    <span class="featured">$ 6,500</span>
+                                                    <span class="rent" style="background:#33495E">For Rent</span>
+                                                </div>
+                                                <div class="listing-img-content">
+                                                    <span class="listing-compact-title">House Luxury <i>Miami
+                                                            FL</i></span>
+                                                    <ul class="listing-hidden-content">
+                                                        <li>Area <span>720 sq ft</span></li>
+                                                        <li>Rooms <span>6</span></li>
+                                                        <li>Beds <span>2</span></li>
+                                                        <li>Baths <span>3</span></li>
+                                                    </ul>
+                                                </div>
+                                                <img src="images/feature-properties/fp-4.jpg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="agents-grid mr-0">
+                                        <div class="listing-item compact">
+                                            <a href="properties-details.html" class="listing-img-container">
+                                                <div class="listing-badges">
+                                                    <span class="featured">$ 230,000</span>
+                                                    <span style="background:#33495E">For Sale</span>
+                                                </div>
+                                                <div class="listing-img-content">
+                                                    <span class="listing-compact-title">House Luxury <i>Chicago
+                                                            IL</i></span>
+                                                    <ul class="listing-hidden-content">
+                                                        <li>Area <span>720 sq ft</span></li>
+                                                        <li>Rooms <span>6</span></li>
+                                                        <li>Beds <span>2</span></li>
+                                                        <li>Baths <span>3</span></li>
+                                                    </ul>
+                                                </div>
+                                                <img src="images/feature-properties/fp-5.jpg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="agents-grid mr-0">
+                                        <div class="listing-item compact">
+                                            <a href="properties-details.html" class="listing-img-container">
+                                                <div class="listing-badges">
+                                                    <span class="featured">$ 6,500</span>
+                                                    <span class="rent" style="background:#33495E">For Rent</span>
+                                                </div>
+                                                <div class="listing-img-content">
+                                                    <span class="listing-compact-title">House Luxury <i>Toronto
+                                                            CA</i></span>
+                                                    <ul class="listing-hidden-content">
+                                                        <li>Area <span>720 sq ft</span></li>
+                                                        <li>Rooms <span>6</span></li>
+                                                        <li>Beds <span>2</span></li>
+                                                        <li>Baths <span>3</span></li>
+                                                    </ul>
+                                                </div>
+                                                <img src="images/feature-properties/fp-6.jpg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-boxed mt-5">
+                            <div class="widget-boxed-header">
+                                <h4 id="recent-properties-header">Recent Properties</h4>
+                            </div>
+                            <div class="widget-boxed-body" id="recent-properties">
+                                <div class="recent-post">
+                                    <div class="recent-main">
+                                        <div class="recent-img">
+                                            <a href="blog-details.html"><img src="images/feature-properties/fp-1.jpg"
+                                                    alt=""></a>
+                                        </div>
+                                        <div class="info-img">
+                                            <a href="blog-details.html">
+                                                <h6>Family Modern Home</h6>
+                                            </a>
+                                            <p>$230,000</p>
+                                        </div>
+                                    </div>
+                                    <div class="recent-main my-4">
+                                        <div class="recent-img">
+                                            <a href="blog-details.html"><img src="images/feature-properties/fp-2.jpg"
+                                                    alt=""></a>
+                                        </div>
+                                        <div class="info-img">
+                                            <a href="blog-details.html">
+                                                <h6>Luxury Villa House</h6>
+                                            </a>
+                                            <p>$120,000</p>
+                                        </div>
+                                    </div>
+                                    <div class="recent-main">
+                                        <div class="recent-img">
+                                            <a href="blog-details.html"><img src="images/feature-properties/fp-3.jpg"
+                                                    alt=""></a>
+                                        </div>
+                                        <div class="info-img">
+                                            <a href="blog-details.html">
+                                                <h6>Luxury Family Home</h6>
+                                            </a>
+                                            <p>$150,000</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-boxed popular mt-5 mb-0">
+                            <div class="widget-boxed-header">
+                                <h4 id="popular-tags">Popular Tags</h4>
+                            </div>
+                            <div class="widget-boxed-body">
+                                <div class="recent-post d-flex flex-wrap justify-content-evenly" id="popular-tags">
+                                    <!-- <div class="tags"> -->
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Houses">Houses</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Real-Home">Real Home</a></span>
+                                    <!-- </div> -->
+                                    <!-- <div class="tags"> -->
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Baths">Baths</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Beds">Beds</a></span>
+                                    <!-- </div> -->
+                                    <!-- <div class="tags"> -->
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Garages">Garages</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Family">Family</a></span>
+                                    <!-- </div> -->
+                                    <!-- <div class="tags"> -->
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Real-Estates">Real Estates</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Properties">Properties</a></span>
+                                    <!-- </div> -->
+                                    <!-- <div class="tags no-mb"> -->
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Location">Location</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Price">Price</a></span>
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                </aside>
+            </div>
+    </div>
+    </section>
+    <!-- END SECTION PROPERTIES LISTING -->
+
+    <!-- START FOOTER -->
+    <footer class="first-footer">
+        <div class="top-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="netabout">
+                            <a href="index.html" class="logo">
+                                <img src="images/logo-grid-view.jpg" style="width: 70px;height:70px">
+                            </a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum incidunt architecto soluta
+                                laboriosam, perspiciatis, aspernatur officiis esse.</p>
+                        </div>
+                        <div class="contactus">
+                            <ul>
+                                <li>
+                                    <div class="info">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        <p class="in-p">95 South Park Avenue, USA</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="info">
+                                        <i class="fa fa-phone" aria-hidden="true"></i>
+                                        <p class="in-p">+456 875 369 208</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="info">
+                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                        <p class="in-p ti">support@findhouses.com</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="navigation">
+                            <h3>Navigation</h3>
+                            <div class="nav-footer">
+                                <ul>
+                                    <li><a href="index.html">Home One</a></li>
+                                    <li><a href="properties-right-sidebar.html">Properties Right</a></li>
+                                    <li><a href="properties-full-list.html">Properties List</a></li>
+                                    <li><a href="properties-details.html">Property Details</a></li>
+                                    <li class="no-mgb"><a href="agents-listing-grid.html">Agents Listing</a></li>
+                                </ul>
+                                <ul class="nav-right">
+                                    <li><a href="agent-details.html">Agents Details</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="blog.html">Blog Default</a></li>
+                                    <li><a href="blog-details.html">Blog Details</a></li>
+                                    <li class="no-mgb"><a href="contact-us.html">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="widget">
+                            <h3>Twitter Feeds</h3>
+                            <div class="twitter-widget contuct">
+                                <div class="twitter-area">
+                                    <div class="single-item">
+                                        <div class="icon-holder">
+                                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h5><a href="#">@findhouses</a> all share them with me baby said inspet.
+                                            </h5>
+                                            <h4>about 5 days ago</h4>
+                                        </div>
+                                    </div>
+                                    <div class="single-item">
+                                        <div class="icon-holder">
+                                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h5><a href="#">@findhouses</a> all share them with me baby said inspet.
+                                            </h5>
+                                            <h4>about 5 days ago</h4>
+                                        </div>
+                                    </div>
+                                    <div class="single-item">
+                                        <div class="icon-holder">
+                                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h5><a href="#">@findhouses</a> all share them with me baby said inspet.
+                                            </h5>
+                                            <h4>about 5 days ago</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="newsletters">
+                            <h3>Newsletters</h3>
+                            <p>Sign Up for Our Newsletter to get Latest Updates and Offers. Subscribe to receive news in
+                                your inbox.</p>
+                        </div>
+                        <form class="bloq-email mailchimp form-inline" method="post">
+                            <label for="subscribeEmail" class="error"></label>
+                            <div class="email">
+                                <input type="email" id="subscribeEmail" name="EMAIL" placeholder="Enter Your Email">
+                                <input type="submit" value="Subscribe" style="background-color: var(--main-color);">
+                                <p class="subscription-success"></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="second-footer rec-pro py-3" style="position: relative;z-index:100000">
+            <div class="container-fluid sd-f d-flex justify-content-between align-items-center" style="gap:10px">
+                <div style="display: flex;flex-direction:column;gap:5px">
+                    <p style="margin:0 !important">2021 © Copyright - All Rights Reserved.</p>
+                    <!-- <p style="margin:0 !important">Developed by <a href="https://www.facebook.com/share/15t4Lvw7yt/" target="_blank" style="color:#fff;font-weight:bold;letter-spacing:1px">Mohamed Khaled</a></p> -->
+                </div>
+                <ul class="netsocials">
+                    <li><a href="https://www.facebook.com/hadramout.realestate?mibextid=ZbWKwL"><i
+                                class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <!-- <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> -->
+                    <li><a style="color: #fff !important;"
+                            href="https://wa.me/971585061766?text=Hi%2C%20I%20found%20your%20website%20and%20want%20to%20learn%20more%21"><i
+                                class="fa fa-whatsapp">​</i></a></li>
+                    <li><a style="color: #fff !important;" href="https://hre-group.net/ar/website/social/tiktok"><i
+                                class="fab fa-tiktok">​</i></a></li>
+                    <li><a style="color: #fff !important;"
+                            href="https://www.google.com/maps?q=%D8%AD%D8%B6%D8%B1%D9%85%D9%88%D8%AA+%D9%84%D9%84%D8%B9%D9%82%D8%A7%D8%B1%D8%A7%D8%AA+.+Hadramout+Realestate%D8%8C+%D8%A8%D9%86%D8%A7%D9%8A%D8%A9+%D8%A7%D9%84%D8%AA%D9%84%D8%A9+%D9%85%D8%AD%D9%84+%D8%B1%D9%82%D9%85+4+5+-+%D8%B4%D8%A7%D8%B1%D8%B9+%D8%A7%D9%84%D8%B4%D9%8A%D8%AE+%D8%B9%D9%85%D8%A7%D8%B1+%D8%A8%D9%86+%D8%AD%D9%85%D9%8A%D8%AF+-+%D8%A7%D9%84%D9%85%D9%88%D9%8A%D9%87%D8%A7%D8%AA+2+-+%D8%B9%D8%AC%D9%85%D8%A7%D9%86&ftid=0x3ef5f636d4cd3fa7:0x82277d5c9cd776e3&entry=gps&lucs=,94224825,94227247,94227248,94231188,47071704,47069508,94218641,94203019,47084304&g_ep=CAISEjI1LjI0LjEuNzY5MjczNTU2MBgAINeCAypRLDk0MjI0ODI1LDk0MjI3MjQ3LDk0MjI3MjQ4LDk0MjMxMTg4LDQ3MDcxNzA0LDQ3MDY5NTA4LDk0MjE4NjQxLDk0MjAzMDE5LDQ3MDg0MzA0QgJBRQ%3D%3D&skid=c36632ff-c56d-4de4-9e15-45567c6c9f0a&g_st=iw"><i
+                                class="fa fa-google-plus-square">​</i></a></li>
+                    <li><a href="https://www.instagram.com/hadramout_real_estate?igsh=OW0xc3ZzNHJldzd3"><i
+                                class="fab fa-instagram"></i></a></li>
+                    <!-- <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li> -->
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <div class="preloader">
+        <div class="image"></div>
+    </div>
+
+    <a data-scroll style="background: var(--main-color) !important;" href="#wrapper" class="go-up"><i
+            class="fa fa-angle-double-up" aria-hidden="true"></i></a>
+    <div class="social">
+        <a href="https://www.facebook.com/hadramout.realestate?mibextid=ZbWKwL" target="_blank" class="facebook">
+            <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://wa.me/971585061766?text=Hi%2C%20I%20found%20your%20website%20and%20want%20to%20learn%20more%21"
+            target="_blank" class="whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/hadramout_real_estate?igsh=OW0xc3ZzNHJldzd3" target="_blank"
+            class="instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+    <!-- END FOOTER -->
+
+    <!--register form -->
+    <div class="login-and-register-form modal">
+        <div class="main-overlay"></div>
+        <div class="main-register-holder">
+            <div class="main-register fl-wrap">
+                <div class="close-reg"><i class="fa fa-times"></i></div>
+                <h3>Welcome to <span>Find<strong>Houses</strong></span></h3>
+                <div class="soc-log fl-wrap">
+                    <p>Login</p>
+                    <a href="#" class="facebook-log"><i class="fa fa-facebook-official"></i>Log in with Facebook</a>
+                    <a href="#" class="twitter-log"><i class="fa fa-twitter"></i> Log in with Twitter</a>
+                </div>
+                <div class="log-separator fl-wrap"><span>Or</span></div>
+                <div id="tabs-container">
+                    <ul class="tabs-menu">
+                        <li class="current"><a href="#tab-1">Login</a></li>
+                        <li><a href="#tab-2">Register</a></li>
+                    </ul>
+                    <div class="tab">
+                        <div id="tab-1" class="tab-contents">
+                            <div class="custom-form">
+                                <form method="post" name="registerform">
+                                    <label>Username or Email Address * </label>
+                                    <input name="email" type="text" onClick="this.select()" value="">
+                                    <label>Password * </label>
+                                    <input name="password" type="password" onClick="this.select()" value="">
+                                    <button type="submit" class="log-submit-btn"><span>Log In</span></button>
+                                    <div class="clearfix"></div>
+                                    <div class="filter-tags">
+                                        <input id="check-a" type="checkbox" name="check">
+                                        <label for="check-a">Remember me</label>
+                                    </div>
+                                </form>
+                                <div class="lost_password">
+                                    <a href="#">Lost Your Password?</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab">
+                            <div id="tab-2" class="tab-contents">
+                                <div class="custom-form">
+                                    <form method="post" name="registerform" class="main-register-form"
+                                        id="main-register-form2">
+                                        <label>First Name * </label>
+                                        <input name="name" type="text" onClick="this.select()" value="">
+                                        <label>Second Name *</label>
+                                        <input name="name2" type="text" onClick="this.select()" value="">
+                                        <label>Email Address *</label>
+                                        <input name="email" type="text" onClick="this.select()" value="">
+                                        <label>Password *</label>
+                                        <input name="password" type="password" onClick="this.select()" value="">
+                                        <button type="submit" class="log-submit-btn"><span>Register</span></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--register form end -->
+
+    <!-- ARCHIVES JS -->
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/rangeSlider.js"></script>
+    <script src="js/tether.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/mmenu.min.js"></script>
+    <script src="js/mmenu.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/aos2.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/slick4.js"></script>
+    <script src="js/smooth-scroll.min.js"></script>
+    <script src="js/lightcase.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/light.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/popup.js"></script>
+    <script src="js/searched.js"></script>
+    <script src="js/ajaxchimp.min.js"></script>
+    <script src="js/newsletter.js"></script>
+    <script src="js/inner.js"></script>
+    <script src="js/color-switcher.js"></script>
+
+    </div>
+    <!-- Wrapper / End -->
+
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.js"></script>
+
+    <script>
+        const sortCol = document.querySelector("#sort-col");
+        const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
+        const a = document.querySelector("#lang > a");
+        let page = 1;
+        async function getFeatureProperties() {
+            const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
+            const featureProperties = document.querySelector(".slick-lancers");
+            const recentProperties = document.querySelector("#recent-properties .recent-post");
+            const response = await fetch(`https://hre-group.net/api/property/recent?lang=${localStorage.getItem("lang") ? (localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") : "en_001"}`);
+            const data = await response.json();
+            const slickContainer = document.querySelector('.slick-lancers');
+            if ($(slickContainer).hasClass('slick-initialized')) {
+                $(slickContainer).slick('unslick');
+            }
+            featureProperties.innerHTML = "";
+            recentProperties.innerHTML = "";
+            for (let i = 0; i < data.length; i++) {
+                let state;
+                let area;
+                let bedrooms;
+                let bathroom;
+                if(language === "Ar") {
+                    state = `<span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">${data[i].state === "sale" ? "للبيع" : "للإيجار"}</span>`;
+                    area = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">مساحة <span>${data[i].area} sq ft</span></li>`;
+                    bedrooms = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">غرفة <span>${data[i].bedrooms}</span></li>`
+                    bathroom = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">حمام <span>${data[i].bathroom}</span></li>`;
+                }else {
+                    state = `<span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">For ${data[i].state === "sale" ? "Sale" : "Rent"}</span>`;
+                    area = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Area <span>${data[i].area} sq ft</span></li>`;
+                    bedrooms = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Rooms <span>${data[i].bedrooms}</span></li>`
+                    bathroom = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Baths <span>${data[i].bathroom}</span></li>`;
+                }
+                featureProperties.innerHTML += `
+                    <div class="agents-grid mr-0">
+                        <div class="listing-item compact">
+                            <a href="single-property-1.html?id=${data[i].id}" class="listing-img-container">
+                                
+                                <div class="listing-badges" style="padding-top:10px">
+                                    <span class="featured" style="width:fit-content;top:0 !important;background:var(--main-color)">AED ${data[i].price}</span>
+                                    ${state}
+                                </div>
+                                <div class="listing-img-content">
+                                    <span class="listing-compact-title">${data[i].name}</span>
+                                    <ul class="listing-hidden-content" style="display:flex;justify-content:space-between;align-items:center;background:var(--main-color);padding-inline:10px">
+                                        ${area}
+                                        ${bedrooms}
+                                        <!-- <li>Beds <span>2</span></li> -->
+                                        ${bathroom}
+                                    </ul>
+                                </div>
+                                <img src="https://hre-group.net${data[i].image_url}" alt="" style="max-height:250px;height:250px">
+                            </a>
+                        </div>
+                    </div>
+                `
+            }
+            for(let i = 0; i< 3 ;i++){ 
+                recentProperties.innerHTML += `
+                    <div class="recent-main ${ i % 2 && i !== data.length - 1 ? "my-2" : ""}" style="display:flex;gap:10px;align-items:center">
+                        <div class="recent-img">
+                            <a href="single-property-1.html?id=${data[i].id}"><img src="https://hre-group.net${data[i].image_url}"alt="" style="min-width:90px;min-height:90px;margin:0"></a>
+                        </div>
+                        <div class="info-img" style="display:flex;flex-direction:column;gap:5px">
+                            <a href="single-property-1.html?id=${data[i].id}" style="margin:0">
+                                <h6 style="margin:0">${data[i].name}</h6>
+                            </a>
+                            <p style="margin:0;color:var(--main-color) !important">AED ${data[i].price}</p>
+                        </div>
+                    </div>
+                `
+            }
+            $(slickContainer).slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 1500,
+                dots: true,
+                arrows: true,
+            });
+        }
+        
+
+
+
+
+
+
+
+        function pagination(action) {
+            if(action === "increase") {
+                page++;
+            }else {
+                page--;
+            }
+            getData();
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        async function getData() {
+            const countSearchData = document.getElementById("count");
+            let blogPots = document.querySelector(".blog-pots");
+            blogPots.innerHTML = "";
+            const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
+            let numOfPages;
+            
+            const urlParams = new URLSearchParams(window.location.search);
+
+            const bodyData = { };
+            for (const [key, value] of urlParams.entries()) {
+                bodyData[key] = value;
+            }
+            const searchResponse = await fetch(`https://hre-group.net/api/property/search?lang=${localStorage.getItem("lang") ? (localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") : "en_001"}&page=${page}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(bodyData),
+            });
+
+            const searchData = await searchResponse.json();
+            
+
+            if(language === "Ar") {
+                countSearchData.innerHTML = `<span style="order:1">${searchData.count % searchData.limit ? searchData.count % searchData.limit : searchData.limit}</span>نتائج  بحث`;
+            }else {
+                countSearchData.innerHTML = `${searchData.count % searchData.limit ? searchData.count % searchData.limit : searchData.limit} Search results`;
+            }
+
+            numOfPages = Math.ceil(searchData.count / searchData.limit);
+
+            const results = searchData.results;
+            const itemsPerRow = 2;
+            const totalRows = Math.ceil(results.length / 2);
+
+            for (let i = 0; i < totalRows; i++) {
+                let html = "";
+
+                for (let j = 0; j < itemsPerRow; j++) {
+                    const INDEX = i * itemsPerRow + j;
+                    if (!results[INDEX]) break;
+                    const item = results[INDEX];
+                    let featuredTag;
+                    let itemState;
+                    let bedrooms;
+                    let bathrooms;
+                    let parking;
+                    let broker;
+                    if(language === "Ar") {
+                        featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">مميز</div>` : "";
+                        itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.state}">${item.state === "sale" ? "للبيع" : "للإيجار"}</div>`;
+                        bedrooms = `<li><i class="flaticon-bed mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bedrooms}</span> غرف النوم</span></li>`
+                        bathrooms = `<li><i class="flaticon-bathtub mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bathroom}</span> حمام</span></li>`;
+                        parking = `<li><i class="flaticon-car mr-2"></i><span style="display:flex;align-items:center;gap:4px"> <span style="order:1">${item.parking}</span> موقف سيارات</span></li>`;
+                        broker = `<p style="margin-bottom:5px">المؤجر: ${item.broker}</p>`;
+                    }else {
+                        featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">Featured</div>` : "";
+                        itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.state}">For ${item.state}</div>`;
+                        bedrooms = `<li><i class="flaticon-bed mr-2"></i><span>${item.bedrooms} Bedrooms</span></li>`;
+                        bathrooms = `<li><i class="flaticon-bathtub mr-2"></i><span>${item.bathroom} Bathrooms</span></li>`
+                        parking = `<li><i class="flaticon-car mr-2"></i><span>${item.parking} Garages</span></li>`;
+                        broker = `<p style="margin-bottom:5px">Broker: ${item.broker}</p>`;
+                    }
+                    
+                    html += `
+                        <div class="item col-lg-6 col-md-6 col-xs-12 ${item.state}">
+                            <div class="project-single" data-aos="fade-up">
+                                <div class="project-inner project-head">
+                                    <div class="homes">
+                                            ${featuredTag}
+                                            ${itemState}
+                                            <div class="homes-price">AED ${item.price} ${item.state === "sale" ? "":"/mo"}</div>
+                                            <img src="https://hre-group.net${item.image_url}" alt="home-1" class="img-responsive">
+                                    </div>
+                                    <div class="button-effect">
+                                        <!-- <a href="#" class="btn"><i class="fa fa-link"></i></a> -->
+                                        <a href="single-property-1.html?id=${item.id}#video" class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
+                                        <a href="single-property-1.html?id=${item.id}#gallery-header" class="img-poppu btn"><i class="fa fa-photo"></i></a>
+                                    </div>
+                                </div>
+                                <div class="homes-content">
+                                        <h3><a href="single-property-1.html?id=${item.id}">${item.name}</a></h3>
+                                        <p class="homes-address mb-2">
+                                            <a href="single-property-1.html">
+                                                <i class="fa fa-map-marker"></i><span>${item.location}</span>
+                                            </a>
+                                        </p>
+                                        ${broker}
+                                        <ul class="homes-list clearfix pb-3">
+                                            ${bedrooms}
+                                            ${bathrooms}
+                                            <li><i class="flaticon-square mr-2"></i><span>${item.area} sq ft</span></li>
+                                            ${parking} 
+                                        </ul>
+                                    <div class="footer">
+                                        <a href="#">
+                                            <img src="images/testimonials/ts-1.jpg" alt="" class="mr-2"> Lisa Jhonson
+                                        </a>
+                                        <span style="margin:0">2 months ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+                }
+                blogPots.innerHTML += `<div class="row search-data">${html}</div>`;
+            }
+            let next, prev;
+            if(language === "Ar") {
+                next = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#">التالى</a>`;
+                prev = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#" tabindex="-1">السابق</a>`;
+            }else {
+                next = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#">Next</a>`;
+                prev = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#" tabindex="-1">Previous</a>`;
+            }
+            blogPots.innerHTML += `
+                <div class="row search-data" style="padding:0 15px">
+                    <nav aria-label="..." class="agents" style="width:100%">
+                        <ul class="pagination disabled" style="display:flex;justify-content:space-between;align-items:center">
+                            <li class="page-item" style="width:fit-content !important;${ page === 1 ? "opacity:.4;pointer-events:none" : ""}" onclick="pagination('decrease')">
+                                ${prev}
+                            </li>
+                            <!-- <li class="page-item active">
+                                <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li> -->
+                            <li style="width:fit-content !important">${language === "Ar" ? `الصفحة ${page} / ${numOfPages}` : `Page ${page} / ${numOfPages}`}</li>
+                            <li class="page-item" style="width:fit-content !important;${numOfPages == page ? "opacity:.4;pointer-events:none" : ""}" onclick="pagination('increase')">
+                                ${next}
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            `
+        }
+        async function handleLanguage() {
+            const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
+            
+
+
+            if(language === "Ar") {
+
+                const home = document.getElementById("Home"); 
+            const listing = document.getElementById("Listing");
+            const listingGrid = document.getElementById("Listing-Grid");
+            const gridView = document.getElementById("Grid-View");
+            const gridFullwidth = document.getElementById("Grid-Fullwidth");
+            const contact = document.getElementById("Contact"); 
+            const login = document.getElementById("Login"); 
+            const register = document.getElementById("Register"); 
+            const signIn = document.getElementById("Sign-In"); 
+            const changeLanguage = document.getElementById("Change-Language"); 
+            const logOut = document.getElementById("Log-Out"); 
+            const editProfile = document.getElementById("Edit-Profile");
+            
+            const input_search = document.getElementById("input-search"); 
+            const property_type = document.querySelector("#property-type span.current");
+            const Location = document.querySelector("#location span.current")
+            const search_btn = document.getElementById("search-data");
+            const property_status = document.getElementById("Property-Status");
+            const for_sale = document.getElementById("for_sale");
+            const for_rent = document.getElementById("for_rent");
+            const Bedrooms = document.getElementById("Bedrooms");
+            const Bathrooms = document.getElementById("Bathrooms");
+            const area_size = document.getElementById("area_size");
+            const price_range = document.getElementById("price_range"); 
+            
+            const labelAirConditioning = document.getElementById("label-air-conditioning");
+            const labelSwimmingPool = document.getElementById("label-swimming-pool");
+            const labelCentralHeating = document.getElementById("label-central-heating");
+            const labelLaundryRoom = document.getElementById("label-laundry-room");
+            const labelGym = document.getElementById("label-gym");
+            const labelAlarm = document.getElementById("label-alarm");
+            const labelWindowCovering = document.getElementById("label-window-covering");
+            const labelGarden = document.getElementById("label-garden");
+            const labelBBQArea = document.getElementById("label-bbq-area");
+            const labelWiFi = document.getElementById("label-wifi");
+            const labelTVCable = document.getElementById("label-tv-cable");
+            const labelDryer = document.getElementById("label-dryer");
+            const labelMicrowave = document.getElementById("label-microwave");
+            const labelWasher = document.getElementById("label-washer");
+            const labelRefrigerator = document.getElementById("label-refrigerator");
+            const labelOutdoorShower = document.getElementById("label-outdoor-shower");
+            const advanced_features = document.getElementById("advanced-features");
+
+            const Price = document.getElementById("Price");
+            const location = document.getElementById("Location");
+            const Properties = document.getElementById("Properties");
+            const Real_Estates = document.getElementById("Real-Estates");
+            const Family = document.getElementById("Family");
+            const Garages = document.getElementById("Garages");
+            const Beds = document.getElementById("Beds");
+            const Baths = document.getElementById("Baths");
+            const Real_Home = document.getElementById("Real-Home");
+            const Houses = document.getElementById("Houses");
+
+            const h4 = document.querySelector(".widget-boxed-header #main-header");
+            const H4 = document.querySelector(".widget-boxed-header #main-Header");
+            const recent_properties_header = document.getElementById("recent-properties-header");
+            const popular_tags = document.getElementById("popular-tags");
+
+            const Home = document.getElementById("home");
+            const listings = document.getElementById("listings");
+
+            const grid_view = document.querySelector(".main-head");
+            const sort_by = document.getElementById("sort-by");
+
+            const top_selling = document.querySelector(".nice-select .option.selected");
+            const TopSelling = document.querySelector(".inner-pages .input-group-lg > .form-control .current");
+
+            const most_viewed = document.querySelector(".nice-select .option:nth-of-type(2)");
+            const price_htl = document.querySelector(".nice-select .option:nth-of-type(3)");
+            const price_lth = document.querySelector(".nice-select .option:nth-of-type(4)"); 
+
+
+
+
+
+                document.body.classList.add("arabic");
+                home.textContent = "الصفحة الرئيسية";
+                listing.textContent = "قائمة العقارات";
+                listingGrid.textContent = "عرض العقارات";
+                gridView.textContent = "عرض بالقائمة";
+                gridFullwidth.textContent = "عرض الشبكة الكامل";
+                contact.textContent = "التواصل";
+                login.textContent = "تسجيل الدخول";
+                register.textContent = "تسجيل";
+                signIn.textContent = "تسجيل الدخول";
+                changeLanguage.textContent = "تغيير اللغة";
+                logOut.textContent = "تسجيل الخروج";
+                editProfile.textContent = "تعديل الملف الشخصى";
+                
+                input_search.placeholder = "...أدخل كلمة البحث";
+                property_type.textContent = "نوع العقار";
+                Location.textContent = "الموقع";
+                search_btn.textContent = "ابحث";
+                property_status.innerHTML = `<i class="fa fa-home"></i>حالة العقار`;
+                for_sale.textContent = "للبيع";
+                for_rent.textContent = "للإيجار";
+                Bedrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>غرف النوم`;
+                Bathrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>عدد الحمّامات`;
+                area_size.textContent = "مساحة العقار";
+                price_range.textContent = "نطاق السعر"; 
+                advanced_features.setAttribute("data-open-title", "الميزات المتقدمة");
+
+
+                labelAirConditioning.textContent = "التكييف";
+                labelSwimmingPool.textContent = "حمام السباحة";
+                labelCentralHeating.textContent = "التدفئة المركزية";
+                labelLaundryRoom.textContent = "غرفة الغسيل";
+                labelGym.textContent = "صالة رياضية";
+                labelAlarm.textContent = "نظام إنذار";
+                labelWindowCovering.textContent = "ستائر النوافذ";
+                labelGarden.textContent = "حديقة";
+                labelBBQArea.textContent = "منطقة شواء";
+                labelWiFi.textContent = "الواي فاي";
+                labelTVCable.textContent = "كابل التلفزيون";
+                labelDryer.textContent = "النشافة";
+                labelMicrowave.textContent = "الميكروويف";
+                labelWasher.textContent = "الغسالة";
+                labelRefrigerator.textContent = "الثلاجة";
+                labelOutdoorShower.textContent = "دُش خارجي";
+
+                Houses.textContent = "المنازل";
+                Real_Home.textContent = "المنزل الحقيقي";
+                Baths.textContent = "الحمامات";
+                Beds.textContent = "غرف النوم";
+                Garages.textContent = "الكراجات";
+                Family.textContent = "عائلة";
+                Real_Estates.textContent = "عقارات";
+                Properties.textContent = "العقارات";
+                location.textContent = "الموقع";
+                Price.textContent = "السعر";
+
+                h4.textContent = "ابحث عن منزلك";
+                H4.textContent = "العقارات المميزة";
+                recent_properties_header.textContent = "العقارات الحديثة";
+                popular_tags.textContent = "الكلمات الشائعة";
+
+                Home.textContent = "الصفحة الرئيسية";
+                listings.textContent = "قائمة العقارات";
+
+                grid_view.textContent = "عرض بالشبكة";
+                sort_by.innerHTML = `<i class="fas fa-align-left fs-16 pr-2"></i>ترتيب حسب:`;
+                top_selling.textContent = "الأكثر مبيعًا";
+                TopSelling.textContent = "الأكثر مبيعًا";
+
+                most_viewed.textContent = "الأكثر مشاهدة";
+                price_htl.textContent = "السعر من الأعلى إلى الأدنى";
+                price_lth.textContent = "السعر من الأدنى إلى الأعلى"; 
+            }
+        }
+        async function handleAllFunctions() {
+            await handleLanguage();
+            await getData();
+            await getFeatureProperties();
+            document.querySelector(".preloader").style.display = "none";
+        }
+        document.addEventListener("DOMContentLoaded", handleAllFunctions);
+        
+        
+        async function handleSearch(cl) {
+            const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
+            const searchBtn = document.getElementById("search-data");
+            const checkBoxs = document.querySelectorAll(".checkboxes input[type='checkbox']");
+            const locationList = document.querySelector("#location ul");
+            const propertyTypeList = document.querySelector("#property-type ul");
+            const propertyStatusList = document.querySelector("#property-status ul");
+            const bedroomsList = document.querySelector("#bedrooms ul");
+            const bathroomsList = document.querySelector("#bathrooms ul");
+            let blogPots = document.querySelector(".blog-pots");
+            const countSearchData = document.getElementById("count");
+            let numOfPages;
+
+            locationList.innerHTML = "";
+            propertyTypeList.innerHTML = "";
+
+            const response = await fetch(`https://hre-group.net/api/search?lang=${localStorage.getItem("lang") ? (localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") : "en_001"}`);
+            const data = await response.json();
+
+            data.locations.forEach((location, i) => {
+                locationList.innerHTML += `<li data-value="${location.id}" class="option ${i === 0 ? "selected" : ""}">${location.name}</li>`;
+            });
+
+            data.property_main_types.forEach((type, i) => {
+                propertyTypeList.innerHTML += `<li data-value="${type.id}" class="option ${i === 0 ? "selected" : ""}">${type.name}</li>`;
+            });
+
+            const areaSlider = document.getElementById("area-slider");
+            if (areaSlider.noUiSlider) areaSlider.noUiSlider.destroy();
+
+            noUiSlider.create(areaSlider, {
+                start: [0, data.advanced_filters.max_area_size],
+                connect: true,
+                range: { min: 0, max: data.advanced_filters.max_area_size },
+                step: 1,
+                format: {
+                    to: value => Math.round(value),
+                    from: value => parseInt(value),
+                },
+            });
+
+            areaSlider.noUiSlider.on("update", (values) => {
+                document.getElementById("area-min").innerText = values[0] + " sq ft";
+                document.getElementById("area-max").innerText = values[1] + " sq ft";
+            });
+
+            const priceSlider = document.getElementById("price-slider");
+            if (priceSlider.noUiSlider) priceSlider.noUiSlider.destroy();
+
+            noUiSlider.create(priceSlider, {
+                start: [0, data.advanced_filters.max_price],
+                connect: true,
+                range: { min: 0, max: data.advanced_filters.max_price },
+                step: 1,
+                format: {
+                    to: value => Math.round(value),
+                    from: value => parseInt(value),
+                },
+            });
+
+            priceSlider.noUiSlider.on("update", (values) => {
+                document.getElementById("price-min").innerText = "AED " + values[0];
+                document.getElementById("price-max").innerText = "AED " + values[1];
+            });
+
+            searchBtn.onclick = async function (e) {
+                // document.querySelector(".preloader").style.display = "flex";
+                e.preventDefault();
+                blogPots.innerHTML = `<div class="loader"></div>`;
+
+                const getSelectedValue = (ul) => {
+                    const selected = ul.querySelector(".selected");
+                    return selected ? selected.getAttribute("data-value") : null;
+                };
+
+                const selectedFeatures = {};
+                checkBoxs.forEach((checkbox) => {
+                    if (checkbox.checked)
+                        selectedFeatures[checkbox.name] = checkbox.checked;
+                });
+
+                const request = {
+                    keyword: document.getElementById("input-search").value,
+                    price_min: document.getElementById("price-min").innerText.replace("AED", ""),
+                    price_max: document.getElementById("price-max").innerText.replace("AED", ""),
+                    bedrooms: getSelectedValue(bedroomsList),
+                    property_type_id: getSelectedValue(propertyTypeList),
+                    state_id: getSelectedValue(locationList),
+                    ...selectedFeatures,
+                    // bathrooms: getSelectedValue(bathroomsList),
+                    // property_main_type_id: getSelectedValue(propertyStatusList),
+                    // area_min:parseInt(document.getElementById("area-min").innerText),
+                    // area_max:parseInt(document.getElementById("area-max").innerText),
+                };
+
+                const searchResponse = await fetch(`https://hre-group.net/api/property/search?lang=${localStorage.getItem("lang") ? (localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") : "en_001"}`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(request),
+                });
+
+                const searchData = await searchResponse.json();
+                numOfPages = Math.ceil(searchData.count / searchData.limit);
+
+                
+
+                const results = searchData.results;
+                const itemsPerRow = 2;
+                const totalRows = Math.ceil(results.length / 2);
+                let temp = "";
+
+                for (let i = 0; i < totalRows; i++) {
+                    let html = "";
+
+                    for (let j = 0; j < itemsPerRow; j++) {
+                        const INDEX = i * itemsPerRow + j;
+                        if (!results[INDEX]) break;
+                        const item = results[INDEX];
+                        let featuredTag;
+                        let itemState;
+                        let bedrooms;
+                        let bathrooms;
+                        let parking;
+                        let broker;
+                        if(language === "Ar") {
+                            featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">مميز</div>` : "";
+                            itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.state}">${item.state === "sale" ? "للبيع" : "للإيجار"}</div>`;
+                            bedrooms = `<li><i class="flaticon-bed mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bedrooms}</span> غرف النوم</span></li>`
+                            bathrooms = `<li><i class="flaticon-bathtub mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bathroom}</span> حمام</span></li>`;
+                            parking = `<li><i class="flaticon-car mr-2"></i><span style="display:flex;align-items:center;gap:4px"> <span style="order:1">${item.parking}</span> موقف سيارات</span></li>`;
+                            broker = `<p style="margin-bottom:5px">المؤجر: ${item.broker}</p>`;
+                        }else {
+                            featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">Featured</div>` : "";
+                            itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.state}">For ${item.state}</div>`;
+                            bedrooms = `<li><i class="flaticon-bed mr-2"></i><span>${item.bedrooms} Bedrooms</span></li>`;
+                            bathrooms = `<li><i class="flaticon-bathtub mr-2"></i><span>${item.bathroom} Bathrooms</span></li>`
+                            parking = `<li><i class="flaticon-car mr-2"></i><span>${item.parking} Garages</span></li>`;
+                            broker = `<p style="margin-bottom:5px">Broker: ${item.broker}</p>`;
+                        }
+                        html += `
+                        <div class="item col-lg-6 col-md-6 col-xs-12 ${item.state}">
+                            <div class="project-single" data-aos="fade-up">
+                                <div class="project-inner project-head">
+                                    <div class="homes">
+                                            ${featuredTag}
+                                            ${itemState}
+                                            <div class="homes-price">AED ${item.price}/${item.state === "sale" ? "" : "/mo"}</div>
+                                            <img src="https://hre-group.net${item.image_url}" alt="home-1" class="img-responsive">
+                                    </div>
+                                    <div class="button-effect">
+                                        <!-- <a href="#" class="btn"><i class="fa fa-link"></i></a> -->
+                                        <a href="single-property-1.html?id=${item.id}#video" class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
+                                        <a href="single-property-1.html?id=${item.id}#gallery-header" class="img-poppu btn"><i class="fa fa-photo"></i></a>
+                                    </div>
+                                </div>
+                                <div class="homes-content">
+                                    <h3><a href="single-property-1.html?id=${item.id}">${item.name}</a></h3>
+                                    <p class="homes-address mb-3">
+                                            <i class="fa fa-map-marker"></i><span>${item.location}</span>
+                                    </p>
+                                    ${broker}
+                                    <ul class="homes-list clearfix pb-3">
+                                        ${bedrooms}
+                                        ${bathrooms}
+                                        <li><i class="flaticon-square mr-2"></i><span>${item.area} sq ft</span></li>
+                                        ${parking}
+                                    </ul>
+                                    <div class="footer">
+                                        <a href="#">
+                                            <img src="images/testimonials/ts-1.jpg" alt="" class="mr-2"> Lisa Jhonson
+                                        </a>
+                                        <span>2 months ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+                    }
+                    // blogPots.innerHTML += `<div class="row search-data">${html}</div>`;
+                    temp += `<div class="row search-data">${html}</div>`;
+                }
+                let next, prev;
+                if(language === "Ar") {
+                    next = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#">التالى</a>`;
+                    prev = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#" tabindex="-1">السابق</a>`;
+                }else {
+                    next = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#">Next</a>`;
+                    prev = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#" tabindex="-1">Previous</a>`;
+                }
+                if(language === "Ar") {
+                    countSearchData.innerHTML = `<span style="order:1">${searchData.count % searchData.limit ? searchData.count % searchData.limit : searchData.limit}</span>نتائج  بحث`;
+                }else {
+                    countSearchData.innerHTML = `${searchData.count % searchData.limit ? searchData.count % searchData.limit : searchData.limit} Search results`;
+                } 
+                blogPots.innerHTML = temp;
+                blogPots.innerHTML += `
+                    <div class="row search-data" style="padding:0 15px">
+                        <nav aria-label="..." class="agents" style="width:100%">
+                            <ul class="pagination disabled" style="display:flex;justify-content:space-between;align-items:center">
+                                <li class="page-item" style="width:fit-content !important;${ page === 1 ? "opacity:.4;pointer-events:none" : ""}" onclick="pagination('decrease')">
+                                    ${prev}
+                                </li>
+                                <!-- <li class="page-item active">
+                                    <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">5</a></li> -->
+                                <li style="width:fit-content !important">${language === "Ar" ? `الصفحة ${page} / ${numOfPages}` : `Page ${page} / ${numOfPages}`}</li>
+                                <li class="page-item" style="width:fit-content !important;${numOfPages == page ? "opacity:.4;pointer-events:none" : ""}" onclick="pagination('increase')">
+                                    ${next}
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                `
+            };
+        }
+        handleSearch();
+        
+        
+        function handleSortCol(event, e) {
+            
+            event.preventDefault();
+            e.style.cssText = "background-color: var(--main-color) !important;cursor:auto;pointer-events:none;color:white !important";
+            document.querySelector(".sorting-options #sort-row").style.cssText = "background-color: var(--main-color);color:white !important;opacity:.4";
+            if(language === "Ar") {
+                document.querySelector(".main-head").innerHTML = "عرض بالقائمة";
+            }else {
+                document.querySelector(".main-head").innerHTML = "List View";
+            }
+            document.querySelector(".blog-pots").classList.remove("sort-row");
+            document.querySelector(".blog-pots").classList.add("sort-col");
+        }
+        function handleSortRow(event, e) {
+            event.preventDefault();
+            e.style.cssText = "background-color: var(--main-color) !important;cursor:auto;pointer-events:none;color:white !important";
+            document.querySelector(".sorting-options #sort-col").style.cssText = "background-color: var(--main-color);color:white !important;opacity:.4";
+            if(language === "Ar") {
+                document.querySelector(".main-head").innerHTML = "عرض بالشبكة";
+            }else {
+                document.querySelector(".main-head").innerHTML = "Grid View";
+            }
+            document.querySelector(".blog-pots").classList.add("sort-row");
+            document.querySelector(".blog-pots").classList.remove("sort-col");
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            const lang = localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001";
+            if (lang === "ar_001") {
+                document.querySelectorAll(".lang-tooltip").forEach(e => {
+                    e.children[1].setAttribute("style", "display: none; !important");
+                })
+                document.getElementById("current-lang").innerHTML = "العربية"
+            } else {
+                document.querySelectorAll(".lang-tooltip").forEach(e => {
+                    e.children[0].setAttribute("style", "display: none; !important");
+                })
+            }
+        })
+        a.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            document.querySelector("#lang > a + ul").classList.toggle("active");
+        });
+        function handleClick(lang) {
+            localStorage.setItem("lang", lang);
+            location.reload();
+        }
+        function handleAddImg() {
+            const ele = document.querySelector(".mm-navbar");
+            ele.querySelector("a.mm-title").textContent = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "Menu" : "القائمة") : "Menu";
+            if (!ele.querySelector("img")) {
+                ele.innerHTML += `<a href="index.html"><img style="width:40px;height:40px;" src="images/logo-grid-view.jpg" data-sticky-logo="images/logo-grid-view.jpg" alt=""></a>`;
+                ele.style.cssText = "display:flex; justify-content:space-between;align-items:center;padding:20px";
+            }
+        } 
+    </script>
+    
+</body>
+
+</html>
