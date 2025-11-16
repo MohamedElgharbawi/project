@@ -383,3 +383,38 @@ article {
 .lang-tooltip {
     margin-top: -10px !important;
 }
+
+.cloned.sticky {
+    display: none !important;
+}
+
+#header,
+#header-container {
+    position: sticky !important;
+    top: 0;
+}
+
+#header {
+    background-color: var(--main-color);
+}
+
+#header #responsive a {
+    color: white !important ;
+}
+
+#header-container {
+    height: 101px
+}
+
+#logo img {
+    border: 1px solid #ddd
+}
+
+#navigation #responsive li {
+    border: 1px solid white !important;
+}
+
+.fa-caret-down:before, 
+.show-lang {
+    color: white !important;
+}
