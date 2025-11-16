@@ -282,10 +282,37 @@
             background: var(--main-color) !important;
         }
         
-        .go-up {
+        .scroll-to-top-btn {
+            position: fixed !important;
+            bottom: 30px !important;
+            right: 30px !important;
+            width: 50px !important;
+            height: 50px !important;
             background-color: var(--main-color) !important;
-            color:white;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white !important;
+            border: none !important;
+            border-radius: 50% !important;
+            cursor: pointer !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            align-items: center !important;
+            justify-content: center !important;
+            z-index: 999999 !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+            transition: all 0.3s ease !important;
+            font-size: 20px !important;
+            display: flex !important;
+        }
+
+        .scroll-to-top-btn:hover {
+            background-color: var(--main-color) !important;
+            transform: translateY(-5px) !important;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        .scroll-to-top-btn.show {
+            opacity: 1 !important;
+            visibility: visible !important;
         }
 
         .fa-tiktok {
@@ -1761,8 +1788,9 @@
         </div>
     </footer>
 
-        <a data-scroll style="background: var(--main-color) !important;z-index:99999999 !important" href="#wrapper"
-            class="go-up"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a>
+        <button id="scrollToTop" class="scroll-to-top-btn" title="Back to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
 
         <div class="preloader">
             <div class="image"></div>
@@ -2362,6 +2390,30 @@
                 document.querySelector(".preloader").style.display = "none";
             }
             document.addEventListener("DOMContentLoaded", handleAllFunctions);
+        </script>
+
+        <script>
+            // Scroll to top button
+            (function() {
+                const scrollBtn = document.getElementById('scrollToTop');
+                
+                // Show/hide button on scroll
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        scrollBtn.classList.add('show');
+                    } else {
+                        scrollBtn.classList.remove('show');
+                    }
+                });
+                
+                // Scroll to top on click
+                scrollBtn.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            })();
         </script>
         
     </div>
