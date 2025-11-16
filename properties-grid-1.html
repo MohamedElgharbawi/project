@@ -15,7 +15,8 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i%7CMontserrat:600,800" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Lobster&display=swap"
+        rel="stylesheet">
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="font/flaticon.css">
     <link rel="stylesheet" href="css/fontawesome-all.min.css">
@@ -35,8 +36,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.css">
     <link rel="stylesheet" href="css/custom.css">
     <style>
-
-        body, 
+        body,
         body *:not(i) {
             font-family: 'Cairo', 'Tajawal', Arial, sans-serif !important;
         }
@@ -57,7 +57,7 @@
         }
 
         .hd-white .right-side.sign {
-            padding:0 !important;
+            padding: 0 !important;
         }
 
         .noUi-connect {
@@ -105,14 +105,17 @@
         #language .lang-tooltip li {
             border: none !important;
         }
+
         /* إظهار قائمة اللغة عند الضغط */
         #language .lang-tooltip {
             transition: visibility 0.2s, opacity 0.2s;
         }
+
         #language .lang-tooltip.active {
             visibility: visible !important;
             opacity: 1 !important;
         }
+
         .slick-lancers> :first-child {
             margin-left: 0 !important;
         }
@@ -151,13 +154,17 @@
         .mmenu-trigger {
             display: none !important;
         }
+
         #navigation {
             display: block !important;
         }
+
         #responsive {
             display: block !important;
         }
+
         @media(width < 1025px) {
+
             /* #logo {
                 display: none;
             } */
@@ -165,9 +172,11 @@
             .mmenu-trigger {
                 display: none !important;
             }
+
             #navigation {
                 display: block !important;
             }
+
             #responsive {
                 display: block !important;
             }
@@ -177,12 +186,15 @@
             .cloned #logo {
                 display: none;
             }
+
             .cloned .mmenu-trigger {
                 display: none !important;
             }
+
             .cloned #navigation {
                 display: block !important;
             }
+
             .cloned #responsive {
                 display: block !important;
             }
@@ -307,7 +319,7 @@
         .blog-pots ul li {
             width: 50% !important;
             display: flex;
-        
+
             align-items: center;
         }
 
@@ -316,10 +328,12 @@
             justify-content: space-between;
             align-items: center;
             gap: 10px;
+
             a {
                 img {
                     margin: 0;
                 }
+
                 display: flex;
                 align-items: center;
                 gap: 5px;
@@ -329,15 +343,19 @@
         .blog-pots.sort-col {
             .item {
                 min-width: 100% !important;
+
                 .project-single {
                     .project-inner {
                         min-width: 50% !important;
                     }
+
                     width: 100%;
                     display: flex;
+
                     .homes-content {
                         display: flex;
                         flex-direction: column;
+
                         .footer {
                             flex-grow: 1;
                         }
@@ -348,28 +366,31 @@
 
         .blog-pots.sort-col .project-single .project-inner {
             border-radius: 8px 0 0 8px !important;
-        } 
+        }
 
         @media(width < 1025px) {
             .blog-pots.sort-col .homes img {
-                height:335px !important;
+                height: 335px !important;
             }
         }
 
 
         @media(width < 768px) {
             .blog-pots.sort-col .homes img {
-                height:360px !important;
+                height: 360px !important;
             }
+
             .blog-pots.sort-col ul li span,
             .blog-pots.sort-col ul li i {
                 font-size: 12px;
             }
+
             .blog-pots.sort-col ul {
                 display: flex;
                 flex-wrap: wrap;
-                column-gap:10px;
+                column-gap: 10px;
             }
+
             .footer span {
                 font-size: 12px;
             }
@@ -379,14 +400,16 @@
             .blog-pots.sort-col .project-single {
                 display: block !important;
             }
+
             .blog-pots.sort-col .project-single .project-inner {
                 border-radius: 8px 8px 0 0 !important;
-            } 
+            }
         }
 
         .headings-2 ul li {
             background-color: #fff !important;
             width: 100% !important;
+
             &:hover {
                 background-color: var(--main-color) !important;
             }
@@ -395,6 +418,7 @@
         .item ul li {
             display: flex;
             align-items: center;
+
             i {
                 display: flex;
                 justify-content: center;
@@ -474,6 +498,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
             .image {
                 background-image: url("./images/preloader.gif");
                 position: relative;
@@ -493,8 +518,8 @@
             border-radius: 5px;
         }
 
-        #header #navigation li:hover > a {
-            color:white !important;
+        #header #navigation li:hover>a {
+            color: white !important;
             background-color: var(--main-color);
             border-radius: 5px !important;
         }
@@ -510,12 +535,17 @@
         }
 
         @keyframes spin {
-            0%   { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .mm-panels * {
-            color:white !important ;
+            color: white !important;
         }
 
         @media (width < 992px) {
@@ -523,7 +553,8 @@
                 order: -1;
                 margin-bottom: 20px;
             }
-            .recent-main  {
+
+            .recent-main {
                 flex-wrap: nowrap !important;
             }
         }
@@ -531,7 +562,6 @@
         .lang-tooltip a {
             font-family: 'Cairo', sans-serif !important;
         }
-
     </style>
 </head>
 
@@ -549,13 +579,14 @@
                     <div class="left-side">
                         <!-- Logo -->
                         <div id="logo">
-                            <a href="index.html"><img src="images/logo-grid-view.jpg" data-sticky-logo="images/logo-grid-view.jpg" alt=""></a>
+                            <a href="index.html"><img src="images/logo-grid-view.jpg"
+                                    data-sticky-logo="images/logo-grid-view.jpg" alt=""></a>
                         </div>
                         <!-- Mobile Navigation -->
                         <div class="mmenu-trigger" onclick="handleAddImg()">
                             <button class="hamburger hamburger--collapse" type="button">
                                 <span class="hamburger-box">
-							<span class="hamburger-inner"></span>
+                                    <span class="hamburger-inner"></span>
                                 </span>
                             </button>
                         </div>
@@ -572,10 +603,14 @@
                     <!-- lang-wrap-->
                     <div class="header-user-menu user-menu add d-flex" style="margin-right: 10px;" id="language">
                         <div class="lang-wrap">
-                            <div class="show-lang"><span><i class="fas fa-globe-americas"></i><strong id="current-lang">ENG</strong></span><i class="fa fa-caret-down arrlan"></i></div>
+                            <div class="show-lang"><span><i class="fas fa-globe-americas"></i><strong
+                                        id="current-lang">ENG</strong></span><i class="fa fa-caret-down arrlan"></i>
+                            </div>
                             <ul class="lang-tooltip lang-action no-list-style" style="padding: 5px !important;">
-                                <li onclick="handleClick(this.querySelector('a').dataset.lantext)"><a href="#" class="current-lan" data-lantext="En">English</a></li>
-                                <li onclick="handleClick(this.querySelector('a').dataset.lantext)"><a href="#" data-lantext="Ar">العربية</a></li>
+                                <li onclick="handleClick(this.querySelector('a').dataset.lantext)"><a href="#"
+                                        class="current-lan" data-lantext="En">English</a></li>
+                                <li onclick="handleClick(this.querySelector('a').dataset.lantext)"><a href="#"
+                                        data-lantext="Ar">العربية</a></li>
                             </ul>
                         </div>
                     </div>
@@ -595,7 +630,8 @@
                         <div class="detail-wrapper-body">
                             <div class="listing-title-bar">
                                 <div class="text-heading text-left">
-                                    <p class="pb-2" id="main-paragraph"><a href="index.html" id="home">Home </a> &nbsp;/&nbsp; <span id="listings">Listings</span>
+                                    <p class="pb-2" id="main-paragraph"><a href="index.html" id="home">Home </a>
+                                        &nbsp;/&nbsp; <span id="listings">Listings</span>
                                     </p>
                                 </div>
                                 <h3 class="main-head">Grid View</h3>
@@ -605,50 +641,52 @@
                 </section>
                 <div class="row">
                     <section class="headings-2 pt-0 col-lg-8 col-md-12" style="padding: 15px;">
-                            <div class="pro-wrapper flex justify-content-between">
+                        <div class="pro-wrapper flex justify-content-between">
 
-                                <div class="detail-wrapper-body">
-                                    <div class="listing-title-bar">
-                                        <div class="text-heading text-left">
-                                            <p class="font-weight-bold mb-0 mt-3 d-flex align-item-center" style="gap: 5px;" id="count">8 Search results</p>
-                                        </div>
+                            <div class="detail-wrapper-body">
+                                <div class="listing-title-bar">
+                                    <div class="text-heading text-left">
+                                        <p class="font-weight-bold mb-0 mt-3 d-flex align-item-center" style="gap: 5px;"
+                                            id="count">8 Search results</p>
                                     </div>
                                 </div>
-
-                                <div class="cod-pad single detail-wrapper mr-2 mt-0 d-flex justify-content-md-end align-items-center grid"
-                                    style="margin-left:0 !important">
-                                    <div class="input-group border rounded input-group-lg w-auto mr-4">
-                                        <label
-                                            class="input-group-text bg-transparent border-0 text-uppercase letter-spacing-093 pr-1 pl-3"
-                                            for="inputGroupSelect01" id="sort-by"><i class="fas fa-align-left fs-16 pr-2"></i>Sortby:</label>
-                                        <select
-                                            class="form-control border-0 bg-transparent shadow-none p-0 selectpicker sortby"
-                                            data-style="bg-transparent border-0 font-weight-600 btn-lg pl-0 pr-3"
-                                            id="inputGroupSelect01" name="sortby">
-                                            <option selected>Top Selling</option>
-                                            <option value="1">Most Viewed</option>
-                                            <option value="2">Price(low to high)</option>
-                                            <option value="3">Price(high to low)</option>
-                                        </select>
-                                    </div>
-                                    <div class="sorting-options">
-                                        <a onclick="handleSortCol(event, this)" id="sort-col" href="#"
-                                            style="background-color: var(--main-color);color:white !important;border:none;opacity:.4"
-                                            class="change-view-btn lde"><i class="fa fa-th-list"></i></a>
-                                        <a onclick="handleSortRow(event, this)" id="sort-row" href="#"
-                                            class="change-view-btn active-view-btn"
-                                            style="background-color: var(--main-color) !important;border:none;cursor:auto;pointer-events:none"><i
-                                                class="fa fa-th-large"></i></a>
-                                    </div>
-                                </div>
-
                             </div>
+
+                            <div class="cod-pad single detail-wrapper mr-2 mt-0 d-flex justify-content-md-end align-items-center grid"
+                                style="margin-left:0 !important">
+                                <div class="input-group border rounded input-group-lg w-auto mr-4">
+                                    <label
+                                        class="input-group-text bg-transparent border-0 text-uppercase letter-spacing-093 pr-1 pl-3"
+                                        for="inputGroupSelect01" id="sort-by"><i
+                                            class="fas fa-align-left fs-16 pr-2"></i>Sortby:</label>
+                                    <select
+                                        class="form-control border-0 bg-transparent shadow-none p-0 selectpicker sortby"
+                                        data-style="bg-transparent border-0 font-weight-600 btn-lg pl-0 pr-3"
+                                        id="inputGroupSelect01" name="sortby">
+                                        <option selected>Top Selling</option>
+                                        <option value="1">Most Viewed</option>
+                                        <option value="2">Price(low to high)</option>
+                                        <option value="3">Price(high to low)</option>
+                                    </select>
+                                </div>
+                                <div class="sorting-options">
+                                    <a onclick="handleSortCol(event, this)" id="sort-col" href="#"
+                                        style="background-color: var(--main-color);color:white !important;border:none;opacity:.4"
+                                        class="change-view-btn lde"><i class="fa fa-th-list"></i></a>
+                                    <a onclick="handleSortRow(event, this)" id="sort-row" href="#"
+                                        class="change-view-btn active-view-btn"
+                                        style="background-color: var(--main-color) !important;border:none;cursor:auto;pointer-events:none"><i
+                                            class="fa fa-th-large"></i></a>
+                                </div>
+                            </div>
+
+                        </div>
                     </section>
 
                     <div class="col-lg-8 col-md-12 blog-pots sort-row">
-                        
+
                     </div>
-                    
+
                     <aside class="col-lg-4 col-md-12 car">
                         <div class="widget">
                             <!-- Search Fields -->
@@ -663,15 +701,16 @@
                                         <div class="form-group looking">
                                             <div class="first-select wide">
                                                 <div class="main-search-input-item">
-                                                    <input type="text" placeholder="Enter Keyword..." value="" id="input-search"
-                                                        id="search-input" />
+                                                    <input type="text" placeholder="Enter Keyword..." value=""
+                                                        id="input-search" id="search-input" />
                                                 </div>
                                             </div>
                                         </div>
                                         <!--/ End Form Lookin for -->
                                         <!-- Form Location -->
                                         <div class="form-group location" id="location">
-                                            <div class="nice-select form-control wide" tabindex="0"><span class="current" ><i class="fa fa-map-marker"></i>Location</span>
+                                            <div class="nice-select form-control wide" tabindex="0"><span
+                                                    class="current"><i class="fa fa-map-marker"></i>Location</span>
                                                 <ul class="list">
                                                     <li data-value="1" class="option selected">New York</li>
                                                     <li data-value="2" class="option">Los Angeles</li>
@@ -702,9 +741,12 @@
                                         <!--/ End Form Categories -->
                                         <!-- Form Property Status -->
                                         <div class="form-group categories" id="property-status">
-                                            <div class="nice-select form-control wide" tabindex="0"><span class="current" id="Property-Status"><i class="fa fa-home"></i>Property Status</span>
+                                            <div class="nice-select form-control wide" tabindex="0"><span
+                                                    class="current" id="Property-Status"><i
+                                                        class="fa fa-home"></i>Property Status</span>
                                                 <ul class="list">
-                                                    <li data-value="For Sale" id="for_sale" class="option selected">For Sale</li>
+                                                    <li data-value="For Sale" id="for_sale" class="option selected">For
+                                                        Sale</li>
                                                     <li data-value="For Rent" id="for_rent" class="option">For Rent</li>
                                                 </ul>
                                             </div>
@@ -713,7 +755,8 @@
                                         <!-- Form Bedrooms -->
                                         <div class="form-group beds" id="bedrooms">
                                             <div class="nice-select form-control wide" tabindex="0"><span
-                                                    class="current" id="Bedrooms"><i class="fa fa-bed" aria-hidden="true"></i>
+                                                    class="current" id="Bedrooms"><i class="fa fa-bed"
+                                                        aria-hidden="true"></i>
                                                     Bedrooms</span>
                                                 <ul class="list">
                                                     <li data-value="1" class="option selected">1</li>
@@ -733,7 +776,8 @@
                                         <!-- Form Bathrooms -->
                                         <div class="form-group bath" id="bathrooms">
                                             <div class="nice-select form-control wide" tabindex="0"><span
-                                                    class="current" id="Bathrooms"><i class="fa fa-bath" aria-hidden="true"></i>
+                                                    class="current" id="Bathrooms"><i class="fa fa-bath"
+                                                        aria-hidden="true"></i>
                                                     Bathrooms</span>
                                                 <ul class="list">
                                                     <li data-value="1" class="option selected">1</li>
@@ -777,16 +821,19 @@
                             </div>
                             <!-- More Search Options -->
                             <a href="#" class="more-search-options-trigger margin-bottom-10 margin-top-30"
-                            id="advanced-features"    data-open-title="Advanced Features" data-close-title="Advanced Features"
-                                style="color:#33495E"></a>
+                                id="advanced-features" data-open-title="Advanced Features"
+                                data-close-title="Advanced Features" style="color:#33495E"></a>
                             <div class="more-search-options relative">
                                 <!-- Checkboxes -->
                                 <div class="checkboxes one-in-row margin-bottom-10">
 
-                                    <input data-value="air_conditioning" id="check-air-conditioning" type="checkbox" name="check">
-                                    <label for="check-air-conditioning" id="label-air-conditioning">Air Conditioning</label>
+                                    <input data-value="air_conditioning" id="check-air-conditioning" type="checkbox"
+                                        name="check">
+                                    <label for="check-air-conditioning" id="label-air-conditioning">Air
+                                        Conditioning</label>
 
-                                    <input data-value="swimming_pool" id="check-swimming-pool" type="checkbox" name="check">
+                                    <input data-value="swimming_pool" id="check-swimming-pool" type="checkbox"
+                                        name="check">
                                     <label for="check-swimming-pool" id="label-swimming-pool">Swimming Pool</label>
 
                                 </div>
@@ -987,24 +1034,34 @@
                             <div class="widget-boxed-body">
                                 <div class="recent-post d-flex flex-wrap justify-content-evenly" id="popular-tags">
                                     <!-- <div class="tags"> -->
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Houses">Houses</a></span>
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Real-Home">Real Home</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary"
+                                            id="Houses">Houses</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary"
+                                            id="Real-Home">Real Home</a></span>
                                     <!-- </div> -->
                                     <!-- <div class="tags"> -->
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Baths">Baths</a></span>
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Beds">Beds</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary"
+                                            id="Baths">Baths</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary"
+                                            id="Beds">Beds</a></span>
                                     <!-- </div> -->
                                     <!-- <div class="tags"> -->
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Garages">Garages</a></span>
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Family">Family</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary"
+                                            id="Garages">Garages</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary"
+                                            id="Family">Family</a></span>
                                     <!-- </div> -->
                                     <!-- <div class="tags"> -->
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Real-Estates">Real Estates</a></span>
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Properties">Properties</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary"
+                                            id="Real-Estates">Real Estates</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary"
+                                            id="Properties">Properties</a></span>
                                     <!-- </div> -->
                                     <!-- <div class="tags no-mb"> -->
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Location">Location</a></span>
-                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary" id="Price">Price</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary"
+                                            id="Location">Location</a></span>
+                                    <span><a style="border: none;" href="#" class="btn btn-outline-primary"
+                                            id="Price">Price</a></span>
                                     <!-- </div> -->
                                 </div>
                             </div>
@@ -1229,12 +1286,12 @@
                 let area;
                 let bedrooms;
                 let bathroom;
-                if(language === "Ar") {
+                if (language === "Ar") {
                     state = `<span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">${data[i].state === "sale" ? "للبيع" : "للإيجار"}</span>`;
                     area = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">مساحة <span>${data[i].land_area} sq ft</span></li>`;
                     bedrooms = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">غرفة <span>${data[i].bedrooms}</span></li>`
                     bathroom = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">حمام <span>${data[i].bathroom}</span></li>`;
-                }else {
+                } else {
                     state = `<span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">For ${data[i].state === "sale" ? "Sale" : "Rent"}</span>`;
                     area = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Area <span>${data[i].land_area} sq ft</span></li>`;
                     bedrooms = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Rooms <span>${data[i].bedrooms}</span></li>`
@@ -1264,9 +1321,9 @@
                     </div>
                 `
             }
-            for(let i = 0; i< 3 ;i++){ 
+            for (let i = 0; i < 3; i++) {
                 recentProperties.innerHTML += `
-                    <div class="recent-main ${ i % 2 && i !== data.length - 1 ? "my-2" : ""}" style="display:flex;gap:10px;align-items:center">
+                    <div class="recent-main ${i % 2 && i !== data.length - 1 ? "my-2" : ""}" style="display:flex;gap:10px;align-items:center">
                         <div class="recent-img">
                             <a href="single-property-1.html?id=${data[i].id}"><img src="https://hre-group.net${data[i].image_url}"alt="" style="min-width:90px;min-height:90px;margin:0"></a>
                         </div>
@@ -1288,7 +1345,7 @@
                 arrows: true,
             });
         }
-        
+
 
 
 
@@ -1297,33 +1354,33 @@
 
 
         function pagination(action) {
-            if(action === "increase") {
+            if (action === "increase") {
                 page++;
-            }else {
+            } else {
                 page--;
             }
             getData();
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
         async function getData() {
             const countSearchData = document.getElementById("count");
             let blogPots = document.querySelector(".blog-pots");
             blogPots.innerHTML = "";
             const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
             let numOfPages;
-            
+
             const urlParams = new URLSearchParams(window.location.search);
 
-            const bodyData = { };
+            const bodyData = {};
             for (const [key, value] of urlParams.entries()) {
                 bodyData[key] = value;
             }
@@ -1336,11 +1393,10 @@
             });
 
             const searchData = await searchResponse.json();
-            
 
-            if(language === "Ar") {
+            if (language === "Ar") {
                 countSearchData.innerHTML = `<span style="order:1">${searchData.count % searchData.limit ? searchData.count % searchData.limit : searchData.limit}</span>نتائج  بحث`;
-            }else {
+            } else {
                 countSearchData.innerHTML = `${searchData.count % searchData.limit ? searchData.count % searchData.limit : searchData.limit} Search results`;
             }
 
@@ -1357,21 +1413,20 @@
                     const INDEX = i * itemsPerRow + j;
                     if (!results[INDEX]) break;
                     const item = results[INDEX];
-                    console.log(item);
                     let featuredTag;
                     let itemState;
                     let bedrooms;
                     let bathrooms;
                     let parking;
                     let broker;
-                    if(language === "Ar") {
+                    if (language === "Ar") {
                         featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">مميز</div>` : "";
                         itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.property_service}">${item.property_service === "sale" ? "للبيع" : "للإيجار"}</div>`;
                         bedrooms = `<li><i class="flaticon-bed mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bedrooms}</span> غرف النوم</span></li>`
                         bathrooms = `<li><i class="flaticon-bathtub mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bathroom}</span> حمام</span></li>`;
                         parking = `<li><i class="flaticon-car mr-2"></i><span style="display:flex;align-items:center;gap:4px"> <span style="order:1">${item.parking}</span> موقف سيارات</span></li>`;
                         broker = `<p style="margin-bottom:5px">المؤجر: ${item.broker}</p>`;
-                    }else {
+                    } else {
                         featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">Featured</div>` : "";
                         itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.property_service}">For ${item.property_service}</div>`;
                         bedrooms = `<li><i class="flaticon-bed mr-2"></i><span>${item.bedrooms} Bedrooms</span></li>`;
@@ -1379,7 +1434,7 @@
                         parking = `<li><i class="flaticon-car mr-2"></i><span>${item.parking} Garages</span></li>`;
                         broker = `<p style="margin-bottom:5px">Broker: ${item.broker}</p>`;
                     }
-                    
+
                     html += `
                         <div class="item col-lg-6 col-md-6 col-xs-12 ${item.property_service}">
                             <div class="project-single" data-aos="fade-up">
@@ -1387,7 +1442,7 @@
                                     <div class="homes">
                                             ${featuredTag}
                                             ${itemState}
-                                            <div class="homes-price">AED ${item.price} ${item.property_service === "sale" ? "":"/mo"}</div>
+                                            <div class="homes-price">AED ${item.price} ${item.property_service === "sale" ? "" : "/mo"}</div>
                                             <img src="https://hre-group.net${item.image_url}" alt="home-1" class="img-responsive">
                                     </div>
                                     <div class="button-effect">
@@ -1423,10 +1478,10 @@
                 blogPots.innerHTML += `<div class="row search-data">${html}</div>`;
             }
             let next, prev;
-            if(language === "Ar") {
+            if (language === "Ar") {
                 next = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#">التالى</a>`;
                 prev = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#" tabindex="-1">السابق</a>`;
-            }else {
+            } else {
                 next = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#">Next</a>`;
                 prev = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#" tabindex="-1">Previous</a>`;
             }
@@ -1434,7 +1489,7 @@
                 <div class="row search-data" style="padding:0 15px">
                     <nav aria-label="..." class="agents" style="width:100%">
                         <ul class="pagination disabled" style="display:flex;justify-content:space-between;align-items:center">
-                            <li class="page-item" style="width:fit-content !important;${ page === 1 ? "opacity:.4;pointer-events:none" : ""}" onclick="pagination('decrease')">
+                            <li class="page-item" style="width:fit-content !important;${page === 1 ? "opacity:.4;pointer-events:none" : ""}" onclick="pagination('decrease')">
                                 ${prev}
                             </li>
                             <!-- <li class="page-item active">
@@ -1455,72 +1510,73 @@
         }
         async function handleLanguage() {
             const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
-            
 
 
-            if(language === "Ar") {
 
-                const home = document.getElementById("Home"); 
-            const gridView = document.getElementById("Grid-View");
-            
-            const input_search = document.getElementById("input-search"); 
-            const property_type = document.querySelector("#property-type span.current");
-            const Location = document.querySelector("#location span.current")
-            const search_btn = document.getElementById("search-data");
-            const property_status = document.getElementById("Property-Status");
-            const for_sale = document.getElementById("for_sale");
-            const for_rent = document.getElementById("for_rent");
-            const Bedrooms = document.getElementById("Bedrooms");
-            const Bathrooms = document.getElementById("Bathrooms");
-            const area_size = document.getElementById("area_size");
-            const price_range = document.getElementById("price_range"); 
-            
-            const labelAirConditioning = document.getElementById("label-air-conditioning");
-            const labelSwimmingPool = document.getElementById("label-swimming-pool");
-            const labelCentralHeating = document.getElementById("label-central-heating");
-            const labelLaundryRoom = document.getElementById("label-laundry-room");
-            const labelGym = document.getElementById("label-gym");
-            const labelAlarm = document.getElementById("label-alarm");
-            const labelWindowCovering = document.getElementById("label-window-covering");
-            const labelGarden = document.getElementById("label-garden");
-            const labelBBQArea = document.getElementById("label-bbq-area");
-            const labelWiFi = document.getElementById("label-wifi");
-            const labelTVCable = document.getElementById("label-tv-cable");
-            const labelDryer = document.getElementById("label-dryer");
-            const labelMicrowave = document.getElementById("label-microwave");
-            const labelWasher = document.getElementById("label-washer");
-            const labelRefrigerator = document.getElementById("label-refrigerator");
-            const labelOutdoorShower = document.getElementById("label-outdoor-shower");
-            const advanced_features = document.getElementById("advanced-features");
+            if (language === "Ar") {
 
-            const Price = document.getElementById("Price");
-            const location = document.getElementById("Location");
-            const Properties = document.getElementById("Properties");
-            const Real_Estates = document.getElementById("Real-Estates");
-            const Family = document.getElementById("Family");
-            const Garages = document.getElementById("Garages");
-            const Beds = document.getElementById("Beds");
-            const Baths = document.getElementById("Baths");
-            const Real_Home = document.getElementById("Real-Home");
-            const Houses = document.getElementById("Houses");
+                const home = document.getElementById("Home");
+                const gridView = document.getElementById("Grid-View");
 
-            const h4 = document.querySelector(".widget-boxed-header #main-header");
-            const H4 = document.querySelector(".widget-boxed-header #main-Header");
-            const recent_properties_header = document.getElementById("recent-properties-header");
-            const popular_tags = document.getElementById("popular-tags");
+                const input_search = document.getElementById("input-search");
+                const property_type = document.querySelector("#property-type span.current");
+                const Location = document.querySelector("#location span.current")
+                const search_btn = document.getElementById("search-data");
+                const property_status = document.getElementById("Property-Status");
+                const for_sale = document.getElementById("for_sale");
+                const for_rent = document.getElementById("for_rent");
+                const Bedrooms = document.getElementById("Bedrooms");
+                const Bathrooms = document.getElementById("Bathrooms");
+                const area_size = document.getElementById("area_size");
+                const price_range = document.getElementById("price_range");
 
-            const Home = document.getElementById("home");
-            const listings = document.getElementById("listings");
+                const labelAirConditioning = document.getElementById("label-air-conditioning");
+                const labelSwimmingPool = document.getElementById("label-swimming-pool");
+                /* const labelCentralHeating = document.getElementById("label-central-heating");
+                const labelLaundryRoom = document.getElementById("label-laundry-room");
+                const labelGym = document.getElementById("label-gym");
+                const labelAlarm = document.getElementById("label-alarm");
+                const labelWindowCovering = document.getElementById("label-window-covering");
+                const labelGarden = document.getElementById("label-garden");
+                const labelBBQArea = document.getElementById("label-bbq-area");
+                const labelWiFi = document.getElementById("label-wifi");
+                const labelTVCable = document.getElementById("label-tv-cable");
+                const labelDryer = document.getElementById("label-dryer");
+                const labelMicrowave = document.getElementById("label-microwave");
+                const labelWasher = document.getElementById("label-washer");
+                const labelRefrigerator = document.getElementById("label-refrigerator");
+                const labelOutdoorShower = document.getElementById("label-outdoor-shower");
+                */
+                const advanced_features = document.getElementById("advanced-features");
 
-            const grid_view = document.querySelector(".main-head");
-            const sort_by = document.getElementById("sort-by");
+                const Price = document.getElementById("Price");
+                const location = document.getElementById("Location");
+                const Properties = document.getElementById("Properties");
+                const Real_Estates = document.getElementById("Real-Estates");
+                const Family = document.getElementById("Family");
+                const Garages = document.getElementById("Garages");
+                const Beds = document.getElementById("Beds");
+                const Baths = document.getElementById("Baths");
+                const Real_Home = document.getElementById("Real-Home");
+                const Houses = document.getElementById("Houses");
 
-            const top_selling = document.querySelector(".nice-select .option.selected");
-            const TopSelling = document.querySelector(".inner-pages .input-group-lg > .form-control .current");
+                const h4 = document.querySelector(".widget-boxed-header #main-header");
+                const H4 = document.querySelector(".widget-boxed-header #main-Header");
+                const recent_properties_header = document.getElementById("recent-properties-header");
+                const popular_tags = document.getElementById("popular-tags");
 
-            const most_viewed = document.querySelector(".nice-select .option:nth-of-type(2)");
-            const price_htl = document.querySelector(".nice-select .option:nth-of-type(3)");
-            const price_lth = document.querySelector(".nice-select .option:nth-of-type(4)"); 
+                const Home = document.getElementById("home");
+                const listings = document.getElementById("listings");
+
+                const grid_view = document.querySelector(".main-head");
+                const sort_by = document.getElementById("sort-by");
+
+                const top_selling = document.querySelector(".nice-select .option.selected");
+                const TopSelling = document.querySelector(".inner-pages .input-group-lg > .form-control .current");
+
+                const most_viewed = document.querySelector(".nice-select .option:nth-of-type(2)");
+                const price_htl = document.querySelector(".nice-select .option:nth-of-type(3)");
+                const price_lth = document.querySelector(".nice-select .option:nth-of-type(4)");
 
 
 
@@ -1529,7 +1585,7 @@
                 document.body.classList.add("arabic");
                 home.textContent = "الصفحة الرئيسية";
                 gridView.textContent = "عرض بالشبكة";
-                
+
                 input_search.placeholder = "...أدخل كلمة البحث";
                 property_type.textContent = "نوع العقار";
                 Location.textContent = "الموقع";
@@ -1540,14 +1596,15 @@
                 Bedrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>غرف النوم`;
                 Bathrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>عدد الحمّامات`;
                 area_size.textContent = "مساحة العقار";
-                price_range.textContent = "نطاق السعر"; 
+                price_range.textContent = "نطاق السعر";
                 advanced_features.setAttribute("data-open-title", "الميزات المتقدمة");
 
 
                 labelAirConditioning.textContent = "التكييف";
                 labelSwimmingPool.textContent = "حمام السباحة";
+                /*
                 labelCentralHeating.textContent = "التدفئة المركزية";
-                labelLaundryRoom.textContent = "غرفة الغسيل";
+labelLaundryRoom.textContent = "غرفة الغسيل";
                 labelGym.textContent = "صالة رياضية";
                 labelAlarm.textContent = "نظام إنذار";
                 labelWindowCovering.textContent = "ستائر النوافذ";
@@ -1560,7 +1617,7 @@
                 labelWasher.textContent = "الغسالة";
                 labelRefrigerator.textContent = "الثلاجة";
                 labelOutdoorShower.textContent = "دُش خارجي";
-
+*/
                 Houses.textContent = "المنازل";
                 Real_Home.textContent = "المنزل الحقيقي";
                 Baths.textContent = "الحمامات";
@@ -1587,7 +1644,7 @@
 
                 most_viewed.textContent = "الأكثر مشاهدة";
                 price_htl.textContent = "السعر من الأعلى إلى الأدنى";
-                price_lth.textContent = "السعر من الأدنى إلى الأعلى"; 
+                price_lth.textContent = "السعر من الأدنى إلى الأعلى";
             }
         }
         async function handleAllFunctions() {
@@ -1597,8 +1654,8 @@
             document.querySelector(".preloader").style.display = "none";
         }
         document.addEventListener("DOMContentLoaded", handleAllFunctions);
-        
-        
+
+
         async function handleSearch(cl) {
             const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
             const searchBtn = document.getElementById("search-data");
@@ -1705,7 +1762,7 @@
                 const searchData = await searchResponse.json();
                 numOfPages = Math.ceil(searchData.count / searchData.limit);
 
-                
+
 
                 const results = searchData.results;
                 const itemsPerRow = 2;
@@ -1725,14 +1782,14 @@
                         let bathrooms;
                         let parking;
                         let broker;
-                        if(language === "Ar") {
+                        if (language === "Ar") {
                             featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">مميز</div>` : "";
                             itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.property_service}">${item.property_service === "sale" ? "للبيع" : "للإيجار"}</div>`;
                             bedrooms = `<li><i class="flaticon-bed mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bedrooms}</span> غرف النوم</span></li>`
                             bathrooms = `<li><i class="flaticon-bathtub mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bathroom}</span> حمام</span></li>`;
                             parking = `<li><i class="flaticon-car mr-2"></i><span style="display:flex;align-items:center;gap:4px"> <span style="order:1">${item.parking}</span> موقف سيارات</span></li>`;
                             broker = `<p style="margin-bottom:5px">المؤجر: ${item.broker}</p>`;
-                        }else {
+                        } else {
                             featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">Featured</div>` : "";
                             itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.property_service}">For ${item.property_service}</div>`;
                             bedrooms = `<li><i class="flaticon-bed mr-2"></i><span>${item.bedrooms} Bedrooms</span></li>`;
@@ -1782,24 +1839,24 @@
                     temp += `<div class="row search-data">${html}</div>`;
                 }
                 let next, prev;
-                if(language === "Ar") {
+                if (language === "Ar") {
                     next = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#">التالى</a>`;
                     prev = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#" tabindex="-1">السابق</a>`;
-                }else {
+                } else {
                     next = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#">Next</a>`;
                     prev = `<a style=";color:white !important;font-weight:bold;border-radius:5px;background:var(--main-color)" class="page-link" href="#" tabindex="-1">Previous</a>`;
                 }
-                if(language === "Ar") {
+                if (language === "Ar") {
                     countSearchData.innerHTML = `<span style="order:1">${searchData.count % searchData.limit ? searchData.count % searchData.limit : searchData.limit}</span>نتائج  بحث`;
-                }else {
+                } else {
                     countSearchData.innerHTML = `${searchData.count % searchData.limit ? searchData.count % searchData.limit : searchData.limit} Search results`;
-                } 
+                }
                 blogPots.innerHTML = temp;
                 blogPots.innerHTML += `
                     <div class="row search-data" style="padding:0 15px">
                         <nav aria-label="..." class="agents" style="width:100%">
                             <ul class="pagination disabled" style="display:flex;justify-content:space-between;align-items:center">
-                                <li class="page-item" style="width:fit-content !important;${ page === 1 ? "opacity:.4;pointer-events:none" : ""}" onclick="pagination('decrease')">
+                                <li class="page-item" style="width:fit-content !important;${page === 1 ? "opacity:.4;pointer-events:none" : ""}" onclick="pagination('decrease')">
                                     ${prev}
                                 </li>
                                 <!-- <li class="page-item active">
@@ -1820,16 +1877,16 @@
             };
         }
         handleSearch();
-        
-        
+
+
         function handleSortCol(event, e) {
-            
+
             event.preventDefault();
             e.style.cssText = "background-color: var(--main-color) !important;cursor:auto;pointer-events:none;color:white !important";
             document.querySelector(".sorting-options #sort-row").style.cssText = "background-color: var(--main-color);color:white !important;opacity:.4";
-            if(language === "Ar") {
+            if (language === "Ar") {
                 document.querySelector(".main-head").innerHTML = "عرض بالقائمة";
-            }else {
+            } else {
                 document.querySelector(".main-head").innerHTML = "List View";
             }
             document.querySelector(".blog-pots").classList.remove("sort-row");
@@ -1839,9 +1896,9 @@
             event.preventDefault();
             e.style.cssText = "background-color: var(--main-color) !important;cursor:auto;pointer-events:none;color:white !important";
             document.querySelector(".sorting-options #sort-col").style.cssText = "background-color: var(--main-color);color:white !important;opacity:.4";
-            if(language === "Ar") {
+            if (language === "Ar") {
                 document.querySelector(".main-head").innerHTML = "عرض بالشبكة";
-            }else {
+            } else {
                 document.querySelector(".main-head").innerHTML = "Grid View";
             }
             document.querySelector(".blog-pots").classList.add("sort-row");
@@ -1897,20 +1954,20 @@
 
     <script>
         // Scroll to top button
-        (function() {
+        (function () {
             const scrollBtn = document.getElementById('scrollToTop');
             if (scrollBtn) {
                 // Show/hide button on scroll
-                window.addEventListener('scroll', function() {
+                window.addEventListener('scroll', function () {
                     if (window.pageYOffset > 300) {
                         scrollBtn.classList.add('show');
                     } else {
                         scrollBtn.classList.remove('show');
                     }
                 });
-                
+
                 // Scroll to top on click
-                scrollBtn.addEventListener('click', function() {
+                scrollBtn.addEventListener('click', function () {
                     window.scrollTo({
                         top: 0,
                         behavior: 'smooth'
@@ -1919,7 +1976,7 @@
             }
         })();
     </script>
-    
+
 </body>
 
 </html>

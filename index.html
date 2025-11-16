@@ -1418,7 +1418,7 @@
 
             const labelAirConditioning = document.getElementById("label-air-conditioning");
             const labelSwimmingPool = document.getElementById("label-swimming-pool");
-            const labelCentralHeating = document.getElementById("label-central-heating");
+            /* const labelCentralHeating = document.getElementById("label-central-heating");
             const labelLaundryRoom = document.getElementById("label-laundry-room");
             const labelGym = document.getElementById("label-gym");
             const labelAlarm = document.getElementById("label-alarm");
@@ -1470,7 +1470,7 @@
             const labelStore = document.getElementById("label-store");
             const labelWasteDisposal = document.getElementById("label-waste-disposal");
             const labelMaintenance = document.getElementById("label-maintenance");
-            const labelCleaning = document.getElementById("label-cleaning");
+            const labelCleaning = document.getElementById("label-cleaning"); */
 
             if(language === "Ar") {
                 home.textContent = "الصفحة الرئيسية";
@@ -1495,7 +1495,7 @@
 
                 labelAirConditioning.textContent = "التكييف";
                 labelSwimmingPool.textContent = "حمام السباحة";
-                labelCentralHeating.textContent = "التدفئة المركزية";
+                /* labelCentralHeating.textContent = "التدفئة المركزية";
                 labelLaundryRoom.textContent = "غرفة الغسيل";
                 labelGym.textContent = "صالة رياضية";
                 labelAlarm.textContent = "نظام إنذار";
@@ -1548,7 +1548,7 @@
                 labelWasteDisposal.textContent = "التخلص من النفايات";
                 labelMaintenance.textContent = "الصيانة";
                 labelCleaning.textContent = "التنظيف";
-
+*/
             }
         }) 
 
@@ -1629,8 +1629,6 @@
                 const featuredProperties = document.getElementById("featured-properties");
                 const response = await fetch(`https://hre-group.net/api/property/recent?lang=${cl}`);
                 const data = await response.json();
-
-                console.log(data);
 
                 const loopCount = data.length;
                 let html = "";
@@ -2225,8 +2223,6 @@
                             // maxArea,
                             // bathrooms,
                         });
-
-                        console.log(Array.from(params));
 
                         window.location.href = `properties-grid-1.html?${params.toString()}`;
 
