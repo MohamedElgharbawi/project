@@ -1231,12 +1231,12 @@
                 let bathroom;
                 if(language === "Ar") {
                     state = `<span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">${data[i].state === "sale" ? "للبيع" : "للإيجار"}</span>`;
-                    area = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">مساحة <span>${data[i].area} sq ft</span></li>`;
+                    area = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">مساحة <span>${data[i].land_area} sq ft</span></li>`;
                     bedrooms = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">غرفة <span>${data[i].bedrooms}</span></li>`
                     bathroom = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">حمام <span>${data[i].bathroom}</span></li>`;
                 }else {
                     state = `<span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">For ${data[i].state === "sale" ? "Sale" : "Rent"}</span>`;
-                    area = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Area <span>${data[i].area} sq ft</span></li>`;
+                    area = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Area <span>${data[i].land_area} sq ft</span></li>`;
                     bedrooms = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Rooms <span>${data[i].bedrooms}</span></li>`
                     bathroom = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Baths <span>${data[i].bathroom}</span></li>`;
                 }
@@ -1357,6 +1357,7 @@
                     const INDEX = i * itemsPerRow + j;
                     if (!results[INDEX]) break;
                     const item = results[INDEX];
+                    console.log(item);
                     let featuredTag;
                     let itemState;
                     let bedrooms;
@@ -1365,14 +1366,14 @@
                     let broker;
                     if(language === "Ar") {
                         featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">مميز</div>` : "";
-                        itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.state}">${item.state === "sale" ? "للبيع" : "للإيجار"}</div>`;
+                        itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.property_service}">${item.property_service === "sale" ? "للبيع" : "للإيجار"}</div>`;
                         bedrooms = `<li><i class="flaticon-bed mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bedrooms}</span> غرف النوم</span></li>`
                         bathrooms = `<li><i class="flaticon-bathtub mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bathroom}</span> حمام</span></li>`;
                         parking = `<li><i class="flaticon-car mr-2"></i><span style="display:flex;align-items:center;gap:4px"> <span style="order:1">${item.parking}</span> موقف سيارات</span></li>`;
                         broker = `<p style="margin-bottom:5px">المؤجر: ${item.broker}</p>`;
                     }else {
                         featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">Featured</div>` : "";
-                        itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.state}">For ${item.state}</div>`;
+                        itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.property_service}">For ${item.property_service}</div>`;
                         bedrooms = `<li><i class="flaticon-bed mr-2"></i><span>${item.bedrooms} Bedrooms</span></li>`;
                         bathrooms = `<li><i class="flaticon-bathtub mr-2"></i><span>${item.bathroom} Bathrooms</span></li>`
                         parking = `<li><i class="flaticon-car mr-2"></i><span>${item.parking} Garages</span></li>`;
@@ -1380,13 +1381,13 @@
                     }
                     
                     html += `
-                        <div class="item col-lg-6 col-md-6 col-xs-12 ${item.state}">
+                        <div class="item col-lg-6 col-md-6 col-xs-12 ${item.property_service}">
                             <div class="project-single" data-aos="fade-up">
                                 <div class="project-inner project-head">
                                     <div class="homes">
                                             ${featuredTag}
                                             ${itemState}
-                                            <div class="homes-price">AED ${item.price} ${item.state === "sale" ? "":"/mo"}</div>
+                                            <div class="homes-price">AED ${item.price} ${item.property_service === "sale" ? "":"/mo"}</div>
                                             <img src="https://hre-group.net${item.image_url}" alt="home-1" class="img-responsive">
                                     </div>
                                     <div class="button-effect">
@@ -1406,7 +1407,7 @@
                                         <ul class="homes-list clearfix pb-3">
                                             ${bedrooms}
                                             ${bathrooms}
-                                            <li><i class="flaticon-square mr-2"></i><span>${item.area} sq ft</span></li>
+                                            <li><i class="flaticon-square mr-2"></i><span>${item.land_area} sq ft</span></li>
                                             ${parking} 
                                         </ul>
                                     <div class="footer">
@@ -1726,27 +1727,27 @@
                         let broker;
                         if(language === "Ar") {
                             featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">مميز</div>` : "";
-                            itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.state}">${item.state === "sale" ? "للبيع" : "للإيجار"}</div>`;
+                            itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.property_service}">${item.property_service === "sale" ? "للبيع" : "للإيجار"}</div>`;
                             bedrooms = `<li><i class="flaticon-bed mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bedrooms}</span> غرف النوم</span></li>`
                             bathrooms = `<li><i class="flaticon-bathtub mr-2"></i><span style="display:flex;align-items:center;gap:4px"><span style="order:1">${item.bathroom}</span> حمام</span></li>`;
                             parking = `<li><i class="flaticon-car mr-2"></i><span style="display:flex;align-items:center;gap:4px"> <span style="order:1">${item.parking}</span> موقف سيارات</span></li>`;
                             broker = `<p style="margin-bottom:5px">المؤجر: ${item.broker}</p>`;
                         }else {
                             featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">Featured</div>` : "";
-                            itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.state}">For ${item.state}</div>`;
+                            itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${item.property_service}">For ${item.property_service}</div>`;
                             bedrooms = `<li><i class="flaticon-bed mr-2"></i><span>${item.bedrooms} Bedrooms</span></li>`;
                             bathrooms = `<li><i class="flaticon-bathtub mr-2"></i><span>${item.bathroom} Bathrooms</span></li>`
                             parking = `<li><i class="flaticon-car mr-2"></i><span>${item.parking} Garages</span></li>`;
                             broker = `<p style="margin-bottom:5px">Broker: ${item.broker}</p>`;
                         }
                         html += `
-                        <div class="item col-lg-6 col-md-6 col-xs-12 ${item.state}">
+                        <div class="item col-lg-6 col-md-6 col-xs-12 ${item.property_service}">
                             <div class="project-single" data-aos="fade-up">
                                 <div class="project-inner project-head">
                                     <div class="homes">
                                             ${featuredTag}
                                             ${itemState}
-                                            <div class="homes-price">AED ${item.price}/${item.state === "sale" ? "" : "/mo"}</div>
+                                            <div class="homes-price">AED ${item.price}/${item.property_service === "sale" ? "" : "/mo"}</div>
                                             <img src="https://hre-group.net${item.image_url}" alt="home-1" class="img-responsive">
                                     </div>
                                     <div class="button-effect">
@@ -1764,7 +1765,7 @@
                                     <ul class="homes-list clearfix pb-3">
                                         ${bedrooms}
                                         ${bathrooms}
-                                        <li><i class="flaticon-square mr-2"></i><span>${item.area} sq ft</span></li>
+                                        <li><i class="flaticon-square mr-2"></i><span>${item.land_area} sq ft</span></li>
                                         ${parking}
                                     </ul>
                                     <div class="footer">

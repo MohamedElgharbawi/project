@@ -1625,6 +1625,9 @@
                 const featuredProperties = document.getElementById("featured-properties");
                 const response = await fetch(`https://hre-group.net/api/property/recent?lang=${cl}`);
                 const data = await response.json();
+
+                console.log(data);
+
                 const loopCount = data.length;
                 let html = "";
                 if(language === "Ar") {
@@ -1692,7 +1695,7 @@
                                             ${bathrooms}
                                         </li>
                                         <li class="the-icons">
-                                            <i class="flaticon-square mr-2"></i><span>${property.area} sq ft</span>
+                                            <i class="flaticon-square mr-2"></i><span>${property.land_area} sq ft</span>
                                         </li>
                                         <li class="the-icons">
                                             ${parking}
@@ -1788,7 +1791,7 @@
                                         </li>
                                         <li class="the-icons">
                                             <i class="flaticon-square mr-2"></i>
-                                            <span>${property.area} sq ft</span>
+                                            <span>${property.land_area} sq ft</span>
                                         </li>
                                         <li class="the-icons">
                                             ${parking}
