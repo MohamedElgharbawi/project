@@ -827,7 +827,7 @@
                                 <!-- Checkboxes -->
                                 <div class="checkboxes one-in-row margin-bottom-10">
 
-                                    <input data-value="air_conditioning" id="check-air-conditioning" type="checkbox"
+                                    <input data-value="central_ac" id="check-air-conditioning" type="checkbox"
                                         name="check">
                                     <label for="check-air-conditioning" id="label-air-conditioning">Air
                                         Conditioning</label>
@@ -1380,9 +1380,25 @@
 
             const urlParams = new URLSearchParams(window.location.search);
 
+            console.log(urlParams)
+
+            const integerKeys = new Set(["property_type_id","rms_state_id","area_id","bedrooms","bathrooms","state_id"]);
+            const floatKeys = new Set(["price_min","price_max","land_area_min","land_area_max","built_up_area_min","built_up_area_max"]);
+            const booleanKeys = new Set(["central_ac","swimming_pool","central_hs","gym","furnishing","balcony","internet"]);
+
             const bodyData = {};
             for (const [key, value] of urlParams.entries()) {
-                bodyData[key] = value;
+                if (integerKeys.has(key)) {
+                    const parsed = Number(value);
+                    bodyData[key] = Number.isNaN(parsed) ? 0 : parsed;
+                } else if (floatKeys.has(key)) {
+                    const parsed = parseFloat(value);
+                    bodyData[key] = Number.isNaN(parsed) ? 0 : parsed;
+                } else if (booleanKeys.has(key)) {
+                    bodyData[key] = value === "true" || value === "1";
+                } else {
+                    bodyData[key] = value;
+                }
             }
             const searchResponse = await fetch(`https://hre-group.net/api/property/search?lang=${localStorage.getItem("lang") ? (localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") : "en_001"}&page=${page}`, {
                 method: "POST",
@@ -1393,6 +1409,14 @@
             });
 
             const searchData = await searchResponse.json();
+            console.log(searchData)
+
+            const noResultsMessage = language === "Ar" ? "لا توجد عقارات مطابقة لخيارات البحث." : "No properties match your filters.";
+            if (!searchData.results || searchData.results.length === 0) {
+                countSearchData.innerHTML = language === "Ar" ? "0 نتائج بحث" : "0 Search results";
+                blogPots.innerHTML = `<div class="row search-data"><div style="width:100%;text-align:center;padding:40px 0;font-weight:bold">${noResultsMessage}</div></div>`;
+                return;
+            }
 
             if (language === "Ar") {
                 countSearchData.innerHTML = `<span style="order:1">${searchData.count % searchData.limit ? searchData.count % searchData.limit : searchData.limit}</span>نتائج  بحث`;
@@ -1731,25 +1755,65 @@ labelLaundryRoom.textContent = "غرفة الغسيل";
                     return selected ? selected.getAttribute("data-value") : null;
                 };
 
-                const selectedFeatures = {};
+                const toNumber = (value) => {
+                    const parsed = Number(value);
+                    return Number.isNaN(parsed) ? 0 : parsed;
+                };
+
+                const getSliderValues = (sliderEl) => sliderEl?.noUiSlider
+                    ? sliderEl.noUiSlider.get().map(v => {
+                        const parsed = parseFloat(v);
+                        return Number.isNaN(parsed) ? 0 : parsed;
+                    })
+                    : [0, 0];
+
+                const [landAreaMin, landAreaMax] = getSliderValues(areaSlider);
+                const [priceMinValue, priceMaxValue] = getSliderValues(priceSlider);
+
+                const propertyTypeId = toNumber(getSelectedValue(propertyTypeList));
+                const rmsStateId = toNumber(getSelectedValue(locationList));
+                const areaId = rmsStateId;
+                const bedroomsValue = toNumber(getSelectedValue(bedroomsList));
+                const bathroomsValue = toNumber(getSelectedValue(bathroomsList));
+                const propertyStatusValue = getSelectedValue(propertyStatusList);
+
+                const amenities = {
+                    central_ac: false,
+                    swimming_pool: false,
+                    central_hs: false,
+                    gym: false,
+                    furnishing: false,
+                    balcony: false,
+                    internet: false,
+                };
+
                 checkBoxs.forEach((checkbox) => {
-                    if (checkbox.checked)
-                        selectedFeatures[checkbox.name] = checkbox.checked;
+                    const key = checkbox.dataset.value;
+                    if (key && Object.prototype.hasOwnProperty.call(amenities, key)) {
+                        amenities[key] = checkbox.checked;
+                    }
                 });
 
                 const request = {
                     keyword: document.getElementById("input-search").value,
-                    price_min: document.getElementById("price-min").innerText.replace("AED", ""),
-                    price_max: document.getElementById("price-max").innerText.replace("AED", ""),
-                    bedrooms: getSelectedValue(bedroomsList),
-                    property_type_id: getSelectedValue(propertyTypeList),
-                    state_id: getSelectedValue(locationList),
-                    ...selectedFeatures,
-                    // bathrooms: getSelectedValue(bathroomsList),
-                    // property_main_type_id: getSelectedValue(propertyStatusList),
-                    // area_min:parseInt(document.getElementById("area-min").innerText),
-                    // area_max:parseInt(document.getElementById("area-max").innerText),
+                    property_type_id: propertyTypeId,
+                    rms_state_id: rmsStateId,
+                    area_id: areaId,
+                    bedrooms: bedroomsValue,
+                    bathrooms: bathroomsValue,
+                    price_min: priceMinValue,
+                    price_max: priceMaxValue,
+                    land_area_min: landAreaMin,
+                    land_area_max: landAreaMax,
+                    built_up_area_min: landAreaMin,
+                    built_up_area_max: landAreaMax,
+                    property_status: propertyStatusValue,
+                    ...amenities,
                 };
+
+                console.log(request);
+
+                request.state_id = rmsStateId;
 
                 const searchResponse = await fetch(`https://hre-group.net/api/property/search?lang=${localStorage.getItem("lang") ? (localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") : "en_001"}`, {
                     method: "POST",
@@ -1762,7 +1826,14 @@ labelLaundryRoom.textContent = "غرفة الغسيل";
                 const searchData = await searchResponse.json();
                 numOfPages = Math.ceil(searchData.count / searchData.limit);
 
+                console.log(searchData);
 
+                const noResultsMessage = language === "Ar" ? "لا توجد عقارات مطابقة لخيارات البحث." : "No properties match your filters.";
+                if (!searchData.results || searchData.results.length === 0) {
+                    countSearchData.innerHTML = language === "Ar" ? "0 نتائج بحث" : "0 Search results";
+                    blogPots.innerHTML = `<div class="row search-data"><div style="width:100%;text-align:center;padding:40px 0;font-weight:bold">${noResultsMessage}</div></div>`;
+                    return;
+                }
 
                 const results = searchData.results;
                 const itemsPerRow = 2;

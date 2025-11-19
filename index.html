@@ -810,7 +810,7 @@
                                                                     <!-- Checkboxes -->
                                                                     <div class="checkboxes one-in-row margin-bottom-10 ch-1">
 
-                                                                        <input data-value="air_conditioning" id="check-air-conditioning" type="checkbox" name="check">
+                                                                        <input data-value="central_ac" id="check-air-conditioning" type="checkbox" name="check">
                                                                         <label for="check-air-conditioning" id="label-air-conditioning">Air Conditioning</label>
 
                                                                         <input data-value="swimming_pool" id="check-swimming-pool" type="checkbox" name="check">
@@ -2172,25 +2172,29 @@
                 
                         const keyword = block.querySelector("input[type='text']")?.value || "";
                 
-                        const propertyType = block.querySelector(".property-type .list .selected").dataset.value;
-                
-                
-                        const location = block.querySelector(".location .list .selected").dataset.value;
+                        const toNumber = (val) => {
+                            const parsed = Number(val);
+                            return Number.isNaN(parsed) ? 0 : parsed;
+                        };
+                        const propertyTypeId = toNumber(block.querySelector(".property-type .list .selected")?.dataset.value);
+                        const locationSelected = block.querySelector(".location .list .selected");
+                        const rmsStateId = toNumber(locationSelected?.dataset.value);
+                        const areaId = rmsStateId;
                         
                         const areaSlider = block.querySelector(".area-slider")?.noUiSlider;
                         const priceSlider = block.querySelector(".price-slider")?.noUiSlider;
 
                         const areaValues = areaSlider && areaSlider.get()
                         ? areaSlider.get().map(v => {
-                            const n = parseInt(v);
-                            return isNaN(n) ? 0 : n;
+                            const n = parseFloat(v);
+                            return Number.isNaN(n) ? 0 : n;
                             })
                         : [0, 0];
 
                         const priceValues = priceSlider && priceSlider.get()
                         ? priceSlider.get().map(v => {
-                            const n = parseInt(v);
-                            return isNaN(n) ? 0 : n;
+                            const n = parseFloat(v);
+                            return Number.isNaN(n) ? 0 : n;
                             })
                         : [0, 0];
 
@@ -2199,30 +2203,48 @@
                 
                         const propertyStatus = document.querySelector("a.nav-link.active")?.innerText;
 
-                        const bedrooms = block.querySelector(".beds .list .selected")?.innerHTML;
-                        const bathrooms = block.querySelector(".bath .list .selected")?.innerText;
+                        const bedroomsValue = toNumber(block.querySelector(".beds .list .selected")?.dataset.value);
+                        const bathroomsValue = toNumber(block.querySelector(".bath .list .selected")?.dataset.value);
 
-                        const checkedAmenitiesNodes = block.querySelectorAll("input[type='checkbox']:checked");
+                        const amenityKeys = ["central_ac","swimming_pool","central_hs","gym","furnishing","balcony","internet"];
+                        const amenities = amenityKeys.reduce((acc, key) => {
+                            acc[key] = false;
+                            return acc;
+                        }, {});
 
-                        const checkedAmenities = {};
-
-                        checkedAmenitiesNodes.forEach(cb => {
-                                checkedAmenities[cb.dataset.value] = true;
+                        block.querySelectorAll("input[type='checkbox']").forEach(cb => {
+                                const key = cb.dataset.value;
+                                if(key && Object.prototype.hasOwnProperty.call(amenities, key)) {
+                                    amenities[key] = cb.checked;
+                                }
                         });
 
-                        const params = new URLSearchParams({
+                        const searchPayload = {
                             keyword,
-                            price_min:minPrice,
-                            price_max:maxPrice,
-                            bedrooms,
-                            property_type_id:propertyType,
-                            state_id:location,
-                            ...checkedAmenities,
-                            propertyStatus,
-                            // minArea,
-                            // maxArea,
-                            // bathrooms,
+                            property_type_id: propertyTypeId,
+                            rms_state_id: rmsStateId,
+                            area_id: areaId,
+                            bedrooms: bedroomsValue,
+                            bathrooms: bathroomsValue,
+                            price_min: minPrice,
+                            price_max: maxPrice,
+                            land_area_min: minArea,
+                            land_area_max: maxArea,
+                            built_up_area_min: minArea,
+                            built_up_area_max: maxArea,
+                            ...amenities,
+                            state_id: rmsStateId,
+                        };
+
+                        const params = new URLSearchParams();
+                        Object.entries(searchPayload).forEach(([key, value]) => {
+                            params.set(key, value ?? "");
                         });
+
+                        params.set("property_status", propertyStatus || "");
+                        if (propertyStatus) {
+                            params.set("propertyStatus", propertyStatus);
+                        }
 
                         window.location.href = `properties-grid-1.html?${params.toString()}`;
 
