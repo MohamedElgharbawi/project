@@ -1275,7 +1275,6 @@
             const recentProperties = document.querySelector("#recent-properties .recent-post");
             const response = await fetch(`https://hre-group.net/api/property/recent?lang=${localStorage.getItem("lang") ? (localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") : "en_001"}`);
             const data = await response.json();
-            console.log(data);
             const slickContainer = document.querySelector('.slick-lancers');
             if ($(slickContainer).hasClass('slick-initialized')) {
                 $(slickContainer).slick('unslick');
@@ -1828,7 +1827,6 @@ labelLaundryRoom.textContent = "غرفة الغسيل";
                         let bathrooms;
                         let parking;
                         let broker;
-                        console.log(item);
                         if (language === "Ar") {
                             
                             featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">مميز</div>` : "";

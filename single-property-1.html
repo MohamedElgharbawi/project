@@ -2145,7 +2145,6 @@
                     let bedrooms;
                     let bathroom;
                     const propertyArea = data[i].total_area || data[i].built_up_area || data[i].land_area || 0;
-                    console.log(data);
                     if(language === "ar_001") {
                         state = `<span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">${data[i].offer_type === "sale" ? "للبيع" : "للإيجار"}</span>`;
                         area = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">مساحة <span>${propertyArea} sq ft</span></li>`;

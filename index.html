@@ -1712,7 +1712,6 @@
                 const popularPlaces = document.getElementById("discover-popular-places");
                 const response = await fetch(`https://hre-group.net/api/property/featured?lang=${cl}`);
                 const data = await response.json();
-                console.log(data);
                 const propertiesHtml = data.featured_properties.map((property, i) => {
                 const delayAttr = i <= 3 ? `data-aos-delay=${(i + 1) * 100 + 50}` : "";
                 const stateClass = property.offer_type === "sale" ? "sale" : "rent";
