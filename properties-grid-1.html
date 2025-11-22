@@ -1381,24 +1381,39 @@
 
             const urlParams = new URLSearchParams(window.location.search);
 
+
             const integerKeys = new Set(["property_type_id","rms_state_id","area_id","bedrooms","bathrooms","state_id"]);
             const floatKeys = new Set(["price_min","price_max","land_area_min","land_area_max","built_up_area_min","built_up_area_max"]);
             const booleanKeys = new Set(["central_ac","swimming_pool","central_hs","gym","furnishing","balcony","internet"]);
 
             const bodyData = {};
             for (const [key, value] of urlParams.entries()) {
+
+                const v = value?.trim();
+                if (!v) {
+                    bodyData[key] = null;
+                    continue;
+                }
+
                 if (integerKeys.has(key)) {
-                    const parsed = Number(value);
-                    bodyData[key] = Number.isNaN(parsed) ? 0 : parsed;
+                    const parsed = Number(v);
+                    bodyData[key] = Number.isNaN(parsed) ? null : parsed;
+
                 } else if (floatKeys.has(key)) {
-                    const parsed = parseFloat(value);
-                    bodyData[key] = Number.isNaN(parsed) ? 0 : parsed;
+                    const parsed = parseFloat(v);
+                    bodyData[key] = Number.isNaN(parsed) ? null : parsed;
+
                 } else if (booleanKeys.has(key)) {
-                    bodyData[key] = value === "true" || value === "1";
+                    bodyData[key] = v === "true" || v === "1";
+
                 } else {
-                    bodyData[key] = value;
+                    bodyData[key] = v;
                 }
             }
+
+
+            console.log(bodyData);
+
             const searchResponse = await fetch(`https://hre-group.net/api/property/search?lang=${localStorage.getItem("lang") ? (localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") : "en_001"}&page=${page}`, {
                 method: "POST",
                 headers: {
