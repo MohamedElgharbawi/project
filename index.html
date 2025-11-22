@@ -2186,8 +2186,12 @@
                         const [minPrice, maxPrice] = priceValues;
                 
                         const propertyStatus = document.querySelector("a.nav-link.active")?.innerText;
-                        const offerType = propertyStatus?.toLowerCase().includes("rent") ? "rent" : "sale";
-
+                        
+                        const offerType =
+                            propertyStatus?.toLowerCase().includes("sale") ||
+                                propertyStatus?.includes("للبيع")
+                                ? "sale"
+                                : "rent";
                         const bedroomsValue = toNumber(block.querySelector(".beds .list .selected")?.dataset.value);
                         const bathroomsValue = toNumber(block.querySelector(".bath .list .selected")?.dataset.value);
 
@@ -2208,8 +2212,6 @@
                         Object.entries(searchPayload).forEach(([key, value]) => {
                             params.set(key, value ?? "");
                         });
-
-                        console.log(Array.from(params.entries()));
 
                         window.location.href = `properties-grid-1.html?${params.toString()}`;
 

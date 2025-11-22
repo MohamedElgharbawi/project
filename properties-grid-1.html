@@ -1414,9 +1414,6 @@
                 }
             }
 
-
-            console.log(bodyData);
-
             const searchResponse = await fetch(`https://hre-group.net/api/property/search?lang=${localStorage.getItem("lang") ? (localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") : "en_001"}&page=${page}`, {
                 method: "POST",
                 headers: {
@@ -1629,9 +1626,10 @@
                 property_type.textContent = "نوع العقار";
                 Location.textContent = "الموقع";
                 search_btn.textContent = "ابحث";
-                property_status.innerHTML = `<i class="fa fa-home"></i>حالة العقار`;
                 for_sale.textContent = "للبيع";
                 for_rent.textContent = "للإيجار";
+                // Update property status text based on selected value
+                setTimeout(updatePropertyStatusText, 100);
                 Bedrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>غرف النوم`;
                 Bathrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>عدد الحمّامات`;
                 area_size.textContent = "مساحة العقار";
@@ -1950,6 +1948,53 @@ labelLaundryRoom.textContent = "غرفة الغسيل";
         }
         handleSearch();
 
+        // Update Property Status text based on selected value
+        function updatePropertyStatusText() {
+            const propertyStatusSpan = document.getElementById("Property-Status");
+            const propertyStatusList = document.querySelector("#property-status ul");
+            const selectedOption = propertyStatusList?.querySelector(".option.selected");
+            const language = localStorage.getItem("lang") ? (localStorage.getItem("lang") === "En" ? "En" : "Ar") : "En";
+            
+            if (selectedOption && propertyStatusSpan) {
+                const value = selectedOption.getAttribute("data-value");
+                if (value === "For Sale") {
+                    propertyStatusSpan.innerHTML = language === "Ar" ? `<i class="fa fa-home"></i>للبيع` : `<i class="fa fa-home"></i>For Sale`;
+                } else if (value === "For Rent") {
+                    propertyStatusSpan.innerHTML = language === "Ar" ? `<i class="fa fa-home"></i>للإيجار` : `<i class="fa fa-home"></i>For Rent`;
+                } else {
+                    propertyStatusSpan.innerHTML = language === "Ar" ? `<i class="fa fa-home"></i>حالة العقار` : `<i class="fa fa-home"></i>Property Status`;
+                }
+            }
+        }
+
+        // Add event listener to update text when selection changes
+        document.addEventListener("DOMContentLoaded", () => {
+            // Update on initial load
+            setTimeout(updatePropertyStatusText, 500);
+            
+            // Listen for changes in property status select using MutationObserver
+            const propertyStatusList = document.querySelector("#property-status ul");
+            if (propertyStatusList) {
+                // Listen for clicks
+                propertyStatusList.addEventListener("click", (e) => {
+                    if (e.target.classList.contains("option")) {
+                        setTimeout(updatePropertyStatusText, 200);
+                    }
+                });
+                
+                // Use MutationObserver to watch for class changes
+                const observer = new MutationObserver(() => {
+                    updatePropertyStatusText();
+                });
+                
+                observer.observe(propertyStatusList, {
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                    attributeFilter: ['class']
+                });
+            }
+        });
 
         function handleSortCol(event, e) {
 
