@@ -1785,17 +1785,6 @@ labelLaundryRoom.textContent = "غرفة الغسيل";
                     return Number.isNaN(parsed) ? null : parsed;
                 };
                 
-                const getSliderValues = (sliderEl) => sliderEl?.noUiSlider
-                    ? sliderEl.noUiSlider.get().map(v => {
-                        const parsed = parseFloat(v);
-                        if (Number.isNaN(parsed) || parsed === 0) return null;
-                        return parsed;
-                    })
-                    : [null, null];
-
-                const [landAreaMin, landAreaMax] = getSliderValues(areaSlider);
-                const [priceMinValue, priceMaxValue] = getSliderValues(priceSlider);
-
                 const propertyTypeId = toNumber(getSelectedValue(propertyTypeList));
                 const rmsStateId = toNumber(getSelectedValue(locationList));
                 const bedroomsValue = toNumber(getSelectedValue(bedroomsList));
@@ -1824,10 +1813,6 @@ labelLaundryRoom.textContent = "غرفة الغسيل";
                     bathroom: toNullIfFalsy(bathroomsValue),
                     central_ac: toNullIfFalsy(centralAc),
                     swimming_pool: toNullIfFalsy(swimmingPool),
-                    land_area_min: toNullIfFalsy(landAreaMin),
-                    land_area_max: toNullIfFalsy(landAreaMax),
-                    price_min: toNullIfFalsy(priceMinValue),
-                    price_max: toNullIfFalsy(priceMaxValue),
                 };
 
                 console.log(request);
