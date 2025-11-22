@@ -760,7 +760,8 @@
                                                         aria-hidden="true"></i>
                                                     Bedrooms</span>
                                                 <ul class="list">
-                                                    <li data-value="1" class="option selected">1</li>
+                                                    <li data-value="0" class="option selected" style="display: none;">0</li>
+                                                    <li data-value="1" class="option">1</li>
                                                     <li data-value="2" class="option">2</li>
                                                     <li data-value="3" class="option">3</li>
                                                     <li data-value="3" class="option">4</li>
@@ -781,7 +782,8 @@
                                                         aria-hidden="true"></i>
                                                     Bathrooms</span>
                                                 <ul class="list">
-                                                    <li data-value="1" class="option selected">1</li>
+                                                    <li data-value="0" class="option selected" style="display: none;">0</li>
+                                                    <li data-value="1" class="option">1</li>
                                                     <li data-value="2" class="option">2</li>
                                                     <li data-value="3" class="option">3</li>
                                                     <li data-value="3" class="option">4</li>
@@ -1390,21 +1392,22 @@
             for (const [key, value] of urlParams.entries()) {
 
                 const v = value?.trim();
-                if (!v) {
+                if (!v || v === "" || v === "0") {
                     bodyData[key] = null;
                     continue;
                 }
 
                 if (integerKeys.has(key)) {
                     const parsed = Number(v);
-                    bodyData[key] = Number.isNaN(parsed) ? null : parsed;
+                    bodyData[key] = (Number.isNaN(parsed) || parsed === 0) ? null : parsed;
 
                 } else if (floatKeys.has(key)) {
                     const parsed = parseFloat(v);
-                    bodyData[key] = Number.isNaN(parsed) ? null : parsed;
+                    bodyData[key] = (Number.isNaN(parsed) || parsed === 0) ? null : parsed;
 
                 } else if (booleanKeys.has(key)) {
-                    bodyData[key] = v === "true" || v === "1";
+                    const boolValue = v === "true" || v === "1";
+                    bodyData[key] = boolValue ? true : null;
 
                 } else {
                     bodyData[key] = v;
@@ -1711,12 +1714,18 @@ labelLaundryRoom.textContent = "غرفة الغسيل";
             const response = await fetch(`https://hre-group.net/api/search?lang=${localStorage.getItem("lang") ? (localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") : "en_001"}`);
             const data = await response.json();
 
+            
+
+            // Add empty option as default (like index.html)
+            locationList.innerHTML += `<li data-value="" class="option selected d-none"></li>`;
             data.locations.forEach((location, i) => {
-                locationList.innerHTML += `<li data-value="${location.id}" class="option ${i === 0 ? "selected" : ""}">${location.name}</li>`;
+                locationList.innerHTML += `<li data-value="${location.id}" class="option">${location.name}</li>`;
             });
 
+            // Add empty option as default (like index.html)
+            propertyTypeList.innerHTML += `<li data-value="" class="option selected d-none"></li>`;
             data.property_main_types.forEach((type, i) => {
-                propertyTypeList.innerHTML += `<li data-value="${type.id}" class="option ${i === 0 ? "selected" : ""}">${type.name}</li>`;
+                propertyTypeList.innerHTML += `<li data-value="${type.id}" class="option">${type.name}</li>`;
             });
 
             const areaSlider = document.getElementById("area-slider");
@@ -1771,16 +1780,18 @@ labelLaundryRoom.textContent = "غرفة الغسيل";
                 };
                 
                 const toNumber = (value) => {
+                    if (!value || value === "" || value === "0") return null;
                     const parsed = Number(value);
-                    return Number.isNaN(parsed) ? 0 : parsed;
+                    return Number.isNaN(parsed) ? null : parsed;
                 };
                 
                 const getSliderValues = (sliderEl) => sliderEl?.noUiSlider
                     ? sliderEl.noUiSlider.get().map(v => {
                         const parsed = parseFloat(v);
-                        return Number.isNaN(parsed) ? 0 : parsed;
+                        if (Number.isNaN(parsed) || parsed === 0) return null;
+                        return parsed;
                     })
-                    : [0, 0];
+                    : [null, null];
 
                 const [landAreaMin, landAreaMax] = getSliderValues(areaSlider);
                 const [priceMinValue, priceMaxValue] = getSliderValues(priceSlider);
@@ -1794,18 +1805,32 @@ labelLaundryRoom.textContent = "غرفة الغسيل";
 
                 const centralAcCheckbox = document.querySelector("input[data-value='central_ac']");
                 const swimmingPoolCheckbox = document.querySelector("input[data-value='swimming_pool']");
-                const centralAc = centralAcCheckbox?.checked ? 1 : 0;
-                const swimmingPool = swimmingPoolCheckbox?.checked ? 1 : 0;
+                const centralAc = centralAcCheckbox?.checked ? true : null;
+                const swimmingPool = swimmingPoolCheckbox?.checked ? true : null;
+                
+                // Convert falsy values to null
+                const toNullIfFalsy = (value) => {
+                    if (value === 0 || value === "" || value === false || value === undefined) {
+                        return null;
+                    }
+                    return value;
+                };
                 
                 const request = {
-                    property_type_id: propertyTypeId,
-                    rms_state_id: rmsStateId,
-                    bedrooms: bedroomsValue,
+                    property_type_id: toNullIfFalsy(propertyTypeId),
+                    rms_state_id: toNullIfFalsy(rmsStateId),
+                    bedrooms: toNullIfFalsy(bedroomsValue),
                     offer_type: offerType,
-                    bathroom: bathroomsValue,
-                    central_ac: centralAc,
-                    swimming_pool: swimmingPool,
+                    bathroom: toNullIfFalsy(bathroomsValue),
+                    central_ac: toNullIfFalsy(centralAc),
+                    swimming_pool: toNullIfFalsy(swimmingPool),
+                    land_area_min: toNullIfFalsy(landAreaMin),
+                    land_area_max: toNullIfFalsy(landAreaMax),
+                    price_min: toNullIfFalsy(priceMinValue),
+                    price_max: toNullIfFalsy(priceMaxValue),
                 };
+
+                console.log(request);
 
                 const searchResponse = await fetch(`https://hre-group.net/api/property/search?lang=${localStorage.getItem("lang") ? (localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") : "en_001"}`, {
                     method: "POST",
