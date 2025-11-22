@@ -1746,6 +1746,9 @@ labelLaundryRoom.textContent = "غرفة الغسيل";
             });
 
             searchBtn.onclick = async function (e) {
+
+                
+
                 // document.querySelector(".preloader").style.display = "flex";
                 e.preventDefault();
                 blogPots.innerHTML = `<div class="loader"></div>`;
@@ -1754,12 +1757,12 @@ labelLaundryRoom.textContent = "غرفة الغسيل";
                     const selected = ul.querySelector(".selected");
                     return selected ? selected.getAttribute("data-value") : null;
                 };
-
+                
                 const toNumber = (value) => {
                     const parsed = Number(value);
                     return Number.isNaN(parsed) ? 0 : parsed;
                 };
-
+                
                 const getSliderValues = (sliderEl) => sliderEl?.noUiSlider
                     ? sliderEl.noUiSlider.get().map(v => {
                         const parsed = parseFloat(v);
@@ -1767,53 +1770,33 @@ labelLaundryRoom.textContent = "غرفة الغسيل";
                     })
                     : [0, 0];
 
+                    console.log("done");
                 const [landAreaMin, landAreaMax] = getSliderValues(areaSlider);
                 const [priceMinValue, priceMaxValue] = getSliderValues(priceSlider);
 
                 const propertyTypeId = toNumber(getSelectedValue(propertyTypeList));
                 const rmsStateId = toNumber(getSelectedValue(locationList));
-                const areaId = rmsStateId;
                 const bedroomsValue = toNumber(getSelectedValue(bedroomsList));
                 const bathroomsValue = toNumber(getSelectedValue(bathroomsList));
                 const propertyStatusValue = getSelectedValue(propertyStatusList);
+                const offerType = propertyStatusValue?.toLowerCase().includes("rent") ? "rent" : "sale";
 
-                const amenities = {
-                    central_ac: false,
-                    swimming_pool: false,
-                    central_hs: false,
-                    gym: false,
-                    furnishing: false,
-                    balcony: false,
-                    internet: false,
-                };
-
-                checkBoxs.forEach((checkbox) => {
-                    const key = checkbox.dataset.value;
-                    if (key && Object.prototype.hasOwnProperty.call(amenities, key)) {
-                        amenities[key] = checkbox.checked;
-                    }
-                });
-
+                const centralAcCheckbox = document.querySelector("input[data-value='central_ac']");
+                const swimmingPoolCheckbox = document.querySelector("input[data-value='swimming_pool']");
+                const centralAc = centralAcCheckbox?.checked ? 1 : 0;
+                const swimmingPool = swimmingPoolCheckbox?.checked ? 1 : 0;
+                
                 const request = {
-                    keyword: document.getElementById("input-search").value,
                     property_type_id: propertyTypeId,
                     rms_state_id: rmsStateId,
-                    area_id: areaId,
                     bedrooms: bedroomsValue,
-                    bathrooms: bathroomsValue,
-                    price_min: priceMinValue,
-                    price_max: priceMaxValue,
-                    land_area_min: landAreaMin,
-                    land_area_max: landAreaMax,
-                    built_up_area_min: landAreaMin,
-                    built_up_area_max: landAreaMax,
-                    property_status: propertyStatusValue,
-                    ...amenities,
+                    offer_type: offerType,
+                    bathroom: bathroomsValue,
+                    central_ac: centralAc,
+                    swimming_pool: swimmingPool,
                 };
 
                 console.log(request);
-
-                request.state_id = rmsStateId;
 
                 const searchResponse = await fetch(`https://hre-group.net/api/property/search?lang=${localStorage.getItem("lang") ? (localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") : "en_001"}`, {
                     method: "POST",

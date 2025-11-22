@@ -2201,38 +2201,22 @@
                         const [minPrice, maxPrice] = priceValues;
                 
                         const propertyStatus = document.querySelector("a.nav-link.active")?.innerText;
+                        const offerType = propertyStatus?.toLowerCase().includes("rent") ? "rent" : "sale";
 
                         const bedroomsValue = toNumber(block.querySelector(".beds .list .selected")?.dataset.value);
                         const bathroomsValue = toNumber(block.querySelector(".bath .list .selected")?.dataset.value);
 
-                        const amenityKeys = ["central_ac","swimming_pool","central_hs","gym","furnishing","balcony","internet"];
-                        const amenities = amenityKeys.reduce((acc, key) => {
-                            acc[key] = false;
-                            return acc;
-                        }, {});
-
-                        block.querySelectorAll("input[type='checkbox']").forEach(cb => {
-                                const key = cb.dataset.value;
-                                if(key && Object.prototype.hasOwnProperty.call(amenities, key)) {
-                                    amenities[key] = cb.checked;
-                                }
-                        });
+                        const centralAc = block.querySelector("input[data-value='central_ac']")?.checked ? 1 : 0;
+                        const swimmingPool = block.querySelector("input[data-value='swimming_pool']")?.checked ? 1 : 0;
 
                         const searchPayload = {
-                            keyword,
                             property_type_id: propertyTypeId,
                             rms_state_id: rmsStateId,
-                            area_id: areaId,
                             bedrooms: bedroomsValue,
-                            bathrooms: bathroomsValue,
-                            price_min: minPrice,
-                            price_max: maxPrice,
-                            land_area_min: minArea,
-                            land_area_max: maxArea,
-                            built_up_area_min: minArea,
-                            built_up_area_max: maxArea,
-                            ...amenities,
-                            state_id: rmsStateId,
+                            offer_type: offerType,
+                            bathroom: bathroomsValue,
+                            central_ac: centralAc,
+                            swimming_pool: swimmingPool,
                         };
 
                         console.log(searchPayload);
