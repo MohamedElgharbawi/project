@@ -1906,7 +1906,8 @@
                         }
                         const itemBroker = item.broker?.name || item.broker || "";
                         const itemLocation = item.ad_location || item.location || item.location_area || "";
-                        const itemService = item.property_service || item.state || "sale";
+                        const itemService = item.offer_type || item.offer_type || "sale";
+                        console.log(item)
                         if(language === "ar_001") {
                             featuredTag = item.website_type === "featured" ? `<div style="background:var(--main-color) !important" class="homes-tag button alt featured">مميز</div>` : "";
                             itemState = `<div style="background:var(--main-color) !important;margin-top:15px !important;right:15px !important" class="homes-tag button alt ${itemService}">${itemService === "sale" ? "للبيع" : "للإيجار"}</div>`;
@@ -2144,13 +2145,14 @@
                     let bedrooms;
                     let bathroom;
                     const propertyArea = data[i].total_area || data[i].built_up_area || data[i].land_area || 0;
+                    console.log(data);
                     if(language === "ar_001") {
-                        state = `<span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">${data[i].property_service === "sale" ? "للبيع" : "للإيجار"}</span>`;
+                        state = `<span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">${data[i].offer_type === "sale" ? "للبيع" : "للإيجار"}</span>`;
                         area = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">مساحة <span>${propertyArea} sq ft</span></li>`;
                         bedrooms = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">غرفة <span>${data[i].bedrooms}</span></li>`
                         bathroom = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">حمام <span>${data[i].bathroom}</span></li>`;
                     }else {
-                        state = `<span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">For ${data[i].property_service === "sale" ? "Sale" : "Rent"}</span>`;
+                        state = `<span style="background: #33495E;top:0 !important;position:relative;font-weight:bold">For ${data[i].offer_type === "sale" ? "Sale" : "Rent"}</span>`;
                         area = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Area <span>${propertyArea} sq ft</span></li>`;
                         bedrooms = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Rooms <span>${data[i].bedrooms}</span></li>`
                         bathroom = `<li style="padding:0;display:flex;flex-direction:column ;align-items:center">Baths <span>${data[i].bathroom}</span></li>`;
@@ -2242,12 +2244,12 @@
                 /////////
                 const propertyAreaValue = data.total_area || data.built_up_area || data.land_area || 0;
                 if(language === "ar_001") {
-                    property_service.textContent = `${data.property_service === "sale" ? "للبيع" : "للإيجار"}`;
-                    propertyPrice.innerHTML = data.property_service === "sale" ? `<span style="order:1"> :السعر</span> AED ${data.price}`: `<span style="order:1"> :السعر</span> AED ${data.price} / mo`;
+                    property_service.textContent = `${data.offer_type === "sale" ? "للبيع" : "للإيجار"}`;
+                    propertyPrice.innerHTML = data.offer_type === "sale" ? `<span style="order:1"> :السعر</span> AED ${data.price}`: `<span style="order:1"> :السعر</span> AED ${data.price} / mo`;
                     propertyArea.innerHTML = `<span style="order:1"> :المساحة</span> sq ft ${propertyAreaValue}`
                 }else {
-                    property_service.textContent = `For ${data.property_service}`;
-                    propertyPrice.textContent = data.property_service === "sale" ? `Price: AED ${data.price}`: `Price: AED ${data.price} / mo`;
+                    property_service.textContent = `For ${data.offer_type}`;
+                    propertyPrice.textContent = data.offer_type === "sale" ? `Price: AED ${data.price}`: `Price: AED ${data.price} / mo`;
                     propertyArea.textContent = `Area: ${propertyAreaValue} sq ft`;
                 }
                 propertyName.textContent = data.name;
@@ -2281,9 +2283,9 @@
                 value_property_type.textContent = data.properties_type || (data.properties_sub_type || "");
                 if(language === "ar_001") {
                     description.style.textAlign = "right";
-                    value_property_status.textContent = `${data.property_service === "sale" ? "للبيع" : "للإيجار"}`;
+                    value_property_status.textContent = `${data.offer_type === "sale" ? "للبيع" : "للإيجار"}`;
                 }else {
-                    value_property_status.textContent = `For ${data.property_service}`;
+                    value_property_status.textContent = `For ${data.offer_type}`;
                 }
                 value_property_price.textContent = `AED ${data.price}`;
                 // value_rooms.textContent;

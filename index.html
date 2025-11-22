@@ -725,19 +725,6 @@
                                                         
                                                         <div class="explore__form-checkbox-list full-filter">
                                                             <div class="row">
-
-                                                                <div class="col-lg-4 col-md-6 py-1 pr-30 pl-0">
-                                                                    <!-- Form Property Status -->
-                                                                    <div class="form-group categories">
-                                                                        <div class="nice-select form-control wide" tabindex="0"><span class="current" id="property-status"><i class="fa fa-home"></i>Property Status</span>
-                                                                            <ul class="list">
-                                                                                <li data-value="1" class="option selected" id="for_sale">For Sale</li>
-                                                                                <li data-value="2" class="option" id="for_rent">For Rent</li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--/ End Form Property Status -->
-                                                                </div>
                                                                 
                                                                 <div class="col-lg-4 col-md-6 py-1 pr-30 pl-0 ">
                                                                     <!-- Form Bedrooms -->
@@ -1407,9 +1394,6 @@
             const Location = document.querySelector("#location span.current")
             const advanced_search = document.getElementById("advanced-search");
             const search_btn = document.getElementById("search-btn");
-            const property_status = document.getElementById("property-status");
-            const for_sale = document.getElementById("for_sale");
-            const for_rent = document.getElementById("for_rent");
             const Bedrooms = document.getElementById("Bedrooms");
             const Bathrooms = document.getElementById("Bathrooms");
             const area_size = document.getElementById("area_size");
@@ -1484,9 +1468,6 @@
                 Location.textContent = "الموقع";
                 advanced_search.textContent = "بحث متقدم";
                 search_btn.textContent = "ابحث الان";
-                property_status.innerHTML = `<i class="fa fa-home"></i>حالة العقار`;
-                for_sale.textContent = "للبيع";
-                for_rent.textContent = "للإيجار";
                 Bedrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>غرف النوم`;
                 Bathrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>عدد الحمّامات`;
                 area_size.textContent = "مساحة العقار";
@@ -1641,7 +1622,7 @@
                 }
                 for (let i = 0; i < loopCount; i++) {
                     const property = data[i];
-                    let state = property.state === "sale" ? "sale" : "rent";
+                    let state = property.offer_type === "sale" ? "sale" : "rent";
                     let website_type;
                     let propertyState;
                     let broker;
@@ -1650,14 +1631,14 @@
                     let parking;
                     if(language === "Ar") {
                         website_type = property.website_type ? `<div class="homes-tag button alt featured">مميز</div>` : "";
-                        propertyState = property.state === "sale" ? "للبيع" : "للإيجار";
+                        propertyState = property.offer_type === "sale" ? "للبيع" : "للإيجار";
                         broker = `<p style="margin-bottom:10px">المؤجر: ${property.broker}</p>`;
                         bedrooms = `<i class="flaticon-bed mr-2"></i><span style="display:flex;align-items:center;gap:3px">${property.bedrooms} <span style="order:-1">غرف نوم</span></span>`;
                         bathrooms = `<i class="flaticon-bathtub mr-2"></i><span style="display:flex;align-items:center;gap:3px">${property.bathroom} <span style="order:-1"> حمام</span></span>`;
                         parking = `<i class="flaticon-car mr-2"></i><span style="display:flex;align-items:center;gap:3px">${property.bathroom} <span style="order:-1"> موقف سيارات</span></span>`
                     }else {
                         website_type = property.website_type ? `<div class="homes-tag button alt featured">Featured</div>` : "";
-                        propertyState = property.state === "sale" ? "For Sale" : "For Rent";
+                        propertyState = property.offer_type === "sale" ? "For Sale" : "For Rent";
                         broker = `<p style="margin-bottom:10px">Broker: ${property.broker}</p>`;
                         bedrooms = `<i class="flaticon-bed mr-2"></i><span>${property.bedrooms} Bedrooms</span>`;
                         bathrooms = `<i class="flaticon-bathtub mr-2"></i><span>${property.bathroom} Bathrooms</span>`;
@@ -1731,9 +1712,10 @@
                 const popularPlaces = document.getElementById("discover-popular-places");
                 const response = await fetch(`https://hre-group.net/api/property/featured?lang=${cl}`);
                 const data = await response.json();
+                console.log(data);
                 const propertiesHtml = data.featured_properties.map((property, i) => {
                 const delayAttr = i <= 3 ? `data-aos-delay=${(i + 1) * 100 + 50}` : "";
-                const stateClass = property.state === "sale" ? "sale" : "rent";
+                const stateClass = property.offer_type === "sale" ? "sale" : "rent";
                 let website_type;
                 let propertyState;
                 let broker;
@@ -1748,14 +1730,14 @@
                     header.innerHTML = "اكتشف العقارات الشائعة";
                     paragraph.textContent = "نقدّم خدمة متكاملة في كل خطوة.";
                     website_type = property.website_type ? `<div class="homes-tag button alt featured">مميز</div>` : "";
-                    propertyState = property.state === "sale" ? "للبيع" : "للإيجار";
+                    propertyState = property.offer_type === "sale" ? "للبيع" : "للإيجار";
                     broker = `<p style="margin-bottom:10px">المؤجر: ${property.broker}</p>`;
                     bedrooms = `<i class="flaticon-bed mr-2"></i><span style="display:flex;align-items:center;gap:3px">${property.bedrooms} <span style="order:-1">غرف نوم</span></span>`;
                     bathrooms = `<i class="flaticon-bathtub mr-2"></i><span style="display:flex;align-items:center;gap:3px">${property.bathroom} <span style="order:-1"> حمام</span></span>`;
                     parking = `<i class="flaticon-car mr-2"></i><span style="display:flex;align-items:center;gap:3px">${property.bathroom} <span style="order:-1"> موقف سيارات</span></span>`
                 }else {
                     website_type = property.website_type ? `<div class="homes-tag button alt featured">Featured</div>` : "";
-                    propertyState = property.state === "sale" ? "For Sale" : "For Rent";
+                    propertyState = property.offer_type === "sale" ? "For Sale" : "For Rent";
                     broker = `<p style="margin-bottom:10px">Broker: ${property.broker}</p>`;
                     bedrooms = `<i class="flaticon-bed mr-2"></i><span>${property.bedrooms} Bedrooms</span>`;
                     bathrooms = `<i class="flaticon-bathtub mr-2"></i><span>${property.bathroom} Bathrooms</span>`;
@@ -2219,17 +2201,10 @@
                             swimming_pool: swimmingPool,
                         };
 
-                        console.log(searchPayload);
-
                         const params = new URLSearchParams();
                         Object.entries(searchPayload).forEach(([key, value]) => {
                             params.set(key, value ?? "");
                         });
-
-                        params.set("property_status", propertyStatus || "");
-                        if (propertyStatus) {
-                            params.set("propertyStatus", propertyStatus);
-                        }
 
                         window.location.href = `properties-grid-1.html?${params.toString()}`;
 
