@@ -2024,6 +2024,54 @@
             const response = await fetch(`https://hre-group.net/api/search?lang=${cl}`);
             const data = await response.json();
 
+            console.log(data);
+
+            /*
+            
+            {
+    "logo": "/web/image/res.company/1/logo",
+    "advanced_filters": {
+        "max_price": 88000,
+        "max_area_size": 4500
+    },
+    "offer_type": [
+        {
+            "value": "rent",
+            "label": "Rent"
+        },
+        {
+            "value": "sale",
+            "label": "Sale"
+        }
+    ],
+    "property_main_types": [
+        {
+            "id": 7,
+            "name": "فيلا",
+            "is_parent": false,
+            "parent_id": 3,
+            "property_type": false
+        }
+    ],
+    "property_sub_types": [],
+    "locations": [
+        {
+            "id": 3,
+            "name": "Ajman"
+        }
+    ],
+    "areas": [
+        {
+            "id": 37,
+            "name": "الروضة ٣",
+            "rms_state_id": 3
+        }
+    ],
+    "tags": []
+}
+            
+            */
+
             locationList.forEach((ul, i) => {
                 ul.innerHTML += `<li data-value="" class="option selected d-none"></li>`;
                 data.locations.forEach((location, i) => {

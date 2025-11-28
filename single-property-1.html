@@ -2180,7 +2180,7 @@
                         </div>
                     `
                 }
-                for(let i = 0; i < 3 ;i++){ 
+                for(let i = 0; i < Math.min(data.length, 3) ;i++){ 
                     recentProperties.innerHTML += `
                     <div class="recent-main ${ i % 2 && i !== data.length - 1 ? "my-2" : ""}" style="display:flex;gap:10px;align-items:center">
                         <div class="recent-img">
