@@ -108,7 +108,7 @@ article {
     justify-content: center !important;
     align-items: center;
     gap: calc(4% / 3);
-    height: 105px;
+    height: 155px;
 }
 .tab-pane .rld-main-search > .row > div:not(.full-filter, .rld-single-select) *,
 .tab-pane .rld-main-search > .row > div:not(.full-filter) {
@@ -144,7 +144,7 @@ article {
     }
     .tab-pane .rld-main-search > .row {
         gap: 2%;
-        height: 164px !important;
+        height: 210px !important;
     }
     .tab-pane .rld-main-search > .row > div:not(.full-filter) {
         width: 49% ;
@@ -158,7 +158,7 @@ article {
     }
     .tab-pane .rld-main-search > .row {
         gap: 2%;
-        height: 280px !important;
+        height: 340px !important;
     }
     .tab-pane .rld-main-search > .row > div:not(.full-filter) {
         width: 100% ;
@@ -168,7 +168,7 @@ article {
 }
 @media(width < 450px) {
     .hp-6.mh .rld-main-search {
-        height: 310px !important;
+        height: 365px !important;
     }
 }
 @media (width < 361px) {
@@ -419,4 +419,10 @@ article {
 .fa-caret-down:before, 
 .show-lang {
     color: white !important;
+}
+
+@media(width >= 768px) {
+    .dropdown-filter {
+       transform: translateX(-158%);
+    }
 }

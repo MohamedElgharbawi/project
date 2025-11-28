@@ -715,6 +715,12 @@
                                                             </select>
                                                         </div>
                                                         
+                                                        <div class="rld-single-select" id="area">
+                                                            <select class="select single-select mr-0 area">
+                                                                <option value="1">Area</option>
+                                                            </select>
+                                                        </div>
+                                                        
                                                         <div class="dropdown-filter">
                                                             <span id="advanced-search">Advanced Search</span>
                                                         </div>
@@ -1393,7 +1399,8 @@
 
             const input_search = document.getElementById("input-search"); 
             const property_type = document.querySelector("#property-type span.current");
-            const Location = document.querySelector("#location span.current")
+            const Location = document.querySelector("#location span.current");
+            const Area = document.querySelector("#area span.current");
             const advanced_search = document.getElementById("advanced-search");
             const search_btn = document.getElementById("search-btn");
             const Bedrooms = document.getElementById("Bedrooms");
@@ -1468,6 +1475,7 @@
                 input_search.placeholder = "...أدخل كلمة البحث";
                 property_type.textContent = "نوع العقار";
                 Location.textContent = "الموقع";
+                if (Area) Area.textContent = "المنطقة";
                 advanced_search.textContent = "بحث متقدم";
                 search_btn.textContent = "ابحث الان";
                 Bedrooms.innerHTML = `<i class="fa fa-bed" aria-hidden="true"></i>غرف النوم`;
@@ -2012,6 +2020,7 @@
         async function handleSearch(cl) {
             const locationList = document.querySelectorAll(".location + .nice-select .list");
             const propertyTypeList = document.querySelectorAll(".property-type + .nice-select .list");
+            const areaList = document.querySelectorAll(".area + .nice-select .list");
 
             locationList.forEach(location => {
                 location.innerHTML = "";
@@ -2021,56 +2030,12 @@
                 e.innerHTML = "";
             })
 
+            areaList.forEach(area => {
+                area.innerHTML = "";
+            })
+
             const response = await fetch(`https://hre-group.net/api/search?lang=${cl}`);
             const data = await response.json();
-
-            console.log(data);
-
-            /*
-            
-            {
-    "logo": "/web/image/res.company/1/logo",
-    "advanced_filters": {
-        "max_price": 88000,
-        "max_area_size": 4500
-    },
-    "offer_type": [
-        {
-            "value": "rent",
-            "label": "Rent"
-        },
-        {
-            "value": "sale",
-            "label": "Sale"
-        }
-    ],
-    "property_main_types": [
-        {
-            "id": 7,
-            "name": "فيلا",
-            "is_parent": false,
-            "parent_id": 3,
-            "property_type": false
-        }
-    ],
-    "property_sub_types": [],
-    "locations": [
-        {
-            "id": 3,
-            "name": "Ajman"
-        }
-    ],
-    "areas": [
-        {
-            "id": 37,
-            "name": "الروضة ٣",
-            "rms_state_id": 3
-        }
-    ],
-    "tags": []
-}
-            
-            */
 
             locationList.forEach((ul, i) => {
                 ul.innerHTML += `<li data-value="" class="option selected d-none"></li>`;
@@ -2084,6 +2049,15 @@
                 data.property_main_types.forEach((type, i) => {
                     ul.innerHTML += `<li data-value="${type.id}" class="option">${type.name}</li>`;
                 })
+            });
+
+            areaList.forEach((ul) => {
+                ul.innerHTML += `<li data-value="" class="option selected d-none"></li>`;
+                if (data.areas && data.areas.length > 0) {
+                    data.areas.forEach((area, i) => {
+                        ul.innerHTML += `<li data-value="${area.id}" class="option">${area.name}</li>`;
+                    })
+                }
             });
 
         let advanced_filters = {
@@ -2211,7 +2185,8 @@
                         const propertyTypeId = toNumber(block.querySelector(".property-type .list .selected")?.dataset.value);
                         const locationSelected = block.querySelector(".location .list .selected");
                         const rmsStateId = toNumber(locationSelected?.dataset.value);
-                        const areaId = rmsStateId;
+                        const areaSelected = block.querySelector(".area .list .selected");
+                        const areaId = toNumber(areaSelected?.dataset.value);
                         
                         const areaSlider = block.querySelector(".area-slider")?.noUiSlider;
                         const priceSlider = block.querySelector(".price-slider")?.noUiSlider;
@@ -2249,6 +2224,7 @@
                         const searchPayload = {
                             property_type_id: propertyTypeId == "0" ? "" : propertyTypeId,
                             rms_state_id: rmsStateId == "0" ? "" : rmsStateId,
+                            area_id: areaId == "0" ? "" : areaId,
                             bedrooms: bedroomsValue == "0" ? "" : bedroomsValue,
                             offer_type: offerType,
                             bathroom: bathroomsValue  == "0" ? "" : bathroomsValue,

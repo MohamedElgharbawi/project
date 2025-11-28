@@ -1325,7 +1325,6 @@
                 `
             }
             for (let i = 0; i < Math.min(3, data.length); i++) {
-                console.log(data[i]);
                 recentProperties.innerHTML += `
                     <div class="recent-main ${i % 2 && i !== data.length - 1 ? "my-2" : ""}" style="display:flex;gap:10px;align-items:center">
                         <div class="recent-img">
@@ -1813,8 +1812,6 @@ labelLaundryRoom.textContent = "غرفة الغسيل";
                     central_ac: toNullIfFalsy(centralAc),
                     swimming_pool: toNullIfFalsy(swimmingPool),
                 };
-
-                console.log(request);
 
                 const searchResponse = await fetch(`https://hre-group.net/api/property/search?lang=${localStorage.getItem("lang") ? (localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") : "en_001"}`, {
                     method: "POST",
