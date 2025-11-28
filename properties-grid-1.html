@@ -724,6 +724,16 @@
                                             </div>
                                         </div>
                                         <!--/ End Form Location -->
+                                        <!-- Form Area -->
+                                        <div class="form-group area" id="area">
+                                            <div class="nice-select form-control wide" tabindex="0"><span
+                                                    class="current"><i class="fa fa-map-marker"></i>Area</span>
+                                                <ul class="list">
+                                                    <li data-value="" class="option selected d-none"></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!--/ End Form Area -->
                                         <!-- Form Categories -->
                                         <div class="form-group categories" id="property-type">
                                             <div class="nice-select form-control wide" tabindex="0"><span
@@ -1556,7 +1566,8 @@
 
                 const input_search = document.getElementById("input-search");
                 const property_type = document.querySelector("#property-type span.current");
-                const Location = document.querySelector("#location span.current")
+                const Location = document.querySelector("#location span.current");
+                const Area = document.querySelector("#area span.current");
                 const search_btn = document.getElementById("search-data");
                 const property_status = document.getElementById("Property-Status");
                 const for_sale = document.getElementById("for_sale");
@@ -1625,6 +1636,7 @@
                 input_search.placeholder = "...أدخل كلمة البحث";
                 property_type.textContent = "نوع العقار";
                 Location.textContent = "الموقع";
+                if (Area) Area.textContent = "المنطقة";
                 search_btn.textContent = "ابحث";
                 for_sale.textContent = "للبيع";
                 for_rent.textContent = "للإيجار";
@@ -1699,6 +1711,7 @@ labelLaundryRoom.textContent = "غرفة الغسيل";
             const checkBoxs = document.querySelectorAll(".checkboxes input[type='checkbox']");
             const locationList = document.querySelector("#location ul");
             const propertyTypeList = document.querySelector("#property-type ul");
+            const areaList = document.querySelector("#area ul");
             const propertyStatusList = document.querySelector("#property-status ul");
             const bedroomsList = document.querySelector("#bedrooms ul");
             const bathroomsList = document.querySelector("#bathrooms ul");
@@ -1708,6 +1721,7 @@ labelLaundryRoom.textContent = "غرفة الغسيل";
 
             locationList.innerHTML = "";
             propertyTypeList.innerHTML = "";
+            if (areaList) areaList.innerHTML = "";
 
             const response = await fetch(`https://hre-group.net/api/search?lang=${localStorage.getItem("lang") ? (localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") : "en_001"}`);
             const data = await response.json();
@@ -1725,6 +1739,16 @@ labelLaundryRoom.textContent = "غرفة الغسيل";
             data.property_main_types.forEach((type, i) => {
                 propertyTypeList.innerHTML += `<li data-value="${type.id}" class="option">${type.name}</li>`;
             });
+
+            // Add areas list
+            if (areaList) {
+                areaList.innerHTML += `<li data-value="" class="option selected d-none"></li>`;
+                if (data.areas && data.areas.length > 0) {
+                    data.areas.forEach((area, i) => {
+                        areaList.innerHTML += `<li data-value="${area.id}" class="option">${area.name}</li>`;
+                    })
+                }
+            }
 
             const areaSlider = document.getElementById("area-slider");
             if (areaSlider.noUiSlider) areaSlider.noUiSlider.destroy();
@@ -1766,8 +1790,6 @@ labelLaundryRoom.textContent = "غرفة الغسيل";
 
             searchBtn.onclick = async function (e) {
 
-                
-
                 // document.querySelector(".preloader").style.display = "flex";
                 e.preventDefault();
                 blogPots.innerHTML = `<div class="loader"></div>`;
@@ -1785,6 +1807,7 @@ labelLaundryRoom.textContent = "غرفة الغسيل";
                 
                 const propertyTypeId = toNumber(getSelectedValue(propertyTypeList));
                 const rmsStateId = toNumber(getSelectedValue(locationList));
+                const areaId = toNumber(getSelectedValue(areaList));
                 const bedroomsValue = toNumber(getSelectedValue(bedroomsList));
                 const bathroomsValue = toNumber(getSelectedValue(bathroomsList));
                 const propertyStatusValue = getSelectedValue(propertyStatusList);
@@ -1806,12 +1829,15 @@ labelLaundryRoom.textContent = "غرفة الغسيل";
                 const request = {
                     property_type_id: toNullIfFalsy(propertyTypeId),
                     rms_state_id: toNullIfFalsy(rmsStateId),
+                    area_id: toNullIfFalsy(areaId),
                     bedrooms: toNullIfFalsy(bedroomsValue),
                     offer_type: offerType,
                     bathroom: toNullIfFalsy(bathroomsValue),
                     central_ac: toNullIfFalsy(centralAc),
                     swimming_pool: toNullIfFalsy(swimmingPool),
                 };
+
+                console.log(request);
 
                 const searchResponse = await fetch(`https://hre-group.net/api/property/search?lang=${localStorage.getItem("lang") ? (localStorage.getItem("lang") === "Ar" ? "ar_001" : "en_001") : "en_001"}`, {
                     method: "POST",
